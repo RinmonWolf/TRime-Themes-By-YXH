@@ -4,8 +4,9 @@
 config_version: "3.0"
 name: 湖心亭45键有候选 #方案名稱
 author: YuanXH #作者資訊
+# This theme only tested on 中文输入法, might be some bug with oringal TRime. 
 # I'm so sorry that i forget which oringal theme i forked. 
-# Might be 同文风 in 中文输入法. 
+# Might be default theme in 中文输入法. 
 
 style:
   auto_caps: false #自動句首大寫:true|false|ascii
@@ -361,6 +362,7 @@ preset_keys:
   s2: {text: '/', label: 'ˊ', description: 二声}  #二聲
   s3: {text: ',', label: 'ˇ', description: 三声}  #三聲
   s4: {text: '\', label: 'ˋ', description: 四声}  #四聲
+  Next: {label: 次选, send: Control+2}
 
 
   # rime組合鍵
@@ -485,7 +487,7 @@ preset_keyboards:
     - {click: ',', long_click: '!', width: 11}
     - {click: space, width: 20}
     - {click: '.', long_click: '?', width: 11}
-    - {click: Keyboard_emoji, long_click: Keyboard_emoticons, width: 11}
+    - {click: Keyboard_emoji, long_click: Keyboard_emoticons, composing: Next, width: 11}
     - {click: Return, width: 18, long_click: Menu, popup: [Menu, Color_settings, _Keyboard_clip, _Keyboard_phrase]}
 
   _edit_board:
@@ -706,7 +708,7 @@ preset_keyboards:
     - {click: Keyboard_symbols, long_click: Keyboard_number}
     - {click: space, width: 30}
     - {label: 'ㄦ', long_click: '"', click: "-"}
-    - {long_click: '。', click: '，'}
+    - {long_click: '。', click: '，', composing: Next}
     - {click: BackSpace, long_click: Escape, width: 10}
     - {click: Return, long_click: CommitComment, width: 10}
 
