@@ -5,6 +5,7 @@ config_version: "3.0"
 name: 湖心亭45键有候选 #方案名稱
 author: YuanXH #作者資訊
 # I'm so sorry that i forget which oringal theme i forked. 
+# Might be 同文风 in 中文输入法. 
 
 style:
   auto_caps: false #自動句首大寫:true|false|ascii
@@ -56,7 +57,7 @@ style:
   key_long_text_size: 14 #長標籤字號
   key_text_size: 20 #鍵字號
   key_width: 10.0 #鍵寬，佔螢幕寬的百分比
-  keyboards: [.default, number, symbols, emoji, emoticon, _edit_board] #鍵盤配置：自動鍵盤、字母、數字、符號
+  keyboards: [.default, number, symbols, emoji, emoticons, _edit_board] #鍵盤配置：自動鍵盤、字母、數字、符號
   label_text_size: 22 #標籤字號
   label_font: label.ttf #編標籤字型
   latin_font: latin.ttf #西文字型
@@ -380,10 +381,6 @@ preset_keys:
   IME_switch: {label: 🌐, send: LANGUAGE_SWITCH} #彈出對話框選擇輸入法
   IME_last: {label: 上一輸入法, send: LANGUAGE_SWITCH, select: .last} #直接切換到上一輸入法
   IME_next: {label: 下一輸入法, send: LANGUAGE_SWITCH, select: .next} #直接切換到下一輸入法
-  Keyboard_symbols: {label:   符  , send: Eisu_toggle, select: symbols}
-  Keyboard_emoji: {label:  😊 , send: Eisu_toggle, select: emoji}
-  Keyboard_emoticon: {label:  OwO , send: Eisu_toggle, select: emoticon}
-  Keyboard_number: {label: 123, send: Eisu_toggle, select: number}
   Keyboard_default: {label: 返回, send: Eisu_toggle, select: .default}
   Keyboard_switch: {label: 键盘, send: Eisu_toggle, select: .next}
   Schema_switch: {label: 切换, send: Control+Shift+1}
@@ -399,6 +396,11 @@ preset_keys:
   Comment_switch: {toggle: _hide_comment, send: Mode_switch, states: [ 有註釋, 無註釋]}
   Hint_switch: {toggle: _hide_key_hint, send: Mode_switch, states: [ 有助記, 無助記]}
 
+  # 键盘切换
+  Keyboard_symbols: {label: 符, send: Eisu_toggle, select: symbols}
+  Keyboard_emoji: {label: 😊, send: Eisu_toggle, select: emoji}
+  Keyboard_emoticons: {label: OwO, send: Eisu_toggle, select: emoticons}
+  Keyboard_number: {label: 123, send: Eisu_toggle, select: number}
   _Keyboard_edit: {label: 编辑, functional: false, send: Eisu_toggle, select: _edit_board}
   _Keyboard_clip: {label: 剪切板, functional: false, send: Eisu_toggle, select: _clip_board}
   _Keyboard_phrase: {label: 短语, functional: false, send: Eisu_toggle, select: _phrase_board}
@@ -460,11 +462,11 @@ preset_keyboards:
     - {click: 's', long_click: '+'}
     - {click: 'd', long_click: '-'}
     - {click: 'f', long_click: '_'}
-    - {click: 'g', long_click: _Keyboard_edit, popup: [select_all, cut, copy, paste, _Keyboard_edit, BackToSentence], swipe_left: Left, swipe_right: Right, swipe_up: Up, swipe_down: Down}
+    - {click: 'g', long_click: _Keyboard_edit, popup: [_Keyboard_edit, select_all, cut, copy, paste, BackToSentence], swipe_left: Left, swipe_right: Right, swipe_up: Up, swipe_down: Down}
     - {click: 'h', long_click: '[]{Left}', swipe_left: '[', swipe_right: ']'}
     - {click: 'j', long_click: '{}{Left}', swipe_left: '{', swipe_right: '}'}
     - {click: 'k', long_click: '<>{Left}', swipe_left: '<', swipe_right: '>'}
-    - {click: 'l', long_click: '(){Left}', swipe_left: '(', swipe_right: ')'}
+    - {click: 'l', long_click: '|'}
     - {width: 5}
     # 第四行
     - {click: Shift_L, width: 15}
@@ -483,7 +485,7 @@ preset_keyboards:
     - {click: ',', long_click: '!', width: 11}
     - {click: space, width: 20}
     - {click: '.', long_click: '?', width: 11}
-    - {click: Keyboard_emoji, long_click: Keyboard_emoticon, width: 11}
+    - {click: Keyboard_emoji, long_click: Keyboard_emoticons, width: 11}
     - {click: Return, width: 18, long_click: Menu, popup: [Menu, Color_settings, _Keyboard_clip, _Keyboard_phrase]}
 
   _edit_board:
@@ -618,7 +620,7 @@ preset_keyboards:
     type: "long"
     width: 10
     height: 44
-    keys: ['😀', '😁', '😂', '😃', '😄', '😅', '😆', '😉', '😊', '😋', '😎', '😍', '😘', '😗', '😙', '😚', '☺', '🙂', '🤗', '😇', '🤓', '🤔', '😐', '😑', '😶', '🙄', '😏', '😣', '😥', '😮', '🤐', '😯', '😪', '😫', '😴', '😌', '😛', '😜', '😝', '😒', '😓', '😔', '😕', '🙃', '🤑', '😲', '😷', '🤒',
+    keys: ['😀', '😁', '😂', '🤣', '😃', '😄', '😅', '😆', '😉', '😊', '😋', '😎', '😍', '😘', '😗', '😙', '😚', '☺', '🙂', '🤗', '😇', '🤓', '🤔', '😐', '😑', '😶', '🙄', '😏', '😣', '😥', '😮', '🤐', '😯', '😪', '😫', '😴', '😌', '😛', '😜', '😝', '😒', '😓', '😔', '😕', '🙃', '🤑', '😲', '😷', '🤒',
       '🤕', '🙁', '😖', '😞', '😟', '😤', '😢', '😭', '😦', '😧', '😨', '😩', '😬', '😰', '😱', '😳', '😵', '😡', '😠', '😈', '👿', '👹', '👺', '💀', '☠', '👻', '👽', '👾', '🤖', '💩', '😺', '😸', '😹', '😻', '😼', '😽', '🙀', '😿', '😾', '🙈', '🙉', '🙊',
       '👦', '👧', '👨', '👩', '👴', '👵', '👶', '👱', '👮', '👲', '👳', '👷', '⛑', '👸', '💂', '🕵', '🎅', '👰', '👼', '💆', '💇', '🙍', '🙎', '🙅', '🙆', '💁', '🙋', '🙇', '🙌', '🙏', '🗣', '👤', '👥', '🚶', '🏃', '👯', '💃', '🕴', '👫', '👬', '👭', '💏', '💑', '👪', '💪', '👈', '👉', '☝', '👆',
       '🖕', '👇', '✌', '🖖', '🤘', '🖐', '✋', '👌', '👍', '👎', '✊', '👊', '👋', '👏', '👐', '✍', '💅', '👂', '👃', '👣', '👀', '👁', '👅', '👄', '💋',
@@ -638,15 +640,14 @@ preset_keyboards:
 
 
 
-    emoticon:
-      name: 颜文字键盘
-      author: "YuanXH"
-      ascii_mode: 1
-      type: "long"
-      width: 10
-      height: 44
-      keys: ['QAQ', 'OwO', 'QAQ', 'OwO', 'QAQ', 'OwO', 'QAQ', 'OwO', 'QAQ', 'OwO', 'QAQ', 'OwO', 'QAQ', 'OwO', 'QAQ', 'OwO', 'QAQ', 'OwO', 'QAQ', 'OwO', 'QAQ', 'OwO',
-      'QAQ', 'OwO', 'QAQ', 'OwO', 'QAQ', 'OwO', 'QAQ', 'OwO', 'QAQ', 'OwO', 'QAQ', 'OwO', 'QAQ', 'OwO', 'QAQ', 'OwO', 'QAQ', 'OwO', 'QAQ', 'OwO', 'QAQ', 'OwO', 'QAQ', 'OwO']
+  emoticons:
+    name: 颜文字键盘
+    author: "YuanXH"
+    ascii_mode: 1
+    type: "long"
+    width: 25
+    height: 44
+    keys: ['QAQ', 'QWQ', 'AwA', '(#-#)']
 
 
   bopomofo:
