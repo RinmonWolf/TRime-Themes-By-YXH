@@ -3,7 +3,7 @@
 
 config_version: "3.0"
 name: 湖心亭有候选 #方案名稱
-author: YuanXH #作者資訊
+author: 袁湘浩 #作者資訊
 # This theme only tested on 中文输入法, might be some bug with oringal TRime. 
 # Modify from default theme in 中文输入法. 
 
