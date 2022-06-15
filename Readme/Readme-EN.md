@@ -20,7 +20,7 @@ Now there are only one theme which call *Huxinting* (Made for Trime Assibility V
 [![XozcC9.png](https://s1.ax1x.com/2022/06/15/XozcC9.png)](https://imgtu.com/i/XozcC9)
 [![Xozy4J.png](https://s1.ax1x.com/2022/06/15/Xozy4J.png)](https://imgtu.com/i/Xozy4J)
 
-## 使用方法
+## How-To-Use
 
 ### Trime Theme
 
