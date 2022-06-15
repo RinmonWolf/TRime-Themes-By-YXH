@@ -1,8 +1,6 @@
 # 同文输入法主题 By 袁湘浩
 
-Readme (main) [中文](https://github.com/RinmonWolf/TRime-Themes-By-YXH/blob/main/Readme.md)|[English](https://github.com/RinmonWolf/TRime-Themes-By-YXH/blob/main/Readme/Readme-EN.md)
-
-Readme (dev) [中文](https://github.com/RinmonWolf/TRime-Themes-By-YXH/blob/dev/Readme.md)|[English](https://github.com/RinmonWolf/TRime-Themes-By-YXH/blob/dev/Readme/Readme-EN.md)
+Readme [中文](https://github.com/RinmonWolf/TRime-Themes-By-YXH/blob/main/Readme.md)|[English](https://github.com/RinmonWolf/TRime-Themes-By-YXH/blob/main/Readme/Readme-EN.md)
 
 这是存放袁湘浩做的同文主题的仓库。（大部分主题是为同文无障碍版做的）
 

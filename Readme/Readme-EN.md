@@ -1,8 +1,6 @@
 # Trime themes by YuanXH
 
-Readme (main) [中文](https://github.com/RinmonWolf/TRime-Themes-By-YXH/blob/main/Readme.md)|[English](https://github.com/RinmonWolf/TRime-Themes-By-YXH/blob/main/Readme/Readme-EN.md)
-
-Readme (dev) [中文](https://github.com/RinmonWolf/TRime-Themes-By-YXH/blob/dev/Readme.md)|[English](https://github.com/RinmonWolf/TRime-Themes-By-YXH/blob/dev/Readme/Readme-EN.md)
+Readme [中文](https://github.com/RinmonWolf/TRime-Themes-By-YXH/blob/main/Readme.md)|[English](https://github.com/RinmonWolf/TRime-Themes-By-YXH/blob/main/Readme/Readme-EN.md)
 
 There's some themes made by YuanXH. （Most of them made for Trime Assibility Version）
 
