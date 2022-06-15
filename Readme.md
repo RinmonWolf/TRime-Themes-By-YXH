@@ -4,31 +4,17 @@
 
 文件为YAML格式，目前没有附加其他语言的文件。
 
-最新版本和更新日志请参见[Releases](https://github.com/RinmonWolf/TRime-Themes-By-YXH/releases)
+最新版本和更新日志请参见[Releases](https://github.com/RinmonWolf/TRime-Themes-By-YXH/releases)。
 
-https://img.shields.io/github/issues/RinmonWolf/TRime-Themes-By-YXH	https://img.shields.io/github/forks/RinmonWolf/TRime-Themes-By-YXH	https://img.shields.io/github/stars/RinmonWolf/TRime-Themes-By-YXH
+[![](https://img.shields.io/github/issues/RinmonWolf/TRime-Themes-By-YXH)](https://github.com/RinmonWolf/TRime-Themes-By-YXH/issues)[![](https://img.shields.io/github/release/RinmonWolf/TRime-Themes-By-YXH)](https://github.com/RinmonWolf/TRime-Themes-By-YXH/releases)![](https://img.shields.io/github/forks/RinmonWolf/TRime-Themes-By-YXH)![](https://img.shields.io/github/stars/RinmonWolf/TRime-Themes-By-YXH)
 
 ## 主题效果图
 
-目前仅有一款主题“湖心亭”。
+目前仅有一款主题“湖心亭”（仅运行于同文无障碍版）。
 
-![简洁不失功能的键盘](https://imgtu.com/i/XI3hYd)
-
-![数字多样式弹出菜单](https://imgtu.com/i/XI34fA)
-
-![拟小红点编辑菜单键](https://imgtu.com/i/XI3fFH)
-
-![拟小红点编辑菜单键](https://imgtu.com/i/XI3ISI)
-
-![颜文字键盘(未完成)](https://imgtu.com/i/XI3RTe)
-
-![尽量统一的底部布局](https://imgtu.com/i/XI3olt)
-
-![重写九宫格注音键盘](https://imgtu.com/i/XI3T6P)
-
-![地球拼音支持按声调](https://imgtu.com/i/XI37Of)
-
-![融为一体的黑白配色](https://imgtu.com/i/XI3bm8)
+[![Xozg3R.png](https://s1.ax1x.com/2022/06/15/Xozg3R.png)](https://imgtu.com/i/Xozg3R)
+[![XozcC9.png](https://s1.ax1x.com/2022/06/15/XozcC9.png)](https://imgtu.com/i/XozcC9)
+[![Xozy4J.png](https://s1.ax1x.com/2022/06/15/Xozy4J.png)](https://imgtu.com/i/Xozy4J)
 
 ## 使用方法
 
@@ -59,7 +45,7 @@ https://img.shields.io/github/issues/RinmonWolf/TRime-Themes-By-YXH	https://img.
 ##### 原有代码的PR
 
 * 除非出现重复、违和按键，否则尽量不要更改原有布局
-* 最好能先联系我或者直接issue后一起弄
+* 最好能先联系我一起弄或者直接issue
 
 ##### 新增布局的PR
 
@@ -75,8 +61,10 @@ https://img.shields.io/github/issues/RinmonWolf/TRime-Themes-By-YXH	https://img.
 
 QQ：2717659870
 
+Telegram: @YuanXianghao
+
 ## 感谢
 
-Rime项目、TRime项目、同文无障碍版（中文输入法）项目
+[Rime项目](https://github.com/rime/home)、[Trime项目](https://github.com/osfans/trime)、同文无障碍版（中文输入法）项目
 
 同文无障碍版的默认皮肤的各位作者
