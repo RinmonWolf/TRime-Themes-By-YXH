@@ -1,12 +1,16 @@
 # 同文输入法主题 By 袁湘浩
 
+Readme (main) [中文](https://github.com/RinmonWolf/TRime-Themes-By-YXH/blob/main/Readme.md)|[English](https://github.com/RinmonWolf/TRime-Themes-By-YXH/blob/main/Readme/Readme-EN.md)
+
+Readme (dev) [中文](https://github.com/RinmonWolf/TRime-Themes-By-YXH/blob/dev/Readme.md)|[English](https://github.com/RinmonWolf/TRime-Themes-By-YXH/blob/dev/Readme/Readme-EN.md)
+
 这是存放袁湘浩做的同文主题的仓库。（大部分主题是为同文无障碍版做的）
 
 文件为YAML格式，目前没有附加其他语言的文件。
 
 最新版本和更新日志请参见[Releases](https://github.com/RinmonWolf/TRime-Themes-By-YXH/releases)。
 
-[![](https://img.shields.io/github/issues/RinmonWolf/TRime-Themes-By-YXH)](https://github.com/RinmonWolf/TRime-Themes-By-YXH/issues)[![](https://img.shields.io/github/release/RinmonWolf/TRime-Themes-By-YXH)](https://github.com/RinmonWolf/TRime-Themes-By-YXH/releases)![](https://img.shields.io/github/forks/RinmonWolf/TRime-Themes-By-YXH)![](https://img.shields.io/github/stars/RinmonWolf/TRime-Themes-By-YXH)
+[![](https://img.shields.io/github/issues/RinmonWolf/TRime-Themes-By-YXH)](https://github.com/RinmonWolf/TRime-Themes-By-YXH/issues) [![](https://img.shields.io/github/release/RinmonWolf/TRime-Themes-By-YXH)](https://github.com/RinmonWolf/TRime-Themes-By-YXH/releases) [![](https://img.shields.io/github/forks/RinmonWolf/TRime-Themes-By-YXH)](https://github.com/RinmonWolf/TRime-Themes-By-YXH/network/members) [![](https://img.shields.io/github/stars/RinmonWolf/TRime-Themes-By-YXH)](https://github.com/RinmonWolf/TRime-Themes-By-YXH/stargazers)
 
 ## 主题效果图
 

@@ -1,12 +1,16 @@
 # Trime themes by YuanXH
 
+Readme (main) [中文](https://github.com/RinmonWolf/TRime-Themes-By-YXH/blob/main/Readme.md)|[English](https://github.com/RinmonWolf/TRime-Themes-By-YXH/blob/main/Readme/Readme-EN.md)
+
+Readme (dev) [中文](https://github.com/RinmonWolf/TRime-Themes-By-YXH/blob/dev/Readme.md)|[English](https://github.com/RinmonWolf/TRime-Themes-By-YXH/blob/dev/Readme/Readme-EN.md)
+
 There's some themes made by YuanXH. （Most of them made for Trime Assibility Version）
 
 Files format are *.YAMLs, no other language files add until now. 
 
 The latest version and update log please go to [Releases](https://github.com/RinmonWolf/TRime-Themes-By-YXH/releases). 
 
-[![](https://img.shields.io/github/issues/RinmonWolf/TRime-Themes-By-YXH)](https://github.com/RinmonWolf/TRime-Themes-By-YXH/issues)[![](https://img.shields.io/github/release/RinmonWolf/TRime-Themes-By-YXH)](https://github.com/RinmonWolf/TRime-Themes-By-YXH/releases)![](https://img.shields.io/github/forks/RinmonWolf/TRime-Themes-By-YXH)[![](https://img.shields.io/github/stars/RinmonWolf/TRime-Themes-By-YXH)](https://github.com/RinmonWolf/TRime-Themes-By-YXH/stargazers)
+[![](https://img.shields.io/github/issues/RinmonWolf/TRime-Themes-By-YXH)](https://github.com/RinmonWolf/TRime-Themes-By-YXH/issues) [![](https://img.shields.io/github/release/RinmonWolf/TRime-Themes-By-YXH)](https://github.com/RinmonWolf/TRime-Themes-By-YXH/releases) [![](https://img.shields.io/github/forks/RinmonWolf/TRime-Themes-By-YXH)](https://github.com/RinmonWolf/TRime-Themes-By-YXH/network/members) [![](https://img.shields.io/github/stars/RinmonWolf/TRime-Themes-By-YXH)](https://github.com/RinmonWolf/TRime-Themes-By-YXH/stargazers)
 
 ## Theme Preview
 
@@ -40,7 +44,7 @@ For the theme which made for Trime Assibility Version, please DON'T USE on origi
 
 ## If you want to PR
 
-Very helpful, but please follow the following rules. 
+It will very helpful, but please follow the following rules. 
 
 ##### For the oringal code
 
