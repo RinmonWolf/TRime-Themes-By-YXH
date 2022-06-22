@@ -1,4 +1,4 @@
-# Trime default style settings
+# Trime style settings
 # encoding: utf-8
 
 config_version: "3.0"
@@ -228,26 +228,6 @@ android_keys:
   __include: trime:/android_keys  #导入trime.yaml中的android_keys
 
 preset_keys:
-  # 安卓
-  BRIGHTNESS_DOWN: {label: 亮度-, send: BRIGHTNESS_DOWN}
-  BRIGHTNESS_UP: {label: 亮度+, send: BRIGHTNESS_UP}
-  CALCULATOR: {label: 计算器, send: CALCULATOR}
-  CALENDAR: {label: 日历, send: CALENDAR}
-  CONTACTS: {label: 通讯录, send: CONTACTS}
-  ENVELOPE: {label: 信箱, send: ENVELOPE}
-  EXPLORER: {label: 浏览器, send: EXPLORER}
-  MUSIC: {label: 音乐, send: MUSIC}
-  POWER: {label: 电源, send: POWER}
-  SEARCH: {label: 搜索, send: Find}
-  SLEEP: {label:  SLEEP}
-  VOICE_ASSIST: {label: 语音, send: VOICE_ASSIST}
-  VOLUME_DOWN: {label: 音量-, send: VOLUME_DOWN}
-  VOLUME_UP: {label: 音量+, send: VOLUME_UP}
-  VOLUME_MUTE: {label: 静音, send: VOLUME_MUTE}
-  HEADSETHOOK: {label: 耳机, send: HEADSETHOOK}
-  MEDIA_PLAY_PAUSE: {label: 播放, send: MEDIA_PLAY_PAUSE}
-  MEDIA_NEXT: {label: 下一曲, send: MEDIA_NEXT}
-  MEDIA_PREVIOUS: {label: 上一曲, send: MEDIA_PREVIOUS}
   # 編輯
   Shift_L: {label: Shift, send: Shift_L, shift_lock: ascii_long}
   Return: {label: Enter, send: Return, description: 回车}
@@ -278,13 +258,6 @@ preset_keys:
   redo: {label: 重做, send: Control+y} #>=Android 6.0
   undo: {label: 撤销, send: Control+z} #>=Android 6.0
   delimiter: {label: 分词, text: '''', description: 分词}
-  s1: {text: ';', label: 'ˉ', description: 一声}  #一聲
-  s2: {text: '/', label: 'ˊ', description: 二声}  #二聲
-  s3: {text: ',', label: 'ˇ', description: 三声}  #三聲
-  s4: {text: '\', label: 'ˋ', description: 四声}  #四聲
-  Next: {label: 次选, send: Control+2}
-  XHSPZ: {label: 生僻, text: "'"}
-
   # rime組合鍵
   F4: {label: 方案菜单, send: F4}
   BackToPreviousSyllable: {label: 删音节, send: Control+BackSpace}
@@ -317,7 +290,6 @@ preset_keys:
   Candidate_switch: {toggle: _hide_candidate, send: Mode_switch, states: [ 有候選, 無候選]}
   Comment_switch: {toggle: _hide_comment, send: Mode_switch, states: [ 有註釋, 無註釋]}
   Hint_switch: {toggle: _hide_key_hint, send: Mode_switch, states: [ 有助記, 無助記]}
-
   # 键盘切换
   Keyboard_symbols: {label: " 符 ", send: Eisu_toggle, select: symbols}
   Keyboard_emoji: {label: " 😊 ", send: Eisu_toggle, select: emoji}
@@ -329,25 +301,48 @@ preset_keys:
   _Keyboard_clip: {label: 剪切板, functional: false, send: Eisu_toggle, select: _clip_board}
   _Keyboard_phrase: {label: 短语, functional: false, send: Eisu_toggle, select: _phrase_board}
   _Keyboard_candidate: {label: 候选, functional: false, send: Eisu_toggle, select: _candidate_board}
-  _add_phrase: {label: 添加, functional: true, send: function, command: add_phrase}
+  _add_phrase: {label: 添加, functional: true, send: function, command: add_phrase} # 我也不知道这个应该放在哪里
   _Keyboard_script: {label: 脚本, functional: false, send: Eisu_toggle, select: _script}
-
-  # trime命令
-  Date: {label: 日期, send: function, command: date, option: "yyyy-MM-dd"}
-  ChineseDate: {label: 农历, send: function, command: date, option: "zh_CN@calendar=chinese"} #農曆等日期(>=Android 7.0)：date 語言@calendar=曆法 格式。具體參見https://developer.android.com/reference/android/icu/util/Calendar.html
-  Time: {label: 时间, send: function, command: date, option: "HH:mm:ss"} #時間： date 格式
-  TrimeApp: {label: 同文, send: function, command: run, option: "com.osfans.trime"} #運行程序: run 包名
-  TrimeCmp: {label: 同文设置, send: function, command: run, option: "com.osfans.trime/.Pref"} #運行程序指定組件: run 包名/組件名
-  Homepage: {label: 同文主页, send: function, command: run, option: "https://github.com/osfans/trime"} #查看網頁: run 網址
-  Wiki: {label: 維基, send: function, command: run, option: "https://zh.wikipedia.org/wiki/%s"} #搜索網頁: %s或者%1$s爲當前字符
-  Google: {label: 谷歌, send: function, command: run, option: "https://www.google.com/search?q=%s"} #搜索網頁: %s或者%1$s爲當前字符
-  MoeDict: {label: 萌典, send: function, command: run, option: "https://www.moedict.tw/%3$s"} #搜索網頁: %3$s爲光標前字符
-  Baidu: {label: 百度搜索, send: function, command: run, option: "https://www.baidu.com/s?wd=%4$s"} #搜索網頁: %4s爲光標前所有字符
-  Zdic: {label: 漢典, send: function, command: run, option: "http://www.zdic.net/sousuo/?q=%1$s"} #搜索網頁: %s或者%1$s爲當前字符
-  Zdic2: {label: 漢典, send: function, command: run, option: "http://www.zdic.net/sousuo/?q=%2$s"} #搜索網頁: %2$s爲當前輸入的編碼
-  WebSearch: {label: 搜索网页, send: function, command: web_search, option: "%4$s"} #搜索，其他view、dial、edit、search等intent，參考安卓的intent文檔：https://developer.android.com/reference/android/content/Intent.html
-  Deploy: {label: 部署, send: function, command: broadcast, option: "com.osfans.trime.deploy"}
-  Sync: {label: 同步, send: function, command: broadcast, option: "com.osfans.trime.sync"}
+  # 地球拼音声调
+  s1: {text: ';', label: 'ˉ', description: 一声}  #一聲
+  s2: {text: '/', label: 'ˊ', description: 二声}  #二聲
+  s3: {text: ',', label: 'ˇ', description: 三声}  #三聲
+  s4: {text: '\', label: 'ˋ', description: 四声}  #四聲
+  # 后添加的
+  Next: {label: 次选, send: Control+2}
+  XHSPZ: {label: 生僻, text: "'"}
+  # 符号预设键
+  #   主键盘
+  #   Sy:Symbol; M:Main主键盘; Q~M:按键 
+  #   第一行
+  SyMQ: {label: '%', text: '%'}
+  SyMW: {label: '&', text: '&'}
+  SyME: {label: '+', text: '+'}
+  SyMR: {label: '=', text: '='}
+  SyMT: {label: '[', text: '['}
+  SyMY: {label: ']', text: ']'}
+  SyMU: {label: '<', text: '<'}
+  SyMI: {label: '>', text: '>'}
+  SyMO: {label: '{', text: '{'}
+  SyMP: {label: '}', text: '}'}
+  #   第二行
+  SyMA: {label: '@', text: '@'}
+  SyMS: {label: '#', text: '#'}
+  SyMD: {label: '$', text: '$'}
+  SyMF: {label: '_', text: '_'}
+  #SyMG: {label: '&', text: '&'}
+  SyMH: {label: '-', text: '-'}
+  SyMJ: {label: '"', text: '"'}
+  SyMK: {label: "'", text: "'"}
+  SyML: {label: ':', text: ':'}
+  #   第三行
+  SyMZ: {label: '\', text: '\'}
+  #SyMX: {label: '"', text: '"'}
+  #SyMC: {label: "'", text: "'"}
+  #SyMV: {label: ':', text: ':'}
+  SyMB: {label: ';', text: ';'}
+  SyMN: {label: '!', text: '!'}
+  SyMM: {label: '?', text: '?'}
 
 preset_keyboards:
   default:
@@ -355,52 +350,52 @@ preset_keyboards:
     author: "袁湘浩"
     ascii_mode: 0
     width: 10
-    height: 44
+    height: 45
     lock: true
     keys:
     # 第一行
-    - {click: '1', long_click: '¹', popup: ['①', '壹', '⒈', '¹' ,'₁']}
-    - {click: '2', long_click: '²', popup: ['②', '贰', '⒉', '²' ,'₂']}
-    - {click: '3', long_click: '³', popup: ['③', '叁', '⒊', '³' ,'₃']}
-    - {click: '4', long_click: '⁴', popup: ['④', '肆', '⒋', '⁴' ,'₄']}
-    - {click: '5', long_click: '⁵', popup: ['⑤', '伍', '⒌', '⁵' ,'₅']}
-    - {click: '6', long_click: '⁶', popup: ['⑥', '陆', '⒍', '⁶' ,'₆']}
-    - {click: '7', long_click: '⁷', popup: ['⑦', '柒', '⒎', '⁷' ,'₇']}
-    - {click: '8', long_click: '⁸', popup: ['⑧', '捌', '⒏', '⁸' ,'₈']}
-    - {click: '9', long_click: '⁹', popup: ['⑨', '玖', '⒐', '⁹' ,'₉']}
-    - {click: '0', long_click: '⁰', popup: ['⓪', '拾', '⁰' ,'₀']}
+    - {click: '1', long_click: '①', popup: ['①', '壹', '⒈', '¹' ,'₁']}
+    - {click: '2', long_click: '②', popup: ['②', '贰', '⒉', '²' ,'₂']}
+    - {click: '3', long_click: '③', popup: ['③', '叁', '⒊', '³' ,'₃']}
+    - {click: '4', long_click: '④', popup: ['④', '肆', '⒋', '⁴' ,'₄']}
+    - {click: '5', long_click: '⑤', popup: ['⑤', '伍', '⒌', '⁵' ,'₅']}
+    - {click: '6', long_click: '⑥', popup: ['⑥', '陆', '⒍', '⁶' ,'₆']}
+    - {click: '7', long_click: '⑦', popup: ['⑦', '柒', '⒎', '⁷' ,'₇']}
+    - {click: '8', long_click: '⑧', popup: ['⑧', '捌', '⒏', '⁸' ,'₈']}
+    - {click: '9', long_click: '⑨', popup: ['⑨', '玖', '⒐', '⁹' ,'₉']}
+    - {click: '0', long_click: '⓪', popup: ['⓪', '拾', '⁰' ,'₀']}
     # 第二行
-    - {click: 'q', long_click: '!'}
-    - {click: 'w', long_click: '@'}
-    - {click: 'e', long_click: '#'}
-    - {click: 'r', long_click: '$'}
-    - {click: 't', long_click: '%'}
-    - {click: 'y', long_click: '^'}
-    - {click: 'u', long_click: '&'}
-    - {click: 'i', long_click: '*'}
-    - {click: 'o', long_click: '(){Left}', swipe_left: '(', swipe_right: ')'}
-    - {click: 'p', long_click: '/'}
+    - {click: 'q', long_click: SyMQ}
+    - {click: 'w', long_click: SyMW}
+    - {click: 'e', long_click: SyME}
+    - {click: 'r', long_click: SyMR}
+    - {click: 't', long_click: SyMT}
+    - {click: 'y', long_click: SyMY}
+    - {click: 'u', long_click: SyMU}
+    - {click: 'i', long_click: SyMI}
+    - {click: 'o', long_click: SyMO}
+    - {click: 'p', long_click: SyMP}
     # 第三行
     - {width: 5}
-    - {click: 'a', long_click: '~'}
-    - {click: 's', long_click: '+'}
-    - {click: 'd', long_click: '-'}
-    - {click: 'f', long_click: '_'}
+    - {click: 'a', long_click: SyMA}
+    - {click: 's', long_click: SyMS}
+    - {click: 'd', long_click: SyMD}
+    - {click: 'f', long_click: SyMF}
     - {click: 'g', long_click: _Keyboard_edit, popup: [_Keyboard_edit, select_all, cut, copy, paste, BackToSentence], swipe_left: Left, swipe_right: Right, swipe_up: Up, swipe_down: Down}
-    - {click: 'h', long_click: '[]{Left}', swipe_left: '[', swipe_right: ']'}
-    - {click: 'j', long_click: '{}{Left}', swipe_left: '{', swipe_right: '}'}
-    - {click: 'k', long_click: '<>{Left}', swipe_left: '<', swipe_right: '>'}
-    - {click: 'l', long_click: '“”{Left}', swipe_left: '“', swipe_right: '”'}
+    - {click: 'h', long_click: SyMH}
+    - {click: 'j', long_click: SyMJ}
+    - {click: 'k', long_click: SyMK}
+    - {click: 'l', long_click: SyML}
     - {width: 5}
     # 第四行
     - {click: Shift_L, width: 15}
-    - {click: 'z', long_click: "'"}
+    - {click: 'z', long_click: SyMZ}
     - {click: 'x', long_click: cut}
     - {click: 'c', long_click: copy}
     - {click: 'v', long_click: paste}
-    - {click: 'b', long_click: ':'}
-    - {click: 'n', long_click: ';'}
-    - {click: 'm', long_click: '?'}
+    - {click: 'b', long_click: SyMB}
+    - {click: 'n', long_click: SyMN}
+    - {click: 'm', long_click: SyMM}
     - {click: BackSpace, width: 15}
     # 第五行
     - {click: Keyboard_symbols, width: 18}
@@ -439,36 +434,36 @@ preset_keyboards:
 
   number:
     name: 小数字键盘
-    author: "osfans <waxaca@163.com>"
+    author: "袁湘浩"
     ascii_mode: 1
     width: 20
-    height: 55
+    height: 60
     keys:
-    # 第一行
-    - {click: '+'}
-    - {click: '1'}
-    - {click: '2'}
-    - {click: '3'}
-    - {click: BackSpace}
-    # 第二行
-    - {click: '-'}
-    - {click: '4'}
-    - {click: '5'}
-    - {click: '6'}
-    - {click: '='}
-    # 第三行
-    - {click: '*'}
-    - {click: '7'}
-    - {click: '8'}
-    - {click: '9'}
-    - {click: space}
-    # 第四行
-    - {click: Keyboard_default, width: 16}
-    - {click: Keyboard_symbols, width: 10}
-    - {click: '/', width: 14}
-    - {click: '0'}
-    - {click: '.'}
-    - {click: Return}
+    #1
+      - {click: "~", long_click: '<>{Left}', swipe_left: '<', swipe_right: '>', send_bindings: false}
+      - {click: "1", long_click: "@"}
+      - {click: "2", long_click: "%"}
+      - {click: "3", long_click: '(){Left}', swipe_left: '(', swipe_right: ')'}
+      - {click: BackSpace}
+    #2
+      - {click: "+", long_click: '[]{Left}', swipe_left: '[', swipe_right: ']'}
+      - {click: "4", long_click: "#"}
+      - {click: "5", long_click: _Keyboard_edit, popup: [_Keyboard_edit, select_all, cut, copy, paste, BackToSentence], swipe_left: Left, swipe_right: Right, swipe_up: Up, swipe_down: Down}
+      - {click: "6", long_click: '“”{Left}', swipe_left: '“', swipe_right: '”'}
+      - {click: Keyboard_emoji, long_click: Keyboard_emoticons, composing: Next}
+    #3
+      - {click: "-", long_click: "_"}
+      - {click: "7", long_click: cut}
+      - {click: "8", long_click: copy}
+      - {click: "9", long_click: paste}
+      - {click: Keyboard_defwithback}
+    #4
+      - {click: Keyboard_default, width: 10, height: 45}
+      - {click: Keyboard_symbols, width: 10, height: 45}
+      - {click: ",", long_click: "!", height: 45}
+      - {click: "0", height: 45}
+      - {click: ".", long_click: "?", height: 45}
+      - {click: Return, long_click: Menu, popup: [Menu, Color_settings, Schema_switch, _Keyboard_clip, _Keyboard_phrase], height: 45}
 
   symbols:
     name: 符号键盘
