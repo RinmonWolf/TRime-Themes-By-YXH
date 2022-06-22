@@ -57,7 +57,7 @@ style:
   key_long_text_size: 14 #長標籤字號
   key_text_size: 20 #鍵字號
   key_width: 10.0 #鍵寬，佔螢幕寬的百分比
-  keyboards: [.default, defwithback, number, jiugong_number, symbols, emoji, emoticons, _edit_board] #鍵盤配置：自動鍵盤、字母、數字、符號
+  keyboards: [.default, defwithback, number, jiugong_number, symbols1, symbols2, emoji, emoticons, _edit_board] #鍵盤配置：自動鍵盤、字母、數字、符號
   label_text_size: 22 #標籤字號
   label_font: label.ttf #編標籤字型
   latin_font: latin.ttf #西文字型
@@ -291,7 +291,8 @@ preset_keys:
   Comment_switch: {toggle: _hide_comment, send: Mode_switch, states: [ 有註釋, 無註釋]}
   Hint_switch: {toggle: _hide_key_hint, send: Mode_switch, states: [ 有助記, 無助記]}
   # 键盘切换
-  Keyboard_symbols: {label: " 符 ", send: Eisu_toggle, select: symbols}
+  Keyboard_symbols1: {label: "?123", send: Eisu_toggle, select: symbols1}
+  Keyboard_symbols2: {label: "=/<", send: Eisu_toggle, select: symbols2}
   Keyboard_emoji: {label: " 😊 ", send: Eisu_toggle, select: emoji}
   Keyboard_emoticons: {label: OwO, send: Eisu_toggle, select: emoticons}
   Keyboard_number: {label: 123, send: Eisu_toggle, select: number}
@@ -314,6 +315,7 @@ preset_keys:
   # 符号预设键
   #   主键盘
   #   Sy:Symbol; M:Main主键盘; Q~M:按键 
+  #   仿Gboard
   #   第一行
   SyMQ: {label: '%', text: '%'}
   SyMW: {label: '&', text: '&'}
@@ -398,11 +400,12 @@ preset_keyboards:
     - {click: 'm', long_click: SyMM}
     - {click: BackSpace, width: 15}
     # 第五行
-    - {click: Keyboard_symbols, width: 18}
-    - {click: Keyboard_emoji, long_click: Keyboard_emoticons, composing: Next, width: 17}
-    - {click: space, width: 30}
-    - {click: ',', long_click: '.', width: 17}
-    - {click: Return, width: 18, long_click: Menu, popup: [Menu, Color_settings, _Keyboard_clip, _Keyboard_phrase]}
+    - {click: Keyboard_symbols1, width: 15, height: 45}
+    - {click: ",", height: 45}
+    - {click: Keyboard_emoji, long_click: Keyboard_emoticons, composing: Next}
+    - {click: space, width: 40, height: 45}
+    - {click: ".", height: 45}
+    - {click: Return, width: 15, long_click: Menu, popup: [Menu, Color_settings, _Keyboard_clip, _Keyboard_phrase], height: 45}
 
   _edit_board:
     author: flypy.com
@@ -435,86 +438,132 @@ preset_keyboards:
   number:
     name: 小数字键盘
     author: "袁湘浩"
+    # 仿Gboard
     ascii_mode: 1
-    width: 20
+    width: 24
     height: 60
     keys:
     #1
-      - {click: "~", long_click: '<>{Left}', swipe_left: '<', swipe_right: '>', send_bindings: false}
-      - {click: "1", long_click: "@"}
-      - {click: "2", long_click: "%"}
-      - {click: "3", long_click: '(){Left}', swipe_left: '(', swipe_right: ')'}
-      - {click: BackSpace}
+    - {click: "+", width: 14}
+    - {click: "1"}
+    - {click: "2"}
+    - {click: "3"}
+    - {click: "%", width: 14}
     #2
-      - {click: "+", long_click: '[]{Left}', swipe_left: '[', swipe_right: ']'}
-      - {click: "4", long_click: "#"}
-      - {click: "5", long_click: _Keyboard_edit, popup: [_Keyboard_edit, select_all, cut, copy, paste, BackToSentence], swipe_left: Left, swipe_right: Right, swipe_up: Up, swipe_down: Down}
-      - {click: "6", long_click: '“”{Left}', swipe_left: '“', swipe_right: '”'}
-      - {click: Keyboard_emoji, long_click: Keyboard_emoticons, composing: Next}
+    - {click: "-", width: 14}
+    - {click: "4"}
+    - {click: "5", long_click: _Keyboard_edit, popup: [_Keyboard_edit, select_all, cut, copy, paste, BackToSentence], swipe_left: Left, swipe_right: Right, swipe_up: Up, swipe_down: Down}
+    - {click: "6"}
+    - {click: space, width: 14}
     #3
-      - {click: "-", long_click: "_"}
-      - {click: "7", long_click: cut}
-      - {click: "8", long_click: copy}
-      - {click: "9", long_click: paste}
-      - {click: Keyboard_defwithback}
+    - {click: "*", long_click: "/", width: 14}
+    - {click: "7", long_click: cut}
+    - {click: "8", long_click: copy}
+    - {click: "9", long_click: paste}
+    - {click: BackSpace, width: 14}
     #4
-      - {click: Keyboard_default, width: 10, height: 45}
-      - {click: Keyboard_symbols, width: 10, height: 45}
-      - {click: ",", long_click: "!", height: 45}
-      - {click: "0", height: 45}
-      - {click: ".", long_click: "?", height: 45}
-      - {click: Return, long_click: Menu, popup: [Menu, Color_settings, Schema_switch, _Keyboard_clip, _Keyboard_phrase], height: 45}
+    - {click: Keyboard_default, width: 14, height: 45}
+    - {click: ",", width: 10, height: 45}
+    - {click: Keyboard_symbols1, width: 14, height: 45}
+    - {click: "0", height: 45}
+    - {click: "=", width: 14, height: 45}
+    - {click: ".", width: 10, height: 45}
+    - {click: Return, width: 14, long_click: Menu, popup: [Menu, Color_settings, _Keyboard_clip, _Keyboard_phrase], height: 45}
 
-  symbols:
-    name: 符号键盘
-    author: "天真可愛的滿滿、袁湘浩"
-    ascii_mode: -1
-    width: 12.5
-    height: 44
+  symbols1:
+    name: 符号键盘1
+    author: "袁湘浩"
+    # 仿Gboard
+    ascii_mode: 0
+    width: 10
+    height: 60
     keys:
-#1
-    - {click: '·', ascii: '`'}
-    - {click: '~', ascii: '~'}
-    - {click: '！', ascii: '!'}
-    - {click: '@', ascii: '@'}
-    - {click: '#', ascii: '#'}
-    - {click: '￥', ascii: '$'}
-    - {click: '%', ascii: '%'}
-    - {click: '……', ascii: '^'}
-#2
-    - {click: '&', ascii: '&'}
-    - {click: '*', ascii: '*'}
-    - {click: '（', ascii: '('}
-    - {click: '）', ascii: ')'}
-    - {click: '-', ascii: '-'}
-    - {click: '=', ascii: '='}
-    - {click: '——', ascii: '_'}
-    - {click: '/', ascii: "/"}
-#3
-    - {click: '+', ascii: '+'}
-    - {click: '【', ascii: '['}
-    - {click: '】', ascii: ']'}
-    - {click: '{', ascii: '{'}
-    - {click: '}', ascii: '}'}
-    - {click: '|', ascii: '|'}
-    - {click: '“', ascii: '"'}
-    - {click: '”', ascii: "'"}
-#4
-    - {click: '《', ascii: '<'}
-    - {click: '》', ascii: '>'}
-    - {click: '？', ascii: '?'}
-    - {click: '：', ascii: ':'}
-    - {click: '；', ascii: ';'}
-    - {click: '、', ascii: '\'}
-    - {click: BackSpace, width: 25}
-#5
-    - {click: Keyboard_default, width: 16}
-    - {click: Keyboard_number, width: 13}
-    - {click: ',', width: 11}
-    - {click: space, width: 20}
-    - {click: '.', width: 11}
-    - {click: Keyboard_emoji, width: 11}
-    - {click: Return, width: 18, long_click: Menu, popup: [Menu, _Keyboard_clip, _Keyboard_phrase]}
+    #1
+    - {click: '1'}
+    - {click: '2'}
+    - {click: '3'}
+    - {click: '4'}
+    - {click: '5'}
+    - {click: '6'}
+    - {click: '7'}
+    - {click: '8'}
+    - {click: '9'}
+    - {click: '0'}
+    #2
+    - {click: '@'}
+    - {click: '#', long_click: "№"}
+    - {click: '$', long_click: "¢", popup: ["¢", "€", "£", "₹", "¥", "₱"]}
+    - {click: '_'}
+    - {click: '&'}
+    - {click: '-', long_click: "—", popup: ["—", "–", "·"]}
+    - {click: '+', long_click: "±"}
+    - {click: '(', long_click: "【", popup: ["【", "［", "{", "<"]}
+    - {click: ')', long_click: "】", popup: ["】", "］", "}", ">"]}
+    - {click: '/', long_click: "／"}
+    #3
+    - {click: Keyboard_symbols2, width: 15}
+    - {click: '、', ascii: '*'}
+    - {click: '“', ascii: '"', long_click: "《"}
+    - {click: '”', ascii: "'", long_click: "„", popup: ["„", "》"]}
+    - {click: ':'}
+    - {click: ';'}
+    - {click: '!', long_click: "¡"}
+    - {click: '?', long_click: "¿"}
+    - {click: BackSpace, width: 15}
+    #4
+    - {click: Keyboard_default, width: 15, height: 45}
+    - {click: ",", width: 10, height: 45}
+    - {click: Keyboard_number, width: 10, height: 45}
+    - {click: space, width: 40, height: 45}
+    - {click: ".", width: 10, height: 45}
+    - {click: Return, width: 15, long_click: Menu, popup: [Menu, Color_settings, _Keyboard_clip, _Keyboard_phrase], height: 45}
+  symbols2:
+    name: 符号键盘2
+    author: "袁湘浩"
+    # 仿Gboard
+    ascii_mode: 0
+    width: 10
+    height: 60
+    keys:
+    #1
+    - {click: '~'}
+    - {click: '`'}
+    - {click: '|'}
+    - {click: '•', long_click: "♪"}
+    - {click: '√'}
+    - {click: 'π', long_click: "Ω", popup: ["Ω", "Π", "μ"]}
+    - {click: '÷'}
+    - {click: '×'}
+    - {click: '*', ascii: "¶", long_click: "★", popup: ["★", "‡", "†"]}
+    - {click: '¶', ascii: "∆", long_click: "§"}
+    #2
+    - {click: '£'}
+    - {click: '¢'}
+    - {click: '€'}
+    - {click: '¥'}
+    - {click: '^', long_click: "←", popup: ["←", "↑", "↓", "→"]}
+    - {click: '°', long_click: "′", popup: ["′", "″"]}
+    - {click: '=', long_click: "∞", popup: ["∞", "≠", "≈"]}
+    - {click: '「', ascii: "{"}
+    - {click: '」', ascii: "}"}
+    - {click: '\'}
+    #3
+    - {click: Keyboard_symbols1, width: 15}
+    - {click: '%', long_click: "‰", popup: ["‰", "℅"]}
+    - {click: '‘', ascii: '©', long_click: "'", popup: ["'", "〈"]}
+    - {click: '’', ascii: "®", long_click: "‚", popup: ["‚", "〉"]}
+    - {click: '™'}
+    - {click: '✓'}
+    - {click: '［', ascii: "["}
+    - {click: '］', ascii: "]"}
+    - {click: BackSpace, width: 15}
+    #4
+    - {click: Keyboard_default, width: 15, height: 45}
+    - {click: "<", width: 10, height: 45}
+    - {click: Keyboard_number, width: 10, height: 45}
+    - {click: space, width: 40, height: 45}
+    - {click: ">", width: 10, height: 45}
+    - {click: Return, width: 15, long_click: Menu, popup: [Menu, Color_settings, _Keyboard_clip, _Keyboard_phrase], height: 45}
 
   emoji:
     name: 表情键盘
@@ -541,8 +590,6 @@ preset_keyboards:
       '⌛', '⏳', '⌚', '⏰', '⏲', '🕰', '🕛', '🕧', '🕐', '🕜', '🕑', '🕝', '🕒', '🕞', '🕓', '🕟', '🕔', '🕠', '🕕', '🕡', '🕖', '🕢', '🕗', '🕣', '🕘', '🕤', '🕙', '🕥', '🕚', '🕦', '🌑',
       '🌍', '🌎', '🌏', '🌐', '🗺', '🗾', '🏔', '⛰', '🌋', '🗻', '🏕', '🏖', '🏜', '🏝', '🏞', '🏟', '🏛', '🏗', '🏘', '🏙', '🏚','🌒', '🌓', '🌔', '🌕', '🌖', '🌗', '🌘', '🌙', '🌚', '🌛', '🌜', '🌡', '☀', '🌝', '🌞', '⭐', '🌟', '🌠', '☁', '⛅', '⛈', '🌤', '🌥', '🌦', '🌧', '🌨', '🌩', '🌪', '🌫', '🌬', '🌀', '🌈', '🌂', '☂', '☔', '⛱', '⚡', '❄', '☃', '⛄', '⛲', '⛺', '🌁', '🌃', '🌄', '🌅', '🌆', '🌇', '🌉', '♨', '🌌']
 
-
-
   emoticons:
     name: 颜文字键盘
     author: "YuanXH"
@@ -552,15 +599,15 @@ preset_keyboards:
     height: 44
     keys: ['QAQ', 'QWQ', 'AwA', '(#-#)']
 
-
   bopomofo:
     name: 註音鍵盤
     author: "皛筱晓小笨鱼、袁湘浩"
     ascii_mode: 0
     #ascii_keyboard: letter
     width: 10
-    height: 44
+    height: 45
     keys:
+    #1
     - {label: 'ㄅ', long_click: '¹', popup: ['①', '壹', '⒈', '¹' ,'₁'], click: '1'}
     - {label: 'ㄉ', long_click: '²', popup: ['②', '贰', '⒉', '²' ,'₂'], click: '2'}
     - {label: 'ˇ', long_click: '³', popup: ['③', '叁', '⒊', '³' ,'₃'], click: '3'}
@@ -571,7 +618,7 @@ preset_keyboards:
     - {label: 'ㄚ', long_click: '⁸', popup: ['⑧', '捌', '⒏', '⁸' ,'₈'], click: '8'}
     - {label: 'ㄞ', long_click: '⁹', popup: ['⑨', '玖', '⒐', '⁹' ,'₉'], click: '9'}
     - {label: 'ㄢ', long_click: '⁰', popup: ['⓪', '拾', '⁰' ,'₀'], click: '0'}
-
+    #2
     - {label: 'ㄆ', long_click: '!', click: q}
     - {label: 'ㄊ', long_click: '@', click: w}
     - {label: 'ㄍ', long_click: '#', click: e}
@@ -582,7 +629,7 @@ preset_keyboards:
     - {label: 'ㄛ', long_click: '*', click: i}
     - {label: 'ㄟ', long_click: '(){Left}', swipe_left: '(', swipe_right: ')', click: o}
     - {label: 'ㄣ', long_click: '/', click: p}
-
+    #3
     - {label: 'ㄇ', long_click: '~', click: a}
     - {label: 'ㄋ', long_click: '+', click: s}
     - {label: 'ㄎ', long_click: '-', click: d}
@@ -593,7 +640,7 @@ preset_keyboards:
     - {label: 'ㄜ', click: k, long_click: '<>{Left}', swipe_left: '<', swipe_right: '>'}
     - {label: 'ㄠ', click: l, long_click: '“”{Left}', swipe_left: '“', swipe_right: '”'}
     - {label: 'ㄤ', long_click: Escape, click: ';'}
-
+    #4
     - {label: 'ㄈ', click: z, long_click: "'"}
     - {label: 'ㄌ', click: x, long_click: cut}
     - {label: 'ㄏ', click: c, long_click: copy}
@@ -604,56 +651,57 @@ preset_keyboards:
     - {label: 'ㄝ', click: ','}
     - {label: 'ㄡ', click: '.'}
     - {label: 'ㄥ', long_click: CommitScriptText, click: '/'}
+    #5
+    - {click: Keyboard_symbols1, long_click: Keyboard_emoji, height: 45}
     - {click: Shift_L, composing: delimiter}
-
-    - {click: Keyboard_symbols}
-    - {click: Keyboard_emoji, long_click: Keyboard_emoticons, composing: Next}
-    - {click: ',', long_click: '.'}
-    - {click: space, width: 22}
-    - {label: 'ㄦ', click: "-"}
-    - {click: BackSpace}
-    - {click: Return, width: 18, long_click: Menu, popup: [Menu, Color_settings, Schema_switch, _Keyboard_clip, _Keyboard_phrase]}
+    - {click: ",", long_click: '.', height: 45}
+    - {click: space, width: 40, height: 45}
+    - {label: 'ㄦ', click: "-", height: 45}
+    - {click: BackSpace, height: 45}
+    - {click: Return, long_click: Menu, popup: [Menu, Color_settings, _Keyboard_clip, _Keyboard_phrase], height: 45}
 
 
   stroke:
     name: 五笔画键盘
     author: 袁湘浩
     ascii_mode: 0
-    height: 55
-    width: 20
+    height: 60
+    width: 24
     ascii_keyboard: jiugong_number
     keys:
     #1
-      - {click: "~", long_click: '<>{Left}', swipe_left: '<', swipe_right: '>', send_bindings: false}
-      - {click: "h", label: "一", long_click: "@"}
-      - {click: "s", label: "丨", long_click: "%"}
-      - {click: "p", label: "丿", long_click: '(){Left}', swipe_left: '(', swipe_right: ')'}
-      - {click: BackSpace}
+    - {click: "~", width: 14}
+    - {click: "h", label: "一", long_click: "@"}
+    - {click: "s", label: "丨", long_click: "("}
+    - {click: "p", label: "丿", long_click: ')'}
+    - {click: "!", width: 14}
     #2
-      - {click: "+", long_click: '[]{Left}', swipe_left: '[', swipe_right: ']'}
-      - {click: "n", label: "丶", long_click: "#"}
-      - {click: "z", label: "乙", long_click: _Keyboard_edit, popup: [_Keyboard_edit, select_all, cut, copy, paste, BackToSentence], swipe_left: Left, swipe_right: Right, swipe_up: Up, swipe_down: Down}
-      - {click: delimiter, long_click: '“”{Left}', swipe_left: '“', swipe_right: '”'}
-      - {click: Keyboard_emoji, long_click: Keyboard_emoticons, composing: Next}
+    - {click: "+", width: 14}
+    - {click: "n", label: "丶", long_click: "#"}
+    - {click: "z", label: "乙", long_click: _Keyboard_edit, popup: [_Keyboard_edit, select_all, cut, copy, paste, BackToSentence], swipe_left: Left, swipe_right: Right, swipe_up: Up, swipe_down: Down}
+    - {click: delimiter, long_click: '"'}
+    - {click: "?", width: 14}
     #3
-      - {click: "-", long_click: "_"}
-      - {click: "phhhz", label: "钅", long_click: cut}
-      - {click: "szpn", label: "水", long_click: copy}
-      - {click: "hszpzhh", label: "酉", long_click: paste}
-      - {click: Keyboard_defwithback, long_click: Keyboard_jiugong_number}
+    - {click: "-", long_click: "_", width: 14}
+    - {click: "phhhz", label: "钅", long_click: cut}
+    - {click: "szpn", label: "水", long_click: copy}
+    - {click: "hszpzhh", label: "酉", long_click: paste}
+    - {click: BackSpace, width: 14}
     #4
-      - {click: Keyboard_symbols}
-      - {click: ",", long_click: "!"}
-      - {click: space}
-      - {click: ".", long_click: "?"}
-      - {click: Return, long_click: Menu, popup: [Menu, Color_settings, Schema_switch, _Keyboard_clip, _Keyboard_phrase]}
+    - {click: Keyboard_symbols1, width: 14, height: 45}
+    - {click: ",", width: 12, height: 45}
+    - {click: Keyboard_defwithback, long_click: Keyboard_jiugong_number, width: 12}
+    - {click: space, height: 45}
+    - {click: Keyboard_emoji, long_click: Keyboard_emoticons, composing: Next, width: 12}
+    - {click: ".", width: 12, height: 45}
+    - {click: Return, width: 14, long_click: Menu, popup: [Menu, Color_settings, _Keyboard_clip, _Keyboard_phrase], height: 45}
 
   terra_pinyin:
     name: 地球拼音鍵盤
     author: "袁湘浩"
     ascii_mode: 0
     width: 10
-    height: 44
+    height: 45
     lock: true
     keys:
     # 第一行
@@ -701,17 +749,18 @@ preset_keyboards:
     - {click: 'm', long_click: '?'}
     - {click: BackSpace, width: 15}
     # 第五行
-    - {click: Keyboard_symbols, composing: s2, width: 18}
-    - {click: Keyboard_emoji, long_click: Keyboard_emoticons, composing: s3, width: 17}
-    - {click: space, width: 30}
-    - {click: ',', long_click: '.', composing: s4, width: 17}
-    - {click: Return, width: 18, long_click: Menu, popup: [Menu, Color_settings, _Keyboard_clip, _Keyboard_phrase]}
+    - {click: Keyboard_symbols1, composing: s2, width: 15, height: 45}
+    - {click: ",", composing: s3, height: 45}
+    - {click: Keyboard_emoji, long_click: Keyboard_emoticons, composing: Next}
+    - {click: space, width: 40, height: 45}
+    - {click: ".", composing: s4, height: 45}
+    - {click: Return, width: 15, long_click: Menu, popup: [Menu, Color_settings, _Keyboard_clip, _Keyboard_phrase], height: 45}
 
   jiugong:
     ascii_mode: 0
     author: "袁湘浩"
     name: 九宮键盘
-    height: 55
+    height: 60
     width: 20
     ascii_keyboard: jiugong_number
     keys:
@@ -734,7 +783,7 @@ preset_keyboards:
       - {click: "9", label: "WXYZ", long_click: paste}
       - {click: Keyboard_defwithback}
     #4
-      - {click: Keyboard_symbols}
+      - {click: Keyboard_symbols1}
       - {click: ",", long_click: "!"}
       - {click: space}
       - {click: ".", long_click: "?"}
@@ -770,7 +819,7 @@ preset_keyboards:
       - {click: Keyboard_defwithback}
     #4
       - {click: Keyboard_default, width: 10}
-      - {click: Keyboard_symbols, width: 10}
+      - {click: Keyboard_symbols1, width: 10}
       - {click: ",", long_click: "!"}
       - {click: "0"}
       - {click: ".", long_click: "?"}
@@ -829,7 +878,7 @@ preset_keyboards:
     - {click: 'm', long_click: '?'}
     - {click: BackSpace, width: 15}
     # 第五行
-    - {click: Keyboard_symbols, width: 18}
+    - {click: Keyboard_symbols1, width: 18}
     - {click: Keyboard_emoji, long_click: Keyboard_emoticons, composing: Next, width: 17}
     - {click: space, width: 30}
     - {click: ',', long_click: '.', width: 17}
@@ -888,7 +937,7 @@ preset_keyboards:
     - {click: BackSpace, width: 15}
     # 第五行
     - {click: Keyboard_default, width: 18}
-    - {click: Keyboard_symbols, width: 17}
+    - {click: Keyboard_symbols1, width: 17}
     - {click: space, width: 30}
     - {click: ',', long_click: '.', width: 17}
     - {click: Return, width: 18, long_click: Menu, popup: [Menu, Color_settings, Schema_switch, _Keyboard_clip, _Keyboard_phrase]}
