@@ -2,7 +2,7 @@
 
 Readme [中文](https://github.com/RinmonWolf/TRime-Themes-By-YXH/blob/main/Readme.md)|[English](https://github.com/RinmonWolf/TRime-Themes-By-YXH/blob/main/Readme/Readme-EN.md)
 
-There's some themes made by YuanXH. （Most of them made for Trime Assibility Version）
+There's some themes made by YuanXH.
 
 Files format are *.YAMLs, no other language files add until now. 
 
@@ -12,11 +12,9 @@ The latest version and update log please go to [Releases](https://github.com/Rin
 
 ## Theme Preview
 
-Now there are only one theme which call *Huxinting* (Made for Trime Assibility Version). 
+Now there are only one theme which call *Huxinting* . 
 
-[![Xozg3R.png](https://s1.ax1x.com/2022/06/15/Xozg3R.png)](https://imgtu.com/i/Xozg3R)
-[![XozcC9.png](https://s1.ax1x.com/2022/06/15/XozcC9.png)](https://imgtu.com/i/XozcC9)
-[![Xozy4J.png](https://s1.ax1x.com/2022/06/15/Xozy4J.png)](https://imgtu.com/i/Xozy4J)
+Pictures will update when first release is updated. 
 
 ## How-To-Use
 
@@ -69,4 +67,4 @@ Telegram: @YuanXianghao
 
 [Rime Project](https://github.com/rime/home), [Trime Project](https://github.com/osfans/trime), Trime Assibility Version Project. 
 
-All authors who made the default theme in Trime Assibility Version. 
+All authors who made the default theme in Trime . 

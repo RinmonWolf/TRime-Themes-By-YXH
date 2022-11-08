@@ -2,7 +2,7 @@
 
 Readme [中文](https://github.com/RinmonWolf/TRime-Themes-By-YXH/blob/main/Readme.md)|[English](https://github.com/RinmonWolf/TRime-Themes-By-YXH/blob/main/Readme/Readme-EN.md)
 
-这是存放袁湘浩做的同文主题的仓库。（大部分主题是为同文无障碍版做的）
+这是存放袁湘浩做的同文主题的仓库。
 
 文件为YAML格式，目前没有附加其他语言的文件。
 
@@ -12,11 +12,9 @@ Readme [中文](https://github.com/RinmonWolf/TRime-Themes-By-YXH/blob/main/Read
 
 ## 主题效果图
 
-目前仅有一款主题“湖心亭”（仅运行于同文无障碍版）。
+目前仅有一款主题“湖心亭”。
 
-[![Xozg3R.png](https://s1.ax1x.com/2022/06/15/Xozg3R.png)](https://imgtu.com/i/Xozg3R)
-[![XozcC9.png](https://s1.ax1x.com/2022/06/15/XozcC9.png)](https://imgtu.com/i/XozcC9)
-[![Xozy4J.png](https://s1.ax1x.com/2022/06/15/Xozy4J.png)](https://imgtu.com/i/Xozy4J)
+例图待正式版更新后一同更新。
 
 ## 使用方法
 
@@ -69,4 +67,4 @@ Telegram: @YuanXianghao
 
 [Rime项目](https://github.com/rime/home)、[Trime项目](https://github.com/osfans/trime)、同文无障碍版（中文输入法）项目
 
-同文无障碍版的默认皮肤的各位作者
+同文的默认皮肤的各位作者
