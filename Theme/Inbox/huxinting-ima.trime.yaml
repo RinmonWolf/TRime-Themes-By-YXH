@@ -59,7 +59,7 @@ style: # 界面样式及特色功能
   keyboard_padding_bottom: 0 #竖屏模式下，屏幕下边缘与键盘的距离（避免误触发全面屏手势）
   keyboard_padding_land: 40 #横屏模式下，屏幕左右两侧与键盘的距离（避免横屏按键过度拉伸变形）
   keyboard_padding_land_bottom: 0 #横屏模式下，屏幕下侧与键盘的距离
-  keyboard_height: 300 #锁定键盘高度，避免切换时键盘高度变化而造成闪烁
+  keyboard_height: 250 #锁定键盘高度，避免切换时键盘高度变化而造成闪烁
   keyboard_height_land: 200 #锁定横屏下键盘高度，避免切换时键盘高度变化而造成闪烁
   #悬浮窗口
   layout: #懸浮窗口設置
@@ -187,7 +187,6 @@ preset_color_schemes:
     hilited_on_key_text_color: 0x000000 #按下打開狀態的按鍵时文字
     #其他颜色
     CLKB: 0xFFFFFF #颜色：按键背景
-    CLKK: 0x000000 #颜色：按键文字
     CLHKB: 0xf6f6f6 #颜色：按键高亮背景
     CLMKST: 0x000000 #颜色：功能按键符号文字
 
@@ -204,9 +203,9 @@ preset_color_schemes:
     text_back_color: 0x464646 #悬浮窗編碼區背景(拖动按钮的背景)
     #输入面板
     #   以下为新功能
-    root_background: 0x323232 #键盘和候选区的整体背景
+    root_background: 0x464646 #键盘和候选区的整体背景
     #候选项
-    back_color: 0x696969 #候選區背景
+    back_color: 0x464646 #候選區背景
     hilited_candidate_back_color: 0x20FFFFFF #高亮候選背景
     hilited_candidate_text_color: 0xDBDBDB #高亮候選文字
     candidate_separator_color: 0x464646 #候選分割线
@@ -214,7 +213,7 @@ preset_color_schemes:
     comment_text_color: 0xD9D9D9 #候选区候选提示
     hilited_comment_text_color: 0xDBDBDB #高亮内的提示
     #   以下为新功能
-    candidate_background: 0x323232 #候选区整体背景
+    candidate_background: 0x464646 #候选区整体背景
     #键盘
     key_back_color: 0x636363 #按鍵背景
     hilited_key_back_color: 0x696969 #按下按鍵时的背景
@@ -225,7 +224,7 @@ preset_color_schemes:
     preview_back_color: 0xE6636363 #按鍵按下气泡提示背景
     preview_text_color: 0xE6DBDBDB #按鍵按下气泡提示文字
     shadow_color: 0xbbbbbb #按鍵文字陰影
-    keyboard_back_color: 0x323232 #鍵盤背景
+    keyboard_back_color: 0x464646 #鍵盤背景
     liquid_keyboard_background: 0x464646 #流体键盘背景
     long_text_back_color: 0x636363 #包含长文本的按键背景
     #key_border_color: 0xfbfbfb #按鍵邊框（暂无）
@@ -240,7 +239,6 @@ preset_color_schemes:
     hilited_on_key_text_color: 0x1e1f1f #按下打開狀態的按鍵时文字
     #其他颜色
     CLKB: 0x636363 #颜色：按键背景
-    CLKK: 0xDBDBDB #颜色：按键文字
     CLHKB: 0x696969 #颜色：按键高亮背景
     CLMKST: 0x1e1f1f #颜色：功能按键符号文字
 
@@ -256,7 +254,7 @@ liquid_keyboard:
   single_width: 60    #single类型的按键宽度
   vertical_gap: 1     #纵向按键间隙
   margin_x: 0.5         #左右按键间隙的1/2
-  keyboards: [quicksentence, emoji, math, ascii, cn, history, exit, clipboard, collection, draft, tabs, exit, candidate, list, ids , table, symbol, exit, unit, new, jp, pinyin, grease, exit, rusa, korea, lation, yinbiao, yanwenzi, exit]  #tab列表
+  keyboards: [emoji, math, ascii, cn, history, exit, clipboard, collection, draft, tabs, exit, candidate, list, ids , table, symbol, exit, unit, new, jp, pinyin, grease, exit, rusa, korea, lation, yinbiao, yanwenzi, exit, symbollist, exit]  #tab列表
   exit:
     name: 返回
     type: NO_KEY
@@ -374,10 +372,11 @@ liquid_keyboard:
     type: SINGLE
     name: 假名
     keys: "あいうえおかがきぎくぐけげこごさざしじすずせぜそぞただちぢつづてでとどなにぬねのはばぱひびぴふぶぷへべぺほぼぽまみむめもゃやゅゆょよらりるれろわをんアィイウェエオカガキギクグケゲコゴサザシジスズセゼソゾタダチヂツヅテデトドナニヌネノハバパヒビピフブプヘベペホボポマミムメモャヤュユョヨラリルレロワヲン"
-  quicksentence:
-    type: SINGLE
-    name: 快捷
-    __include: hxt_qs:/quicksentense
+  symbollist:
+    type: SYMBOL
+    name: 符号表
+    keys: [ 符号: '/fh', 电脑: '/dn', 象棋: '/xq', 麻将: '/mj', 骰子: '/sz', 扑克: '/pk', 天气: '/tq', 音乐: '/yy', 八卦: '/bg', 易经: '/lssg', 天体: '/tt',  星座: '/xz',  星号: '/xh',  方块: '/fk',  几何: '/jh',  箭头: '/jt',  数学: '/sx',  上标: '/sb',  下标: '/xb',  单位: '/dw',  货币: '/hb',  拼音: '/py',  注音: '/zy',  假名: '/jm',  片假: '/pjm',  韩文: '/hw',  希腊: '/xl',  希大: '/xld', 罗马:   '/lm',  罗大:   '/lmd', 俄语:   '/ey',  俄大:   '/eyd', 表情:  '/bq',  一: '/1',  二: '/2',  三: '/3',  四: '/4',  五: '/5',  六: '/6',  七: '/7',  八: '/8',  九: '/9',  零: '/0',  十: '/10',  分数: '/fs',  标点: '/bd',  偏旁: '/pp',  竖标:  '/bdz'  ]
+
 
 
 android_keys: 
@@ -389,8 +388,7 @@ preset_keys:
   Return: {label: Enter, send: Return}
   Hide: {label: 隐藏, send: BACK}
   BackSpace: {label: ⌫, repeatable: true, send: BackSpace}
-  space: {repeatable: false, functional: false, send: space}
-  space_nolabel: {label: "____", repeatable: false, functional: false, send: space}
+  space: {label: "___", repeatable: false, functional: false, send: space}
   Escape: {label: Esc, send: Escape}
   Home: {label: 行首, send: Home}
   Insert: {label: 插入, send: Insert}
@@ -457,7 +455,6 @@ preset_keys:
   liquid_keyboard_switch2: { toggle: _liquid_keyboard, send: Mode_switch, states: [ 更多, 更多 ] }
   liquid_keyboard_emoji: { label: " 😊 ", send: function, command: liquid_keyboard, option: "emoji" }
   liquid_keyboard_clipboard: { label: 剪贴, send: function, command: liquid_keyboard, option: "剪贴" }
-  liquid_keyboard_quicksentense: { label: 快捷, send: function, command: liquid_keyboard, option: "快捷" }
   # 地球拼音声调
   s1: {text: ';', label: 'ˉ', description: 一声}  #一聲
   s2: {text: '/', label: 'ˊ', description: 二声}  #二聲
@@ -465,7 +462,6 @@ preset_keys:
   s4: {text: '\', label: 'ˋ', description: 四声}  #四聲
   # 后添加的
   Next: {label: 次选, send: Control+2}
-  ThirdWord: {label: 三选, send: Control+3}
   TP: {label: 通配, text: "`"}
   delimiter: {label: 分词, text: "'"}
   # 符号预设键
@@ -501,7 +497,7 @@ preset_keys:
   SyMB: {label: ';', text: ';'}
   SyMN: {label: '!', text: '!'}
   SyMM: {label: '?', text: '?'}
-  SyMFS: {label: '……', text: '^'}
+  SyMFS: {label: "……", text: "^"}
 
 preset_keyboards:
   default:
@@ -509,7 +505,7 @@ preset_keyboards:
     author: "袁湘浩"
     ascii_mode: 0
     width: 10
-    height: 60
+    height: 40
     vertical_gap: 10 #鍵盤行距
     lock: true
     keys:
@@ -526,9 +522,9 @@ preset_keyboards:
     - {click: 'p', long_click: SyMP}
     # 第二行
     - {width: 5}
-    - {click: 'a', long_click: select_all}
+    - {click: 'a', long_click: SyMA}
     - {click: 's', long_click: SyMS}
-    - {click: 'd', long_click: liquid_keyboard_quicksentense}
+    - {click: 'd', long_click: SyMD}
     - {click: 'f', long_click: SyMF}
     - {click: 'g', long_click: Keyboard_edit, swipe_left: Left, swipe_right: Right, swipe_up: Up, swipe_down: Down}
     - {click: 'h', long_click: SyMH}
@@ -548,8 +544,9 @@ preset_keyboards:
     - {click: BackSpace, width: 15}
     # 第四行
     - {click: Keyboard_symbols1, width: 15}
-    - {click: ",", long_click: liquid_keyboard_emoji}
-    - {click: space, width: 50}
+    - {click: ","}
+    - {click: liquid_keyboard_emoji, composing: Next, key_back_color: CLKB, hilited_key_back_color: CLHKB}
+    - {click: space, width: 40}
     - {click: ".", long_click: SyMFS}
     - {click: Return, width: 15, long_click: Menu, key_symbol_color: CLMKST, hilited_key_symbol_color: CLMKST}
 
@@ -558,7 +555,7 @@ preset_keyboards:
     name: "编辑键盘"
     ascii_mode: 0
     width: 20
-    height: 60
+    height: 40
     vertical_gap: 10 #鍵盤行距
     keys:
     - {click: select_all}
@@ -588,7 +585,7 @@ preset_keyboards:
     # 仿Gboard
     ascii_mode: 1
     width: 24
-    height: 60
+    height: 40
     vertical_gap: 10 #鍵盤行距
     keys:
     #1
@@ -602,7 +599,7 @@ preset_keyboards:
     - {click: "4"}
     - {click: "5", long_click: Keyboard_edit, swipe_left: Left, swipe_right: Right, swipe_up: Up, swipe_down: Down}
     - {click: "6"}
-    - {click: space_nolabel, width: 14}
+    - {click: space, width: 14}
     #3
     - {click: "*", long_click: "/", width: 14}
     - {click: "7", long_click: cut}
@@ -624,7 +621,7 @@ preset_keyboards:
     # 仿Gboard
     ascii_mode: 0
     width: 10
-    height: 60
+    height: 40
     vertical_gap: 10 #鍵盤行距
     keys:
     #1
@@ -672,7 +669,7 @@ preset_keyboards:
     # 仿Gboard
     ascii_mode: 0
     width: 10
-    height: 60
+    height: 40
     vertical_gap: 10 #鍵盤行距
     keys:
     #1
@@ -945,11 +942,21 @@ preset_keyboards:
     author: "袁湘浩"
     ascii_mode: 0
     width: 10
-    height: 60
-    vertical_gap: 10 #鍵盤行距
+    height: 45
     lock: true
     keys:
     # 第一行
+    - {click: '1', long_click: '①'}
+    - {click: '2', long_click: '②'}
+    - {click: '3', long_click: '③'}
+    - {click: '4', long_click: '④'}
+    - {click: '5', long_click: '⑤'}
+    - {click: '6', long_click: '⑥'}
+    - {click: '7', long_click: '⑦'}
+    - {click: '8', long_click: '⑧'}
+    - {click: '9', long_click: '⑨'}
+    - {click: '0', long_click: '⓪'}
+    # 第二行
     - {click: 'q', long_click: SyMQ}
     - {click: 'w', long_click: SyMW}
     - {click: 'e', long_click: SyME}
@@ -960,11 +967,11 @@ preset_keyboards:
     - {click: 'i', long_click: SyMI}
     - {click: 'o', long_click: SyMO}
     - {click: 'p', long_click: SyMP}
-    # 第二行
+    # 第三行
     - {width: 5}
-    - {click: 'a', long_click: select_all}
+    - {click: 'a', long_click: SyMA}
     - {click: 's', long_click: SyMS}
-    - {click: 'd', long_click: liquid_keyboard_quicksentense}
+    - {click: 'd', long_click: SyMD}
     - {click: 'f', long_click: SyMF}
     - {click: 'g', long_click: Keyboard_edit, swipe_left: Left, swipe_right: Right, swipe_up: Up, swipe_down: Down}
     - {click: 'h', long_click: SyMH}
@@ -972,7 +979,7 @@ preset_keyboards:
     - {click: 'k', long_click: SyMK}
     - {click: 'l', long_click: SyML}
     - {width: 5}
-    # 第三行
+    # 第四行
     - {click: Shift_L, width: 15}
     - {click: 'z', long_click: TP}
     - {click: 'x', long_click: cut}
@@ -982,12 +989,13 @@ preset_keyboards:
     - {click: 'n', long_click: SyMN}
     - {click: 'm', long_click: SyMM}
     - {click: BackSpace, width: 15}
-    # 第四行
-    - {click: Keyboard_symbols1, composing: Next, width: 15}
-    - {click: ",", long_click: liquid_keyboard_emoji}
-    - {click: space, width: 50}
-    - {click: ".", long_click: SyMFS}
-    - {click: Return, width: 15, long_click: Menu, key_symbol_color: CLMKST, hilited_key_symbol_color: CLMKST}
+    # 第五行
+    - {click: Keyboard_symbols1, width: 15, height: 45}
+    - {click: ",", height: 45}
+    - {click: liquid_keyboard_emoji, composing: Next}
+    - {click: space, width: 40, height: 45}
+    - {click: ".", height: 45}
+    - {click: Return, width: 15, long_click: Menu, height: 45}
 
   xhyx:
     __include: /preset_keyboards/defwithMod
