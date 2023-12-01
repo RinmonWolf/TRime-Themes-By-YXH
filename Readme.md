@@ -24,11 +24,19 @@ Readme [中文](https://github.com/RinmonWolf/TRime-Themes-By-YXH/blob/main/Read
 
 请直接放置在你的用户文件夹内，然后在设置中应用本皮肤。
 
+##### *_qs.yaml
+
+请与*.trime.yaml一起存放
+
 ### 无障碍版皮肤
 
 ##### *.trime.yaml文件
 
 请直接放置在你的用户文件夹内，然后在设置中应用本皮肤。
+
+##### *_qs.yaml
+
+请与*.trime.yaml一起存放
 
 ##### *.rime文件
 
