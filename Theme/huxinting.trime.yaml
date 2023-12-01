@@ -19,7 +19,7 @@ style: # 界面样式及特色功能
   locale: zh_CN #中文状态下朗读上屏文本和按键的语言:zh_CN/en_US...
   speech_opencc_config: none #语音输入是否转换简繁:none/s2t.json/t2s.json...
   #键盘
-  keyboards: [.default, edit_board, number, symbols1, symbols2, jiugong, defwithMod, defwithback] #键盘配置:所有键盘的键盘名
+  keyboards: [.default, edit_board, number, symbols1, symbols2, jiugong, xhyx, defwithback] #键盘配置:所有键盘的键盘名
   #字体
   text_font: latin.ttf #输入编码字体
   label_font: label.ttf #悬浮窗候选项序号字体
@@ -186,6 +186,7 @@ preset_color_schemes:
     on_key_text_color: 0x000000 #功能按鍵打開狀態的文字
     hilited_on_key_text_color: 0x000000 #按下打開狀態的按鍵时文字
     #其他颜色
+    CLKBB: 0xF2F2F2 #颜色：键盘背景
     CLKB: 0xFFFFFF #颜色：按键背景
     CLKK: 0x000000 #颜色：按键文字
     CLHKB: 0xf6f6f6 #颜色：按键高亮背景
@@ -239,6 +240,7 @@ preset_color_schemes:
     on_key_text_color: 0x1e1f1f #功能按鍵打開狀態的文字
     hilited_on_key_text_color: 0x1e1f1f #按下打開狀態的按鍵时文字
     #其他颜色
+    CLKBB: 0x323232 #颜色：键盘背景
     CLKB: 0x636363 #颜色：按键背景
     CLKK: 0xDBDBDB #颜色：按键文字
     CLHKB: 0x696969 #颜色：按键高亮背景
@@ -391,6 +393,8 @@ preset_keys:
   BackSpace: {label: ⌫, repeatable: true, send: BackSpace}
   space: {repeatable: false, functional: false, send: space}
   space_nolabel: {label: "____", repeatable: false, functional: false, send: space}
+  space_nolabel2: {label: " ", repeatable: false, functional: false, send: space}
+  space_customlabel: {label: "今天很好，明天依旧会这样", repeatable: false, functional: false, send: space}
   Escape: {label: Esc, send: Escape}
   Home: {label: 行首, send: Home}
   Insert: {label: 插入, send: Insert}
@@ -466,7 +470,7 @@ preset_keys:
   # 后添加的
   Next: {label: 次选, send: Control+2}
   ThirdWord: {label: 三选, send: Control+3}
-  TP: {label: 通配, text: "`"}
+  XHYXTP: {label: 通配, text: "`"}
   delimiter: {label: 分词, text: "'"}
   # 符号预设键
   #   主键盘
@@ -491,8 +495,8 @@ preset_keys:
   SyMG: {label: '&', text: '&'}
   SyMH: {label: '-', text: '-'}
   SyMJ: {label: ':', text: ':'}
-  SyMK: {label: "(", text: "("}
-  SyML: {label: ')', text: ')'}
+  SyMK: {label: "()", text: "()"}
+  SyML: {label: '""', text: '""'}
   #   第三行
   SyMZ: {label: '\', text: '\'}
   SyMX: {label: '"', text: '"'}
@@ -514,44 +518,48 @@ preset_keyboards:
     lock: true
     keys:
     # 第一行
-    - {click: 'q', long_click: SyMQ}
-    - {click: 'w', long_click: SyMW}
-    - {click: 'e', long_click: SyME}
-    - {click: 'r', long_click: SyMR}
-    - {click: 't', long_click: SyMT}
-    - {click: 'y', long_click: SyMY}
-    - {click: 'u', long_click: SyMU}
-    - {click: 'i', long_click: SyMI}
-    - {click: 'o', long_click: SyMO}
-    - {click: 'p', long_click: SyMP}
+    - {click: 'q', long_click: SyMQ, swipe_up: SyMQ}
+    - {click: 'w', long_click: SyMW, swipe_up: SyMW}
+    - {click: 'e', long_click: SyME, swipe_up: SyME}
+    - {click: 'r', long_click: SyMR, swipe_up: SyMR}
+    - {click: 't', long_click: SyMT, swipe_up: SyMT}
+    - {click: 'y', long_click: SyMY, swipe_up: SyMY}
+    - {click: 'u', long_click: SyMU, swipe_up: SyMU}
+    - {click: 'i', long_click: SyMI, swipe_up: SyMI}
+    - {click: 'o', long_click: SyMO, swipe_up: SyMO}
+    - {click: 'p', long_click: SyMP, swipe_up: SyMP}
     # 第二行
     - {width: 5}
-    - {click: 'a', long_click: select_all}
-    - {click: 's', long_click: SyMS}
-    - {click: 'd', long_click: liquid_keyboard_quicksentense}
-    - {click: 'f', long_click: SyMF}
+    - {click: 'a', long_click: select_all, swipe_up: select_all}
+    - {click: 's', long_click: SyMS, swipe_up: SyMS}
+    - {click: 'd', long_click: liquid_keyboard_quicksentense, swipe_up: liquid_keyboard_quicksentense}
+    - {click: 'f', long_click: SyMF, swipe_up: SyMF}
     - {click: 'g', long_click: Keyboard_edit, swipe_left: Left, swipe_right: Right, swipe_up: Up, swipe_down: Down}
-    - {click: 'h', long_click: SyMH}
-    - {click: 'j', long_click: SyMJ}
-    - {click: 'k', long_click: SyMK}
-    - {click: 'l', long_click: SyML}
+    - {click: 'h', long_click: SyMH, swipe_up: SyMH}
+    - {click: 'j', long_click: SyMJ, swipe_up: SyMJ}
+    - {click: 'k', long_click: SyMK, swipe_up: SyMK, swipe_left: "(", swipe_right: ")"}
+    - {click: 'l', long_click: SyML, swipe_up: SyML, swipe_left: '“', swipe_right: '”'}
     - {width: 5}
     # 第三行
     - {click: Shift_L, width: 15}
-    - {click: 'z', long_click: SyMZ}
-    - {click: 'x', long_click: cut}
-    - {click: 'c', long_click: copy}
-    - {click: 'v', long_click: paste}
-    - {click: 'b', long_click: SyMB}
-    - {click: 'n', long_click: SyMN}
-    - {click: 'm', long_click: SyMM}
+    - {click: 'z', long_click: SyMZ, swipe_up: SyMZ}
+    - {click: 'x', long_click: cut, swipe_up: cut}
+    - {click: 'c', long_click: copy, swipe_up: copy}
+    - {click: 'v', long_click: paste, swipe_up: paste}
+    - {click: 'b', long_click: SyMB, swipe_up: SyMB}
+    - {click: 'n', long_click: SyMN, swipe_up: SyMN}
+    - {click: 'm', long_click: SyMM, swipe_up: SyMM}
     - {click: BackSpace, width: 15}
     # 第四行
-    - {click: Keyboard_symbols1, width: 15}
-    - {click: ",", long_click: liquid_keyboard_emoji}
+    - {click: Keyboard_symbols1, composing: Next, width: 15}
+    - {click: ",", long_click: liquid_keyboard_emoji, swipe_up: liquid_keyboard_emoji}
     - {click: space, width: 50}
-    - {click: ".", long_click: SyMFS}
-    - {click: Return, width: 15, long_click: Menu, key_symbol_color: CLMKST, hilited_key_symbol_color: CLMKST}
+    - {click: ".", long_click: SyMFS, swipe_up: SyMFS}
+    - {click: Return, width: 15, long_click: Menu, swipe_up: Menu, key_symbol_color: CLMKST, hilited_key_symbol_color: CLMKST}
+    #第五行
+    - {click: Keyboard_symbols1, composing: Next, width: 15, key_text_color: CLKBB, key_back_color: CLKBB}
+    - {click: space_customlabel, width: 70, key_back_color: CLKBB}
+    - {click: Return, width: 15, key_symbol_color: CLKBB, key_text_color: CLKBB, hilited_key_symbol_color: CLKBB, key_back_color: CLKBB}
 
   edit_board:
     author: flypy.com
@@ -581,6 +589,12 @@ preset_keyboards:
     - {click: Clear, key_back_color: CLKB, hilited_key_back_color: CLHKB}
     - {click: redo}
     - {click: Keyboard_default}
+    #第五行
+    - {click: paste, key_text_color: CLKBB, key_back_color: CLKBB}
+    - {click: undo, key_text_color: CLKBB, key_back_color: CLKBB}
+    - {click: Clear, key_text_color: CLKBB, key_back_color: CLKBB}
+    - {click: redo, key_text_color: CLKBB, key_back_color: CLKBB}
+    - {click: Keyboard_default, key_text_color: CLKBB, key_back_color: CLKBB}
 
   number:
     name: 小数字键盘
@@ -612,11 +626,15 @@ preset_keyboards:
     #4
     - {click: Keyboard_default, width: 14}
     - {click: ",", width: 10}
-    - {click: Keyboard_symbols1, width: 14, key_back_color: CLKB, hilited_key_back_color: CLHKB}
+    - {click: Keyboard_symbols1, width: 14, key_text_color: CLKK, key_back_color: CLKB, hilited_key_back_color: CLHKB}
     - {click: "0"}
     - {click: "=", width: 14}
     - {click: ".", width: 10}
     - {click: Return, width: 14, long_click: Menu}
+    #第五行
+    - {click: Keyboard_default, width: 14, key_text_color: CLKBB, key_back_color: CLKBB}
+    - {click: space_customlabel, width: 72, key_back_color: CLKBB}
+    - {click: Return, width: 14, key_symbol_color: CLKBB, key_text_color: CLKBB, hilited_key_symbol_color: CLKBB, key_back_color: CLKBB}
 
   symbols1:
     name: 符号键盘1
@@ -662,10 +680,14 @@ preset_keyboards:
     #4
     - {click: Keyboard_default, width: 15}
     - {click: ",", width: 10}
-    - {click: Keyboard_number, width: 10, key_back_color: CLKB, hilited_key_back_color: CLHKB}
+    - {click: Keyboard_number, width: 10, key_text_color: CLKK, key_back_color: CLKB, hilited_key_back_color: CLHKB}
     - {click: space, width: 40}
     - {click: ".", width: 10}
-    - {click: Return, width: 15, long_click: Menu}
+    - {click: Return, width: 15, long_click: Menu, key_symbol_color: CLMKST, hilited_key_symbol_color: CLMKST}
+    #第五行
+    - {click: Keyboard_default, width: 15, key_text_color: CLKBB, key_back_color: CLKBB}
+    - {click: space_customlabel, width: 70, key_back_color: CLKBB}
+    - {click: Return, width: 15, key_symbol_color: CLKBB, key_text_color: CLKBB, hilited_key_symbol_color: CLKBB, key_back_color: CLKBB}
   symbols2:
     name: 符号键盘2
     author: "袁湘浩"
@@ -710,10 +732,14 @@ preset_keyboards:
     #4
     - {click: Keyboard_default, width: 15}
     - {click: "<", width: 10}
-    - {click: liquid_keyboard_switch, width: 10, key_back_color: CLKB, hilited_key_back_color: CLHKB}
+    - {click: liquid_keyboard_switch, width: 10, key_text_color: CLKK, key_back_color: CLKB, hilited_key_back_color: CLHKB}
     - {click: space, width: 40}
     - {click: ">", width: 10}
-    - {click: Return, width: 15, long_click: Menu}
+    - {click: Return, width: 15, long_click: Menu, key_symbol_color: CLMKST, hilited_key_symbol_color: CLMKST}
+    #第五行
+    - {click: Keyboard_default, width: 15, key_text_color: CLKBB, key_back_color: CLKBB}
+    - {click: space_customlabel, width: 70, key_back_color: CLKBB}
+    - {click: Return, width: 15, key_symbol_color: CLKBB, key_text_color: CLKBB, hilited_key_symbol_color: CLKBB, key_back_color: CLKBB}
 
   bopomofo:
     name: 註音鍵盤
@@ -781,95 +807,91 @@ preset_keyboards:
     author: 袁湘浩
     ascii_mode: 0
     height: 60
-    width: 24
+    width: 20
     ascii_keyboard: jiugong_number
     keys:
     #1
-    - {click: "~", width: 14}
-    - {click: "h", label: "一", long_click: "@"}
-    - {click: "s", label: "丨", long_click: "("}
-    - {click: "p", label: "丿", long_click: ')'}
-    - {click: "!", width: 14}
+      - {click: "~", long_click: '<>{Left}', swipe_left: '<', swipe_right: '>', send_bindings: false}
+      - {click: "h", label: "一", long_click: "@"}
+      - {click: "s", label: "丨", long_click: "%"}
+      - {click: "p", label: "丿", long_click: '(){Left}', swipe_left: '(', swipe_right: ')'}
+      - {click: BackSpace, key_text_color: CLKK, key_back_color: CLKB, hilited_key_back_color: CLHKB}
     #2
-    - {click: "+", width: 14}
-    - {click: "n", label: "丶", long_click: "#"}
-    - {click: "z", label: "乙", long_click: Keyboard_edit, swipe_left: Left, swipe_right: Right, swipe_up: Up, swipe_down: Down}
-    - {click: delimiter, long_click: '"'}
-    - {click: "?", width: 14}
+      - {click: "+", long_click: liquid_keyboard_quicksentense, swipe_up: liquid_keyboard_quicksentense}
+      - {click: "n", label: "丶", long_click: "#"}
+      - {click: "z", label: "乙", long_click: Keyboard_edit, swipe_left: Left, swipe_right: Right, swipe_up: Up, swipe_down: Down}
+      - {click: delimiter, long_click: '“”{Left}', swipe_left: '“', swipe_right: '”', key_text_color: CLKK, key_back_color: CLKB, hilited_key_back_color: CLHKB}
+      - {click: liquid_keyboard_emoji, composing: Next, key_text_color: CLKK, key_back_color: CLKB, hilited_key_back_color: CLHKB}
     #3
-    - {click: "-", long_click: "_", width: 14}
-    - {click: "phhhz", label: "钅", long_click: cut}
-    - {click: "szpn", label: "水", long_click: copy}
-    - {click: "hszpzhh", label: "酉", long_click: paste}
-    - {click: BackSpace, width: 14}
+      - {click: "-", long_click: "_"}
+      - {click: "phhhz", label: "钅", long_click: cut}
+      - {click: "szpn", label: "水", long_click: copy}
+      - {click: "hszpzhh", label: "酉", long_click: paste}
+      - {click: Keyboard_defwithback, key_text_color: CLKK, key_back_color: CLKB, hilited_key_back_color: CLHKB}
     #4
-    - {click: Keyboard_symbols1, width: 14, height: 45}
-    - {click: ",", width: 12, height: 45}
-    - {click: Keyboard_defwithback, long_click: Keyboard_jiugong_number, width: 12}
-    - {click: space, height: 45}
-    - {click: liquid_keyboard_emoji, composing: Next, width: 12}
-    - {click: ".", width: 12, height: 45}
-    - {click: Return, width: 14, long_click: Menu, height: 45}
+      - {click: Keyboard_symbols1}
+      - {click: ",", long_click: "!"}
+      - {click: space}
+      - {click: ".", long_click: "?"}
+      - {click: Return, long_click: Menu}
+      #第五行
+      - {click: Keyboard_symbols1, width: 20, key_text_color: CLKBB, key_back_color: CLKBB}
+      - {click: space_customlabel, width: 60, key_back_color: CLKBB}
+      - {click: Return, width: 20, key_symbol_color: CLKBB, key_text_color: CLKBB, hilited_key_symbol_color: CLKBB, key_back_color: CLKBB}
 
   terra_pinyin:
     name: 地球拼音鍵盤
     author: "袁湘浩"
     ascii_mode: 0
     width: 10
-    height: 45
+    height: 60
+    vertical_gap: 10 #鍵盤行距
     lock: true
     keys:
     # 第一行
-    - {click: '1', long_click: '¹'}
-    - {click: '2', long_click: '²'}
-    - {click: '3', long_click: '³'}
-    - {click: '4', long_click: '⁴'}
-    - {click: '5', long_click: '⁵'}
-    - {click: '6', long_click: '⁶'}
-    - {click: '7', long_click: '⁷'}
-    - {click: '8', long_click: '⁸'}
-    - {click: '9', long_click: '⁹'}
-    - {click: '0', long_click: '⁰'}
+    - {click: 'q', long_click: SyMQ, swipe_up: SyMQ}
+    - {click: 'w', long_click: SyMW, swipe_up: SyMW}
+    - {click: 'e', long_click: SyME, swipe_up: SyME}
+    - {click: 'r', long_click: SyMR, swipe_up: SyMR}
+    - {click: 't', long_click: SyMT, swipe_up: SyMT}
+    - {click: 'y', long_click: SyMY, swipe_up: SyMY}
+    - {click: 'u', long_click: SyMU, swipe_up: SyMU}
+    - {click: 'i', long_click: SyMI, swipe_up: SyMI}
+    - {click: 'o', long_click: SyMO, swipe_up: SyMO}
+    - {click: 'p', long_click: SyMP, swipe_up: SyMP}
     # 第二行
-    - {click: 'q', long_click: '!'}
-    - {click: 'w', long_click: '@'}
-    - {click: 'e', long_click: '#'}
-    - {click: 'r', long_click: '$'}
-    - {click: 't', long_click: '%'}
-    - {click: 'y', long_click: '^'}
-    - {click: 'u', long_click: '&'}
-    - {click: 'i', long_click: '*'}
-    - {click: 'o', long_click: '(){Left}', swipe_left: '(', swipe_right: ')'}
-    - {click: 'p', long_click: '/'}
-    # 第三行
     - {width: 5}
-    - {click: 'a', long_click: '~'}
-    - {click: 's', long_click: '+'}
-    - {click: 'd', long_click: '-'}
-    - {click: 'f', long_click: '_'}
+    - {click: 'a', long_click: select_all, swipe_up: select_all}
+    - {click: 's', long_click: SyMS, swipe_up: SyMS}
+    - {click: 'd', long_click: liquid_keyboard_quicksentense, swipe_up: liquid_keyboard_quicksentense}
+    - {click: 'f', long_click: SyMF, swipe_up: SyMF}
     - {click: 'g', long_click: Keyboard_edit, swipe_left: Left, swipe_right: Right, swipe_up: Up, swipe_down: Down}
-    - {click: 'h', long_click: '[]{Left}', swipe_left: '[', swipe_right: ']'}
-    - {click: 'j', long_click: '{}{Left}', swipe_left: '{', swipe_right: '}'}
-    - {click: 'k', long_click: '<>{Left}', swipe_left: '<', swipe_right: '>'}
-    - {click: 'l', long_click: '“”{Left}', swipe_left: '“', swipe_right: '”'}
+    - {click: 'h', long_click: SyMH, swipe_up: SyMH}
+    - {click: 'j', long_click: SyMJ, swipe_up: SyMJ}
+    - {click: 'k', long_click: SyMK, swipe_up: SyMK, swipe_left: "(", swipe_right: ")"}
+    - {click: 'l', long_click: SyML, swipe_up: SyML, swipe_left: '“', swipe_right: '”'}
     - {width: 5}
-    # 第四行
+    # 第三行
     - {click: Shift_L, composing: s1, width: 15}
-    - {click: 'z', long_click: "'"}
-    - {click: 'x', long_click: cut}
-    - {click: 'c', long_click: copy}
-    - {click: 'v', long_click: paste}
-    - {click: 'b', long_click: ':'}
-    - {click: 'n', long_click: ';'}
-    - {click: 'm', long_click: '?'}
+    - {click: 'z', long_click: SyMZ, swipe_up: SyMZ}
+    - {click: 'x', long_click: cut, swipe_up: cut}
+    - {click: 'c', long_click: copy, swipe_up: copy}
+    - {click: 'v', long_click: paste, swipe_up: paste}
+    - {click: 'b', long_click: SyMB, swipe_up: SyMB}
+    - {click: 'n', long_click: SyMN, swipe_up: SyMN}
+    - {click: 'm', long_click: SyMM, swipe_up: SyMM}
     - {click: BackSpace, width: 15}
-    # 第五行
-    - {click: Keyboard_symbols1, composing: s2, width: 15, height: 45}
-    - {click: ",", composing: s3, height: 45}
-    - {click: liquid_keyboard_emoji, composing: Next}
-    - {click: space, width: 40, height: 45}
-    - {click: ".", composing: s4, height: 45}
-    - {click: Return, width: 15, long_click: Menu, height: 45}
+    # 第四行
+    - {click: Keyboard_symbols1, composing: s2, width: 15}
+    - {click: ",", composing: s3, long_click: liquid_keyboard_emoji, swipe_up: liquid_keyboard_emoji}
+    - {click: space, width: 50}
+    - {click: ".", composing: s4, long_click: SyMFS, swipe_up: SyMFS}
+    - {click: Return, width: 15, long_click: Menu, swipe_up: Menu, key_symbol_color: CLMKST, hilited_key_symbol_color: CLMKST}
+    #第五行
+    - {click: Keyboard_symbols1, composing: Next, width: 15, key_text_color: CLKBB, key_back_color: CLKBB}
+    - {click: space_customlabel, width: 70, key_back_color: CLKBB}
+    - {click: Return, width: 15, key_symbol_color: CLKBB, key_text_color: CLKBB, hilited_key_symbol_color: CLKBB, key_back_color: CLKBB}
+
 
   jiugong:
     ascii_mode: 0
@@ -884,28 +906,69 @@ preset_keyboards:
       - {click: "1", label: " 1 ", composing: delimiter, long_click: "@"}
       - {click: "2", label: "ABC", long_click: "%"}
       - {click: "3", label: "DEF", long_click: '(){Left}', swipe_left: '(', swipe_right: ')'}
-      - {click: BackSpace}
+      - {click: BackSpace, key_text_color: CLKK, key_back_color: CLKB, hilited_key_back_color: CLHKB}
     #2
-      - {click: "+", long_click: '[]{Left}', swipe_left: '[', swipe_right: ']'}
+      - {click: "+", long_click: liquid_keyboard_quicksentense, swipe_up: liquid_keyboard_quicksentense}
       - {click: "4", label: "GHI", long_click: "#"}
       - {click: "5", label: "JKL", long_click: Keyboard_edit, swipe_left: Left, swipe_right: Right, swipe_up: Up, swipe_down: Down}
       - {click: "6", label: "MNO", long_click: '“”{Left}', swipe_left: '“', swipe_right: '”'}
-      - {click: liquid_keyboard_emoji, composing: Next}
+      - {click: liquid_keyboard_emoji, composing: Next, key_text_color: CLKK, key_back_color: CLKB, hilited_key_back_color: CLHKB}
     #3
       - {click: "-", long_click: "_"}
       - {click: "7", label: "PQRS", long_click: cut}
       - {click: "8", label: "TUV", long_click: copy}
       - {click: "9", label: "WXYZ", long_click: paste}
-      - {click: Keyboard_defwithback}
+      - {click: Keyboard_defwithback, key_text_color: CLKK, key_back_color: CLKB, hilited_key_back_color: CLHKB}
     #4
       - {click: Keyboard_symbols1}
       - {click: ",", long_click: "!"}
       - {click: space}
       - {click: ".", long_click: "?"}
       - {click: Return, long_click: Menu}
+      #第五行
+      - {click: Keyboard_symbols1, width: 20, key_text_color: CLKBB, key_back_color: CLKBB}
+      - {click: space_customlabel, width: 60, key_back_color: CLKBB}
+      - {click: Return, width: 20, key_symbol_color: CLKBB, key_text_color: CLKBB, hilited_key_symbol_color: CLKBB, key_back_color: CLKBB}
   
   luna_jiugong:
     __include: /preset_keyboards/jiugong
+
+  terra_jiugong:
+    ascii_mode: 0
+    author: "袁湘浩"
+    name: 地球九宮键盘
+    height: 60
+    width: 20
+    ascii_keyboard: jiugong_number
+    keys:
+    #1
+      - {click: s1, long_click: '<>{Left}', swipe_left: '<', swipe_right: '>', send_bindings: false, key_text_color: CLKK, key_back_color: CLKB, hilited_key_back_color: CLHKB}
+      - {click: "1", label: " 1 ", composing: delimiter, long_click: "@"}
+      - {click: "2", label: "ABC", long_click: "%"}
+      - {click: "3", label: "DEF", long_click: '(){Left}', swipe_left: '(', swipe_right: ')'}
+      - {click: BackSpace, key_text_color: CLKK, key_back_color: CLKB, hilited_key_back_color: CLHKB}
+    #2
+      - {click: s2, long_click: liquid_keyboard_quicksentense, swipe_up: liquid_keyboard_quicksentense, key_text_color: CLKK, key_back_color: CLKB, hilited_key_back_color: CLHKB}
+      - {click: "4", label: "GHI", long_click: "#"}
+      - {click: "5", label: "JKL", long_click: Keyboard_edit, swipe_left: Left, swipe_right: Right, swipe_up: Up, swipe_down: Down}
+      - {click: "6", label: "MNO", long_click: '“”{Left}', swipe_left: '“', swipe_right: '”'}
+      - {click: s3, key_text_color: CLKK, key_back_color: CLKB, hilited_key_back_color: CLHKB}
+    #3
+      - {click: s4, key_text_color: CLKK, key_back_color: CLKB, hilited_key_back_color: CLHKB}
+      - {click: "7", label: "PQRS", long_click: cut}
+      - {click: "8", label: "TUV", long_click: copy}
+      - {click: "9", label: "WXYZ", long_click: paste}
+      - {click: Keyboard_defwithback, key_text_color: CLKK, key_back_color: CLKB, hilited_key_back_color: CLHKB}
+    #4
+      - {click: Keyboard_symbols1}
+      - {click: ",", long_click: "!"}
+      - {click: space}
+      - {click: ".", long_click: "?"}
+      - {click: Return, long_click: Menu}
+      #第五行
+      - {click: Keyboard_symbols1, width: 20, key_text_color: CLKBB, key_back_color: CLKBB}
+      - {click: space_customlabel, width: 60, key_back_color: CLKBB}
+      - {click: Return, width: 20, key_symbol_color: CLKBB, key_text_color: CLKBB, hilited_key_symbol_color: CLKBB, key_back_color: CLKBB}
   
   jiugong_number:
     ascii_mode: 1
@@ -939,9 +1002,13 @@ preset_keyboards:
       - {click: "0"}
       - {click: ".", long_click: "?"}
       - {click: Return, long_click: Menu}
+      #第五行
+      - {click: Keyboard_default, width: 10, key_text_color: CLKBB, key_back_color: CLKBB}
+      - {click: space_customlabel, width: 70, key_back_color: CLKBB}
+      - {click: Return, width: 20, key_symbol_color: CLKBB, key_text_color: CLKBB, hilited_key_symbol_color: CLKBB, key_back_color: CLKBB}
 
-  defwithMod:
-    name: 默认键盘加
+  xhyx:
+    name: 小鹤音形适配键盘
     author: "袁湘浩"
     ascii_mode: 0
     width: 10
@@ -950,105 +1017,101 @@ preset_keyboards:
     lock: true
     keys:
     # 第一行
-    - {click: 'q', long_click: SyMQ}
-    - {click: 'w', long_click: SyMW}
-    - {click: 'e', long_click: SyME}
-    - {click: 'r', long_click: SyMR}
-    - {click: 't', long_click: SyMT}
-    - {click: 'y', long_click: SyMY}
-    - {click: 'u', long_click: SyMU}
-    - {click: 'i', long_click: SyMI}
-    - {click: 'o', long_click: SyMO}
-    - {click: 'p', long_click: SyMP}
+    - {click: 'q', long_click: SyMQ, swipe_up: SyMQ}
+    - {click: 'w', long_click: SyMW, swipe_up: SyMW}
+    - {click: 'e', long_click: SyME, swipe_up: SyME}
+    - {click: 'r', long_click: SyMR, swipe_up: SyMR}
+    - {click: 't', long_click: SyMT, swipe_up: SyMT}
+    - {click: 'y', long_click: SyMY, swipe_up: SyMY}
+    - {click: 'u', long_click: SyMU, swipe_up: SyMU}
+    - {click: 'i', long_click: SyMI, swipe_up: SyMI}
+    - {click: 'o', long_click: SyMO, swipe_up: SyMO}
+    - {click: 'p', long_click: SyMP, swipe_up: SyMP}
     # 第二行
     - {width: 5}
-    - {click: 'a', long_click: select_all}
-    - {click: 's', long_click: SyMS}
-    - {click: 'd', long_click: liquid_keyboard_quicksentense}
-    - {click: 'f', long_click: SyMF}
+    - {click: 'a', long_click: select_all, swipe_up: select_all}
+    - {click: 's', long_click: SyMS, swipe_up: SyMS}
+    - {click: 'd', long_click: liquid_keyboard_quicksentense, swipe_up: liquid_keyboard_quicksentense}
+    - {click: 'f', long_click: SyMF, swipe_up: SyMF}
     - {click: 'g', long_click: Keyboard_edit, swipe_left: Left, swipe_right: Right, swipe_up: Up, swipe_down: Down}
-    - {click: 'h', long_click: SyMH}
-    - {click: 'j', long_click: SyMJ}
-    - {click: 'k', long_click: SyMK}
-    - {click: 'l', long_click: SyML}
+    - {click: 'h', long_click: SyMH, swipe_up: SyMH}
+    - {click: 'j', long_click: SyMJ, swipe_up: SyMJ}
+    - {click: 'k', long_click: SyMK, swipe_up: SyMK, swipe_left: "(", swipe_right: ")"}
+    - {click: 'l', long_click: SyML, swipe_up: SyML, swipe_left: '“', swipe_right: '”'}
     - {width: 5}
     # 第三行
     - {click: Shift_L, width: 15}
-    - {click: 'z', long_click: TP}
-    - {click: 'x', long_click: cut}
-    - {click: 'c', long_click: copy}
-    - {click: 'v', long_click: paste}
-    - {click: 'b', long_click: SyMB}
-    - {click: 'n', long_click: SyMN}
-    - {click: 'm', long_click: SyMM}
+    - {click: 'z', long_click: XHYXTP, swipe_up: XHYXTP}
+    - {click: 'x', long_click: cut, swipe_up: cut}
+    - {click: 'c', long_click: copy, swipe_up: copy}
+    - {click: 'v', long_click: paste, swipe_up: paste}
+    - {click: 'b', long_click: SyMB, swipe_up: SyMB}
+    - {click: 'n', long_click: SyMN, swipe_up: SyMN}
+    - {click: 'm', long_click: SyMM, swipe_up: SyMM}
     - {click: BackSpace, width: 15}
     # 第四行
     - {click: Keyboard_symbols1, composing: Next, width: 15}
-    - {click: ",", long_click: liquid_keyboard_emoji}
+    - {click: ",", long_click: liquid_keyboard_emoji, swipe_up: liquid_keyboard_emoji}
     - {click: space, width: 50}
-    - {click: ".", long_click: SyMFS}
-    - {click: Return, width: 15, long_click: Menu, key_symbol_color: CLMKST, hilited_key_symbol_color: CLMKST}
-
-  xhyx:
-    __include: /preset_keyboards/defwithMod
+    - {click: ".", long_click: SyMFS, swipe_up: SyMFS}
+    - {click: Return, width: 15, long_click: Menu, swipe_up: Menu, key_symbol_color: CLMKST, hilited_key_symbol_color: CLMKST}
+    #第五行
+    - {click: Keyboard_symbols1, composing: Next, width: 15, key_text_color: CLKBB, key_back_color: CLKBB}
+    - {click: space_customlabel, width: 70, key_back_color: CLKBB}
+    - {click: Return, width: 15, key_symbol_color: CLKBB, key_text_color: CLKBB, hilited_key_symbol_color: CLKBB, key_back_color: CLKBB}
     
   flypy:
-    __include: /preset_keyboards/defwithMod
+    __include: /preset_keyboards/xhyx
  
   defwithback:
     name: 默认键盘带返回
     author: "袁湘浩"
     ascii_mode: 1
     width: 10
-    height: 44
+    height: 60
+    vertical_gap: 10 #鍵盤行距
+    lock: true
     keys:
     # 第一行
-    - {click: '1', long_click: '¹'}
-    - {click: '2', long_click: '²'}
-    - {click: '3', long_click: '³'}
-    - {click: '4', long_click: '⁴'}
-    - {click: '5', long_click: '⁵'}
-    - {click: '6', long_click: '⁶'}
-    - {click: '7', long_click: '⁷'}
-    - {click: '8', long_click: '⁸'}
-    - {click: '9', long_click: '⁹'}
-    - {click: '0', long_click: '⁰'}
+    - {click: 'q', long_click: SyMQ, swipe_up: SyMQ}
+    - {click: 'w', long_click: SyMW, swipe_up: SyMW}
+    - {click: 'e', long_click: SyME, swipe_up: SyME}
+    - {click: 'r', long_click: SyMR, swipe_up: SyMR}
+    - {click: 't', long_click: SyMT, swipe_up: SyMT}
+    - {click: 'y', long_click: SyMY, swipe_up: SyMY}
+    - {click: 'u', long_click: SyMU, swipe_up: SyMU}
+    - {click: 'i', long_click: SyMI, swipe_up: SyMI}
+    - {click: 'o', long_click: SyMO, swipe_up: SyMO}
+    - {click: 'p', long_click: SyMP, swipe_up: SyMP}
     # 第二行
-    - {click: 'q', long_click: '!'}
-    - {click: 'w', long_click: '@'}
-    - {click: 'e', long_click: '#'}
-    - {click: 'r', long_click: '$'}
-    - {click: 't', long_click: '%'}
-    - {click: 'y', long_click: '^'}
-    - {click: 'u', long_click: '&'}
-    - {click: 'i', long_click: '*'}
-    - {click: 'o', long_click: '(){Left}', swipe_left: '(', swipe_right: ')'}
-    - {click: 'p', long_click: '/'}
-    # 第三行
     - {width: 5}
-    - {click: 'a', long_click: '~'}
-    - {click: 's', long_click: '+'}
-    - {click: 'd', long_click: '-'}
-    - {click: 'f', long_click: '_'}
+    - {click: 'a', long_click: select_all, swipe_up: select_all}
+    - {click: 's', long_click: SyMS, swipe_up: SyMS}
+    - {click: 'd', long_click: liquid_keyboard_quicksentense, swipe_up: liquid_keyboard_quicksentense}
+    - {click: 'f', long_click: SyMF, swipe_up: SyMF}
     - {click: 'g', long_click: Keyboard_edit, swipe_left: Left, swipe_right: Right, swipe_up: Up, swipe_down: Down}
-    - {click: 'h', long_click: '[]{Left}', swipe_left: '[', swipe_right: ']'}
-    - {click: 'j', long_click: '{}{Left}', swipe_left: '{', swipe_right: '}'}
-    - {click: 'k', long_click: '<>{Left}', swipe_left: '<', swipe_right: '>'}
-    - {click: 'l', long_click: '“”{Left}', swipe_left: '“', swipe_right: '”'}
+    - {click: 'h', long_click: SyMH, swipe_up: SyMH}
+    - {click: 'j', long_click: SyMJ, swipe_up: SyMJ}
+    - {click: 'k', long_click: SyMK, swipe_up: SyMK, swipe_left: "(", swipe_right: ")"}
+    - {click: 'l', long_click: SyML, swipe_up: SyML, swipe_left: '“', swipe_right: '”'}
     - {width: 5}
-    # 第四行
+    # 第三行
     - {click: Shift_L, width: 15}
-    - {click: 'z', long_click: "'"}
-    - {click: 'x', long_click: cut}
-    - {click: 'c', long_click: copy}
-    - {click: 'v', long_click: paste}
-    - {click: 'b', long_click: ':'}
-    - {click: 'n', long_click: ';'}
-    - {click: 'm', long_click: '?'}
+    - {click: 'z', long_click: SyMZ, swipe_up: SyMZ}
+    - {click: 'x', long_click: cut, swipe_up: cut}
+    - {click: 'c', long_click: copy, swipe_up: copy}
+    - {click: 'v', long_click: paste, swipe_up: paste}
+    - {click: 'b', long_click: SyMB, swipe_up: SyMB}
+    - {click: 'n', long_click: SyMN, swipe_up: SyMN}
+    - {click: 'm', long_click: SyMM, swipe_up: SyMM}
     - {click: BackSpace, width: 15}
-    # 第五行
-    - {click: Keyboard_default, width: 18}
-    - {click: Keyboard_symbols1, width: 17}
-    - {click: space, width: 30}
-    - {click: ',', long_click: '.', width: 17}
-    - {click: Return, width: 18, long_click: Menu}
+    # 第四行
+    - {click: Keyboard_default, composing: Next, width: 15}
+    - {click: ",", long_click: liquid_keyboard_emoji, swipe_up: liquid_keyboard_emoji}
+    - {click: space, width: 50}
+    - {click: ".", long_click: SyMFS, swipe_up: SyMFS}
+    - {click: Return, width: 15, long_click: Menu, swipe_up: Menu, key_symbol_color: CLMKST, hilited_key_symbol_color: CLMKST}
+    #第五行
+    - {click: Keyboard_default, composing: Next, width: 15, key_text_color: CLKBB, key_back_color: CLKBB}
+    - {click: space_customlabel, width: 70, key_back_color: CLKBB}
+    - {click: Return, width: 15, key_symbol_color: CLKBB, key_text_color: CLKBB, hilited_key_symbol_color: CLKBB, key_back_color: CLKBB}
