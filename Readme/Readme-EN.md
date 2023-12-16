@@ -22,13 +22,21 @@ Pictures will update when first release is updated.
 
 ##### *.trime.yaml Files
 
-Put it in your user folder, and apply in settings. 
+Put it in Rime user dir with *_qs.yaml and select this skin in settings, then deploy your Trime. 
+
+##### *_qs.yaml
+
+Put it with *.trime.yaml . 
 
 ### Trime Assibility Version Theme
 
 ##### *.trime.yaml Files
 
-Put it in your user folder, and apply in settings. 
+Put it in Rime user dir with *_qs.yaml and select this skin in settings, then deploy your Trime. 
+
+##### *_qs.yaml
+
+Put it with *.trime.yaml . 
 
 ##### *.rime Files
 
