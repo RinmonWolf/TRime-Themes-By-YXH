@@ -274,23 +274,23 @@ preset_color_schemes:
     CKSKB_5: 0x636363
     CKSKB_HIGHLIGHT: 0x91a3b0
 
-  DZ2-1sunset:
+  zzz2-1sunset:
     name: 落日／Sunset #方案名稱
     author: YuanXH #作者資訊
-    dark_scheme: DZ2-2lastLight #暗黑模式下的配色名称
+    dark_scheme: zzz2-2lastLight #暗黑模式下的配色名称
     #配色来自www.colorhunt.co，非常感谢
     #悬浮窗口
-    border_color: 0xfff7bd #悬浮窗边框
+    border_color: 0xfee2b1 #悬浮窗边框
     label_color: 0x000000 #悬浮窗候选项序号
     hilited_text_color: 0x000000 #悬浮窗编码文字（光标左）
     text_color: 0x999999 #悬浮窗編碼文字（光标右）
-    hilited_back_color: 0xfff7bd #悬浮窗高亮編碼背景
-    text_back_color: 0xfff7bd #悬浮窗編碼區背景(拖动按钮的背景)
+    hilited_back_color: 0xfee2b1 #悬浮窗高亮編碼背景
+    text_back_color: 0xfee2b1 #悬浮窗編碼區背景(拖动按钮的背景)
     #输入面板
     #   以下为新功能
-    root_background: 0xfff7bd #键盘和候选区的整体背景
+    root_background: 0xfee2b1 #键盘和候选区的整体背景
     #候选项
-    back_color: 0xfff7bd #候選區背景
+    back_color: 0xfee2b1 #候選區背景
     hilited_candidate_back_color: 0x20000000 #高亮候選背景
     hilited_candidate_text_color: 0x000000 #高亮候選文字
     candidate_separator_color: 0xffffff #候選分割线
@@ -298,63 +298,63 @@ preset_color_schemes:
     comment_text_color: 0x505050 #候选区候选提示
     hilited_comment_text_color: 0x000000 #高亮内的提示
     #   以下为新功能
-    candidate_background: 0xfff7bd #候选区整体背景
+    candidate_background: 0xfee2b1 #候选区整体背景
     #键盘
-    key_back_color: 0xFFE247 #按鍵背景
+    key_back_color: 0xffd671 #按鍵背景
     hilited_key_back_color: 0xFFE280 #按下按鍵时的背景
     key_text_color: 0x000000 #文字按鍵文字
     hilited_key_text_color: 0x000000 #高亮按鍵文字
     key_symbol_color: 0x303030 #按鍵符號文字
     hilited_key_symbol_color: 0x303030 #高亮按鍵符號
-    preview_back_color: 0x80FFE247 #按鍵按下气泡提示背景
+    preview_back_color: 0x80ffd671 #按鍵按下气泡提示背景
     preview_text_color: 0xE6000000 #按鍵按下气泡提示文字
     shadow_color: 0xbbbbbb #按鍵文字陰影
-    keyboard_back_color: 0xfff7bd #鍵盤背景
+    keyboard_back_color: 0xfee2b1 #鍵盤背景
     liquid_keyboard_background: 0xFFEA54 #流体键盘背景
-    long_text_back_color: 0xFFE247 #包含长文本的按键背景
+    long_text_back_color: 0xffd671 #包含长文本的按键背景
     #key_border_color: 0xfbfbfb #按鍵邊框（暂无）
     #功能键
-    off_key_back_color: 0xf18170 #功能按鍵關閉狀態时背景
+    off_key_back_color: 0xff9f30 #功能按鍵關閉狀態时背景
     hilited_off_key_back_color: 0xFFE280 #按下關閉狀態的按键时背景
     off_key_text_color: 0x000000 #功能按鍵關閉狀態的文字
     hilited_off_key_text_color: 0x000000 #按下關閉狀態的按键时文字
-    on_key_back_color: 0xf18170 #功能按鍵打開狀態的背景
+    on_key_back_color: 0xff9f30 #功能按鍵打開狀態的背景
     hilited_on_key_back_color: 0xFFE290 #按下打開狀態的按鍵时背景
     on_key_text_color: 0x000000 #功能按鍵打開狀態的文字
     hilited_on_key_text_color: 0x000000 #按下打開狀態的按鍵时文字
     #其他颜色
-    CLKBB: 0xfff7bd #颜色：键盘背景
-    CLKB: 0xFFE247 #颜色：按键背景
+    CLKBB: 0xfee2b1 #颜色：键盘背景
+    CLKB: 0xffd671 #颜色：按键背景
     CLKK: 0x000000 #颜色：按键文字
     CLHKB: 0xf6f6f6 #颜色：按键高亮背景
     CLMKST: 0x000000 #颜色：功能按键符号文字
     CLO: 0x00000000 #颜色：全透明色
     CLBA65: 0x00000065 #颜色：黑色65透明
     #26键单独按键配色
-    CKSKB_1: 0xFFE247
-    CKSKB_2: 0xFFCB3F
-    CKSKB_3: 0xFFCB3C
-    CKSKB_4: 0xFEB832
-    CKSKB_5: 0xFEAA2B
-    CKSKB_HIGHLIGHT: 0xf18170
+    CKSKB_1: 0xffd671
+    CKSKB_2: 0xffd45a
+    CKSKB_3: 0xffd250
+    CKSKB_4: 0xffcc2e
+    CKSKB_5: 0xffbf1a
+    CKSKB_HIGHLIGHT: 0xff9f30
 
-  DZ2-2lastLight:
+  zzz2-2lastLight:
     name: 余晖／LastLight #方案名稱
     author: YuanXH #作者資訊
-    light_scheme: DZ2-1sunset #暗黑模式下的配色名称
+    light_scheme: zzz2-1sunset #暗黑模式下的配色名称
     #配色来自www.colorhunt.co，非常感谢
     #悬浮窗口
-    border_color: 0x411b52 #悬浮窗边框
+    border_color: 0x1b0024 #悬浮窗边框
     label_color: 0xeeeeee #悬浮窗候选项序号
     hilited_text_color: 0xeeeeee #悬浮窗编码文字（光标左）
     text_color: 0xeeeeee #悬浮窗編碼文字（光标右）
-    hilited_back_color: 0x411b52 #悬浮窗高亮編碼背景
-    text_back_color: 0x411b52 #悬浮窗編碼區背景(拖动按钮的背景)
+    hilited_back_color: 0x1b0024 #悬浮窗高亮編碼背景
+    text_back_color: 0x1b0024 #悬浮窗編碼區背景(拖动按钮的背景)
     #输入面板
     #   以下为新功能
-    root_background: 0x411b52 #键盘和候选区的整体背景
+    root_background: 0x1b0024 #键盘和候选区的整体背景
     #候选项
-    back_color: 0x411b52 #候選區背景
+    back_color: 0x1b0024 #候選區背景
     hilited_candidate_back_color: 0x20000000 #高亮候選背景
     hilited_candidate_text_color: 0xffffff #高亮候選文字
     candidate_separator_color: 0x80ffffff #候選分割线
@@ -362,7 +362,7 @@ preset_color_schemes:
     comment_text_color: 0xeeeeee #候选区候选提示
     hilited_comment_text_color: 0x000000 #高亮内的提示
     #   以下为新功能
-    candidate_background: 0x411b52 #候选区整体背景
+    candidate_background: 0x1b0024 #候选区整体背景
     #键盘
     key_back_color: 0x8b7c78 #按鍵背景
     hilited_key_back_color: 0xFFE280 #按下按鍵时的背景
@@ -370,24 +370,24 @@ preset_color_schemes:
     hilited_key_text_color: 0xffffff #高亮按鍵文字
     key_symbol_color: 0xffffff #按鍵符號文字
     hilited_key_symbol_color: 0xffffff #高亮按鍵符號
-    preview_back_color: 0x80FFE247 #按鍵按下气泡提示背景
+    preview_back_color: 0x8b7c78 #按鍵按下气泡提示背景
     preview_text_color: 0xffffff #按鍵按下气泡提示文字
     shadow_color: 0xbbbbbb #按鍵文字陰影
-    keyboard_back_color: 0x411b52 #鍵盤背景
-    liquid_keyboard_background: 0x411b52 #流体键盘背景
-    long_text_back_color: 0xFFE247 #包含长文本的按键背景
+    keyboard_back_color: 0x1b0024 #鍵盤背景
+    liquid_keyboard_background: 0x1b0024 #流体键盘背景
+    long_text_back_color: 0xffd671 #包含长文本的按键背景
     #key_border_color: 0xfbfbfb #按鍵邊框（暂无）
     #功能键
-    off_key_back_color: 0xc6b573 #功能按鍵關閉狀態时背景
+    off_key_back_color: 0x6b6563 #功能按鍵關閉狀態时背景
     hilited_off_key_back_color: 0xFFE280 #按下關閉狀態的按键时背景
     off_key_text_color: 0xffffff #功能按鍵關閉狀態的文字
     hilited_off_key_text_color: 0xffffff #按下關閉狀態的按键时文字
-    on_key_back_color: 0xc6b573 #功能按鍵打開狀態的背景
+    on_key_back_color: 0x6b6563 #功能按鍵打開狀態的背景
     hilited_on_key_back_color: 0xFFE290 #按下打開狀態的按鍵时背景
     on_key_text_color: 0xffffff #功能按鍵打開狀態的文字
     hilited_on_key_text_color: 0xffffff #按下打開狀態的按鍵时文字
     #其他颜色
-    CLKBB: 0x411b52 #颜色：键盘背景
+    CLKBB: 0x1b0024 #颜色：键盘背景
     CLKB: 0x8b7c78 #颜色：按键背景
     CLKK: 0x000000 #颜色：按键文字
     CLHKB: 0x8b7c78 #颜色：按键高亮背景
@@ -400,7 +400,7 @@ preset_color_schemes:
     CKSKB_3: 0x986a5c
     CKSKB_4: 0x7f465d
     CKSKB_5: 0x6a344a
-    CKSKB_HIGHLIGHT: 0xc6b573
+    CKSKB_HIGHLIGHT: 0x6b6563
 
 liquid_keyboard:
   # 目前只能直接写参数，不支持变量或者fallback机制。
