@@ -4,7 +4,7 @@
 config_version: "3.0"
 name: huxinting #方案名稱
 author: YuanXH #作者資訊
-# version: 240520
+# version: 240522
 # Modify from trime default theme
 
 style: # 界面样式及特色功能
@@ -26,6 +26,7 @@ style: # 界面样式及特色功能
       symbols1,
       symbols2,
       jiugong,
+      number_jiugong_withback,
       xhyx,
       defwithback,
     ] #键盘配置:所有键盘的键盘名
@@ -74,12 +75,12 @@ style: # 界面样式及特色功能
   #悬浮窗口
   layout: #懸浮窗口設置
     position: fixed #位置：left|right|left_up|right_up|fixed|bottom_left|bottom_right|top_left|top_right(left、right需要>=Android5.0)
-    min_length: 10 #最小詞長
+    min_length: 100 #最小詞長
     max_length: 10 #超過字數則換行
     sticky_lines: 0 #固頂行數
     sticky_lines_land: 0 #横屏模式下的固顶行数
     max_entries: 0 #最大詞條數
-    min_check: 3 #只要前n个候选词有长度大于等于min_length的词，就会把长度符合以及之前的词全部加到悬浮窗内。
+    min_check: 0 #只要前n个候选词有长度大于等于min_length的词，就会把长度符合以及之前的词全部加到悬浮窗内。
     all_phrases: false #所有滿足條件的詞語都顯示在窗口
     border: 2 #邊框寬度
     max_width: 270 #最大寬度，超過則自動換行
@@ -98,16 +99,26 @@ style: # 界面样式及特色功能
     elevation: 0 #陰影(>=Android5.0)
     movable: once #是否可移動窗口，或僅移動一次 true|false|once
   window: #懸浮窗口組件
-    - { start: "", move: "😾", end: "" } #start表示一行开始，填充\n表示换行
+    - { start: "", move: "🐱", end: "" } #start表示一行开始，填充\n表示换行
     - { start: "", composition: "%s", end: "", letter_spacing: 0 } #letter_spacing需要>=Android5.0。TODO: 不爲0時，會導致不換行的問題
     #- {start: "\n", label: "%s.", candidate: "%s", comment: " %s", end: "", sep: " "} #显示候选项，一个可以生效多行
+    #- { start: "", click: "liquid_keyboard_candidate", label: "▾" }
   #其他
+  enter_label_mode: 3 #是否使用App提供的ActionLabel内容作为Enter键的文本（由于多数App没有适配ActionLable，实际影响不大）。0不使用，1只使用actionlabel，2优先使用，3当其他方式没有获得label时才读取actionlabel
+  enter_labels: # 定义Enter键的文本
+    go: "🔜"
+    done: "🆗"
+    next: "🔽"
+    pre: "🔼"
+    search: "🔍"
+    send: "✅"
+    default: "↩" # 定义默认Enter键的文本
   background_dim_amount: 0.5
-  color_scheme: default #配色方案
+  color_scheme: color1-1Default #配色方案
   #text_height: 22 #編碼區高度
   long_text_font: comment.ttf #剪贴板等可能包含大段文本使用的字体
   # background_folder: huxinting #背景图保存在background目录下的哪个子目录
-  key_long_text_border: 1
+  key_long_text_border: 1;
 
 fallback_colors:
   candidate_text_color: text_color
@@ -147,10 +158,10 @@ fallback_colors:
   long_text_back_color: key_back_color #长文本按键的背景(剪贴板）
 
 preset_color_schemes:
-  default:
+  color1-1Default:
     name: 一方／Light #方案名稱
     author: YuanXH #作者資訊
-    dark_scheme: DZ1-2default_dark #暗黑模式下的配色名称
+    dark_scheme: color1-2defaultDark #暗黑模式下的配色名称
     #配色来自www.colorhunt.co，非常感谢
     #悬浮窗口
     border_color: 0xF2F2F2 #悬浮窗边框
@@ -211,10 +222,10 @@ preset_color_schemes:
     CKSKB_5: 0xFFFFFF
     CKSKB_HIGHLIGHT: 0xD6E6F2
 
-  DZ1-2default_dark:
-    name: 眠／Soft Dark #方案名稱
+  color1-2DefaultDark:
+    name: 静眠／Soft Dark #方案名稱
     author: YuanXH #作者資訊
-    light_scheme: default #明亮模式下的配色名称
+    light_scheme: color1-1Default #明亮模式下的配色名称
     #悬浮窗口
     border_color: 0x464646 #悬浮窗边框
     label_color: 0xDBDBDB #悬浮窗候选项序号
@@ -274,10 +285,10 @@ preset_color_schemes:
     CKSKB_5: 0x636363
     CKSKB_HIGHLIGHT: 0x91a3b0
 
-  zzz2-1sunset:
-    name: 落日／Sunset #方案名稱
+  color2-1Sunrise:
+    name: 日升／Sunrise #方案名稱
     author: YuanXH #作者資訊
-    dark_scheme: zzz2-2lastLight #暗黑模式下的配色名称
+    dark_scheme: color2-2Afterglow #暗黑模式下的配色名称
     #配色来自www.colorhunt.co，非常感谢
     #悬浮窗口
     border_color: 0xfee2b1 #悬浮窗边框
@@ -300,8 +311,8 @@ preset_color_schemes:
     #   以下为新功能
     candidate_background: 0xfee2b1 #候选区整体背景
     #键盘
-    key_back_color: 0xffd671 #按鍵背景
-    hilited_key_back_color: 0xFFE280 #按下按鍵时的背景
+    key_back_color: 0xaaffd671 #按鍵背景
+    hilited_key_back_color: 0xaaFFE280 #按下按鍵时的背景
     key_text_color: 0x000000 #文字按鍵文字
     hilited_key_text_color: 0x000000 #高亮按鍵文字
     key_symbol_color: 0x303030 #按鍵符號文字
@@ -311,7 +322,7 @@ preset_color_schemes:
     shadow_color: 0xbbbbbb #按鍵文字陰影
     keyboard_back_color: 0xfee2b1 #鍵盤背景
     liquid_keyboard_background: 0xFFEA54 #流体键盘背景
-    long_text_back_color: 0xffd671 #包含长文本的按键背景
+    long_text_back_color: 0xaaffd671 #包含长文本的按键背景
     #key_border_color: 0xfbfbfb #按鍵邊框（暂无）
     #功能键
     off_key_back_color: 0xff9f30 #功能按鍵關閉狀態时背景
@@ -324,24 +335,24 @@ preset_color_schemes:
     hilited_on_key_text_color: 0x000000 #按下打開狀態的按鍵时文字
     #其他颜色
     CLKBB: 0xfee2b1 #颜色：键盘背景
-    CLKB: 0xffd671 #颜色：按键背景
+    CLKB: 0xaaffd671 #颜色：按键背景
     CLKK: 0x000000 #颜色：按键文字
-    CLHKB: 0xf6f6f6 #颜色：按键高亮背景
+    CLHKB: 0xaaf6f6f6 #颜色：按键高亮背景
     CLMKST: 0x000000 #颜色：功能按键符号文字
     CLO: 0x00000000 #颜色：全透明色
     CLBA65: 0x00000065 #颜色：黑色65透明
     #26键单独按键配色
-    CKSKB_1: 0xffd671
-    CKSKB_2: 0xffd45a
-    CKSKB_3: 0xffd250
-    CKSKB_4: 0xffcc2e
-    CKSKB_5: 0xffbf1a
-    CKSKB_HIGHLIGHT: 0xff9f30
+    CKSKB_1: 0xaaffd671
+    CKSKB_2: 0xaaffd45a
+    CKSKB_3: 0xaaffd250
+    CKSKB_4: 0xaaffcc2e
+    CKSKB_5: 0xaaffbf1a
+    CKSKB_HIGHLIGHT: 0xaaff9f30
 
-  zzz2-2lastLight:
-    name: 余晖／LastLight #方案名稱
+  color2-2Afterglow:
+    name: 余晖／Afterglow #方案名稱
     author: YuanXH #作者資訊
-    light_scheme: zzz2-1sunset #暗黑模式下的配色名称
+    light_scheme: color2-1Sunrise #暗黑模式下的配色名称
     #配色来自www.colorhunt.co，非常感谢
     #悬浮窗口
     border_color: 0x1b0024 #悬浮窗边框
@@ -364,43 +375,299 @@ preset_color_schemes:
     #   以下为新功能
     candidate_background: 0x1b0024 #候选区整体背景
     #键盘
-    key_back_color: 0x8b7c78 #按鍵背景
-    hilited_key_back_color: 0xFFE280 #按下按鍵时的背景
+    key_back_color: 0xaa8b7c78 #按鍵背景
+    hilited_key_back_color: 0xaa8b7c78 #按下按鍵时的背景
     key_text_color: 0xffffff #文字按鍵文字
     hilited_key_text_color: 0xffffff #高亮按鍵文字
     key_symbol_color: 0xffffff #按鍵符號文字
     hilited_key_symbol_color: 0xffffff #高亮按鍵符號
-    preview_back_color: 0x8b7c78 #按鍵按下气泡提示背景
+    preview_back_color: 0xaa8b7c78 #按鍵按下气泡提示背景
     preview_text_color: 0xffffff #按鍵按下气泡提示文字
     shadow_color: 0xbbbbbb #按鍵文字陰影
     keyboard_back_color: 0x1b0024 #鍵盤背景
     liquid_keyboard_background: 0x1b0024 #流体键盘背景
-    long_text_back_color: 0xffd671 #包含长文本的按键背景
+    long_text_back_color: 0xaa8b7c78 #包含长文本的按键背景
     #key_border_color: 0xfbfbfb #按鍵邊框（暂无）
     #功能键
-    off_key_back_color: 0x6b6563 #功能按鍵關閉狀態时背景
-    hilited_off_key_back_color: 0xFFE280 #按下關閉狀態的按键时背景
+    off_key_back_color: 0xaa8b7c78 #功能按鍵關閉狀態时背景
+    hilited_off_key_back_color: 0xaa8b7c78 #按下關閉狀態的按键时背景
     off_key_text_color: 0xffffff #功能按鍵關閉狀態的文字
     hilited_off_key_text_color: 0xffffff #按下關閉狀態的按键时文字
-    on_key_back_color: 0x6b6563 #功能按鍵打開狀態的背景
-    hilited_on_key_back_color: 0xFFE290 #按下打開狀態的按鍵时背景
+    on_key_back_color: 0xaa6b6563 #功能按鍵打開狀態的背景
+    hilited_on_key_back_color: 0xaa8b7c78 #按下打開狀態的按鍵时背景
     on_key_text_color: 0xffffff #功能按鍵打開狀態的文字
     hilited_on_key_text_color: 0xffffff #按下打開狀態的按鍵时文字
     #其他颜色
     CLKBB: 0x1b0024 #颜色：键盘背景
-    CLKB: 0x8b7c78 #颜色：按键背景
+    CLKB: 0xaa8b7c78 #颜色：按键背景
+    CLKK: 0xffffff #颜色：按键文字
+    CLHKB: 0xaa8b7c78 #颜色：按键高亮背景
+    CLMKST: 0xffffff #颜色：功能按键符号文字
+    CLO: 0x00000000 #颜色：全透明色
+    CLBA65: 0x00000065 #颜色：黑色65透明
+    #26键单独按键配色
+    CKSKB_1: 0xaa8b7c78
+    CKSKB_2: 0xaa947a71
+    CKSKB_3: 0xaa986a5c
+    CKSKB_4: 0xaa7f465d
+    CKSKB_5: 0xaa6a344a
+    CKSKB_HIGHLIGHT: 0xaa6b6563
+
+  color3-1GreenForever:
+    name: 常青／GreenForever #方案名稱
+    author: YuanXH #作者資訊
+    dark_scheme: color3-2DarkFire #暗黑模式下的配色名称
+    #配色来自www.colorhunt.co，非常感谢
+    #悬浮窗口
+    border_color: 0xb7e291 #悬浮窗边框
+    label_color: 0x000000 #悬浮窗候选项序号
+    hilited_text_color: 0x000000 #悬浮窗编码文字（光标左）
+    text_color: 0x999999 #悬浮窗編碼文字（光标右）
+    hilited_back_color: 0xb7e291 #悬浮窗高亮編碼背景
+    text_back_color: 0xb7e291 #悬浮窗編碼區背景(拖动按钮的背景)
+    #输入面板
+    #   以下为新功能
+    root_background: 0xb7e291 #键盘和候选区的整体背景
+    #候选项
+    back_color: 0xb7e291 #候選區背景
+    hilited_candidate_back_color: 0x20000000 #高亮候選背景
+    hilited_candidate_text_color: 0x000000 #高亮候選文字
+    candidate_separator_color: 0xffffff #候選分割线
+    candidate_text_color: 0x505050 #其他候選文字
+    comment_text_color: 0x505050 #候选区候选提示
+    hilited_comment_text_color: 0x000000 #高亮内的提示
+    #   以下为新功能
+    candidate_background: 0xb7e291 #候选区整体背景
+    #键盘
+    key_back_color: 0xaaacd18e #按鍵背景
+    hilited_key_back_color: 0xaaFFE280 #按下按鍵时的背景
+    key_text_color: 0x000000 #文字按鍵文字
+    hilited_key_text_color: 0x000000 #高亮按鍵文字
+    key_symbol_color: 0x303030 #按鍵符號文字
+    hilited_key_symbol_color: 0x303030 #高亮按鍵符號
+    preview_back_color: 0x80acd18e #按鍵按下气泡提示背景
+    preview_text_color: 0xE6000000 #按鍵按下气泡提示文字
+    shadow_color: 0xbbbbbb #按鍵文字陰影
+    keyboard_back_color: 0xb7e291 #鍵盤背景
+    liquid_keyboard_background: 0xFFEA54 #流体键盘背景
+    long_text_back_color: 0xaaacd18e #包含长文本的按键背景
+    #key_border_color: 0xfbfbfb #按鍵邊框（暂无）
+    #功能键
+    off_key_back_color: 0xaa409520 #功能按鍵關閉狀態时背景
+    hilited_off_key_back_color: 0xFFE280 #按下關閉狀態的按键时背景
+    off_key_text_color: 0x000000 #功能按鍵關閉狀態的文字
+    hilited_off_key_text_color: 0x000000 #按下關閉狀態的按键时文字
+    on_key_back_color: 0xaa409520 #功能按鍵打開狀態的背景
+    hilited_on_key_back_color: 0xFFE290 #按下打開狀態的按鍵时背景
+    on_key_text_color: 0x000000 #功能按鍵打開狀態的文字
+    hilited_on_key_text_color: 0x000000 #按下打開狀態的按鍵时文字
+    #其他颜色
+    CLKBB: 0xb7e291 #颜色：键盘背景
+    CLKB: 0xaaacd18e #颜色：按键背景
     CLKK: 0x000000 #颜色：按键文字
-    CLHKB: 0x8b7c78 #颜色：按键高亮背景
+    CLHKB: 0xaaf6f6f6 #颜色：按键高亮背景
     CLMKST: 0x000000 #颜色：功能按键符号文字
     CLO: 0x00000000 #颜色：全透明色
     CLBA65: 0x00000065 #颜色：黑色65透明
     #26键单独按键配色
-    CKSKB_1: 0x8b7c78
-    CKSKB_2: 0x947a71
-    CKSKB_3: 0x986a5c
-    CKSKB_4: 0x7f465d
-    CKSKB_5: 0x6a344a
-    CKSKB_HIGHLIGHT: 0x6b6563
+    CKSKB_1: 0xaaacd18e
+    CKSKB_2: 0xaaa1c982
+    CKSKB_3: 0xaa8bba6f
+    CKSKB_4: 0xaa6aa54d
+    CKSKB_5: 0xaa358020
+    CKSKB_HIGHLIGHT: 0xaa409520
+
+  color3-2DarkFire:
+    name: 暗焰／DarkFire #方案名稱
+    author: YuanXH #作者資訊
+    light_scheme: color3-1GreenForever #暗黑模式下的配色名称
+    #配色来自www.colorhunt.co，非常感谢
+    #悬浮窗口
+    border_color: 0x160418 #悬浮窗边框
+    label_color: 0xeeeeee #悬浮窗候选项序号
+    hilited_text_color: 0xeeeeee #悬浮窗编码文字（光标左）
+    text_color: 0xeeeeee #悬浮窗編碼文字（光标右）
+    hilited_back_color: 0x160418 #悬浮窗高亮編碼背景
+    text_back_color: 0x160418 #悬浮窗編碼區背景(拖动按钮的背景)
+    #输入面板
+    #   以下为新功能
+    root_background: 0x160418 #键盘和候选区的整体背景
+    #候选项
+    back_color: 0x160418 #候選區背景
+    hilited_candidate_back_color: 0x20000000 #高亮候選背景
+    hilited_candidate_text_color: 0xffffff #高亮候選文字
+    candidate_separator_color: 0x80ffffff #候選分割线
+    candidate_text_color: 0xeeeeee #其他候選文字
+    comment_text_color: 0xeeeeee #候选区候选提示
+    hilited_comment_text_color: 0x000000 #高亮内的提示
+    #   以下为新功能
+    candidate_background: 0x160418 #候选区整体背景
+    #键盘
+    key_back_color: 0xaaa25d6d #按鍵背景
+    hilited_key_back_color: 0xaaa25d6d #按下按鍵时的背景
+    key_text_color: 0xffffff #文字按鍵文字
+    hilited_key_text_color: 0xffffff #高亮按鍵文字
+    key_symbol_color: 0xffffff #按鍵符號文字
+    hilited_key_symbol_color: 0xffffff #高亮按鍵符號
+    preview_back_color: 0xaaa25d6d #按鍵按下气泡提示背景
+    preview_text_color: 0xffffff #按鍵按下气泡提示文字
+    shadow_color: 0xbbbbbb #按鍵文字陰影
+    keyboard_back_color: 0x160418 #鍵盤背景
+    liquid_keyboard_background: 0x160418 #流体键盘背景
+    long_text_back_color: 0xaaa25d6d #包含长文本的按键背景
+    #key_border_color: 0xfbfbfb #按鍵邊框（暂无）
+    #功能键
+    off_key_back_color: 0xaae34a34 #功能按鍵關閉狀態时背景
+    hilited_off_key_back_color: 0xaaa25d6d #按下關閉狀態的按键时背景
+    off_key_text_color: 0xffffff #功能按鍵關閉狀態的文字
+    hilited_off_key_text_color: 0xffffff #按下關閉狀態的按键时文字
+    on_key_back_color: 0xaae34a34 #功能按鍵打開狀態的背景
+    hilited_on_key_back_color: 0xaaa25d6d #按下打開狀態的按鍵时背景
+    on_key_text_color: 0xffffff #功能按鍵打開狀態的文字
+    hilited_on_key_text_color: 0xffffff #按下打開狀態的按鍵时文字
+    #其他颜色
+    CLKBB: 0x160418 #颜色：键盘背景
+    CLKB: 0xaaa25d6d #颜色：按键背景
+    CLKK: 0xffffff #颜色：按键文字
+    CLHKB: 0xaaa25d6d #颜色：按键高亮背景
+    CLMKST: 0xffffff #颜色：功能按键符号文字
+    CLO: 0x00000000 #颜色：全透明色
+    CLBA65: 0x00000065 #颜色：黑色65透明
+    #26键单独按键配色
+    CKSKB_1: 0xaaa25d6d
+    CKSKB_2: 0xaaa05064
+    CKSKB_3: 0xaaa1445b
+    CKSKB_4: 0xaaa53a56
+    CKSKB_5: 0xaaab294c
+    CKSKB_HIGHLIGHT: 0xaae34a34
+
+  color4-1Yep:
+    name: 黄跃／Yep #方案名稱
+    author: YuanXH #作者資訊
+    dark_scheme: color4-2YepNight #暗黑模式下的配色名称
+    #配色来自www.colorhunt.co，非常感谢
+    #悬浮窗口
+    border_color: 0xFAFAF3 #悬浮窗边框
+    label_color: 0x000000 #悬浮窗候选项序号
+    hilited_text_color: 0x000000 #悬浮窗编码文字（光标左）
+    text_color: 0x999999 #悬浮窗編碼文字（光标右）
+    hilited_back_color: 0xFAFAF3 #悬浮窗高亮編碼背景
+    text_back_color: 0xFAFAF3 #悬浮窗編碼區背景(拖动按钮的背景)
+    #输入面板
+    #   以下为新功能
+    root_background: 0xFAFAF3 #键盘和候选区的整体背景
+    #候选项
+    back_color: 0xFAFAF3 #候選區背景
+    hilited_candidate_back_color: 0x20000000 #高亮候選背景
+    hilited_candidate_text_color: 0x000000 #高亮候選文字
+    candidate_separator_color: 0xFAEBCD #候選分割线
+    candidate_text_color: 0x505050 #其他候選文字
+    comment_text_color: 0x505050 #候选区候选提示
+    hilited_comment_text_color: 0x000000 #高亮内的提示
+    #   以下为新功能
+    candidate_background: 0xFAFAF3 #候选区整体背景
+    #键盘
+    key_back_color: 0xFAEBCD #按鍵背景
+    hilited_key_back_color: 0xf6f6f6 #按下按鍵时的背景
+    key_text_color: 0x000000 #文字按鍵文字
+    hilited_key_text_color: 0x000000 #高亮按鍵文字
+    key_symbol_color: 0x303030 #按鍵符號文字
+    hilited_key_symbol_color: 0x303030 #高亮按鍵符號
+    preview_back_color: 0xE6F0F0F0 #按鍵按下气泡提示背景
+    preview_text_color: 0xE6000000 #按鍵按下气泡提示文字
+    shadow_color: 0xbbbbbb #按鍵文字陰影
+    keyboard_back_color: 0xFAFAF3 #鍵盤背景
+    liquid_keyboard_background: 0xFAFAF3 #流体键盘背景
+    long_text_back_color: 0xFAEBCD #包含长文本的按键背景
+    #key_border_color: 0xfbfbfb #按鍵邊框（暂无）
+    #功能键
+    off_key_back_color: 0xF7C873 #功能按鍵關閉狀態时背景
+    hilited_off_key_back_color: 0x769FCD #按下關閉狀態的按键时背景
+    off_key_text_color: 0x000000 #功能按鍵關閉狀態的文字
+    hilited_off_key_text_color: 0x000000 #按下關閉狀態的按键时文字
+    on_key_back_color: 0xB9D7EA #功能按鍵打開狀態的背景
+    hilited_on_key_back_color: 0x769FCD #按下打開狀態的按鍵时背景
+    on_key_text_color: 0x000000 #功能按鍵打開狀態的文字
+    hilited_on_key_text_color: 0x000000 #按下打開狀態的按鍵时文字
+    #其他颜色
+    CLKBB: 0xFAFAF3 #颜色：键盘背景
+    CLKB: 0xFAEBCD #颜色：按键背景
+    CLKK: 0x000000 #颜色：按键文字
+    CLHKB: 0xf6f6f6 #颜色：按键高亮背景
+    CLMKST: 0x000000 #颜色：功能按键符号文字
+    CLO: 0x00000000 #颜色：全透明色
+    CLBA65: 0x00000065 #颜色：黑色65透明
+    #26键单独按键配色
+    CKSKB_1: 0xFAEBCD
+    CKSKB_2: 0xFAEBCD
+    CKSKB_3: 0xFAEBCD
+    CKSKB_4: 0xFAEBCD
+    CKSKB_5: 0xFAEBCD
+    CKSKB_HIGHLIGHT: 0xF7C873
+
+  color4-2YepNight:
+    name: 暗黄／Yep Night #方案名稱
+    author: YuanXH #作者資訊
+    light_scheme: color3-1GreenForever #暗黑模式下的配色名称
+    #配色来自www.colorhunt.co，非常感谢
+    #悬浮窗口
+    border_color: 0x202020 #悬浮窗边框
+    label_color: 0xeeeeee #悬浮窗候选项序号
+    hilited_text_color: 0xeeeeee #悬浮窗编码文字（光标左）
+    text_color: 0xeeeeee #悬浮窗編碼文字（光标右）
+    hilited_back_color: 0x202020 #悬浮窗高亮編碼背景
+    text_back_color: 0x202020 #悬浮窗編碼區背景(拖动按钮的背景)
+    #输入面板
+    #   以下为新功能
+    root_background: 0x202020 #键盘和候选区的整体背景
+    #候选项
+    back_color: 0x202020 #候選區背景
+    hilited_candidate_back_color: 0x20000000 #高亮候選背景
+    hilited_candidate_text_color: 0xffffff #高亮候選文字
+    candidate_separator_color: 0x80ffffff #候選分割线
+    candidate_text_color: 0xeeeeee #其他候選文字
+    comment_text_color: 0xeeeeee #候选区候选提示
+    hilited_comment_text_color: 0x000000 #高亮内的提示
+    #   以下为新功能
+    candidate_background: 0x202020 #候选区整体背景
+    #键盘
+    key_back_color: 0x55FAEBCD #按鍵背景
+    hilited_key_back_color: 0x55FAEBCD #按下按鍵时的背景
+    key_text_color: 0xffffff #文字按鍵文字
+    hilited_key_text_color: 0xffffff #高亮按鍵文字
+    key_symbol_color: 0xffffff #按鍵符號文字
+    hilited_key_symbol_color: 0xffffff #高亮按鍵符號
+    preview_back_color: 0x55FAEBCD #按鍵按下气泡提示背景
+    preview_text_color: 0xffffff #按鍵按下气泡提示文字
+    shadow_color: 0xbbbbbb #按鍵文字陰影
+    keyboard_back_color: 0x202020 #鍵盤背景
+    liquid_keyboard_background: 0x202020 #流体键盘背景
+    long_text_back_color: 0x55FAEBCD #包含长文本的按键背景
+    #key_border_color: 0xfbfbfb #按鍵邊框（暂无）
+    #功能键
+    off_key_back_color: 0xCCF7C873 #功能按鍵關閉狀態时背景
+    hilited_off_key_back_color: 0x55FAEBCD #按下關閉狀態的按键时背景
+    off_key_text_color: 0xffffff #功能按鍵關閉狀態的文字
+    hilited_off_key_text_color: 0xffffff #按下關閉狀態的按键时文字
+    on_key_back_color: 0xCCF7C873 #功能按鍵打開狀態的背景
+    hilited_on_key_back_color: 0x55FAEBCD #按下打開狀態的按鍵时背景
+    on_key_text_color: 0xffffff #功能按鍵打開狀態的文字
+    hilited_on_key_text_color: 0xffffff #按下打開狀態的按鍵时文字
+    #其他颜色
+    CLKBB: 0x202020 #颜色：键盘背景
+    CLKB: 0x55FAEBCD #颜色：按键背景
+    CLKK: 0xffffff #颜色：按键文字
+    CLHKB: 0x55FAEBCD #颜色：按键高亮背景
+    CLMKST: 0xffffff #颜色：功能按键符号文字
+    CLO: 0x00000000 #颜色：全透明色
+    CLBA65: 0x00000065 #颜色：黑色65透明
+    #26键单独按键配色
+    CKSKB_1: 0x55FAEBCD
+    CKSKB_2: 0x55FAEBCD
+    CKSKB_3: 0x55FAEBCD
+    CKSKB_4: 0x55FAEBCD
+    CKSKB_5: 0x55FAEBCD
+    CKSKB_HIGHLIGHT: 0xCCF7C873
 
 liquid_keyboard:
   # 目前只能直接写参数，不支持变量或者fallback机制。
@@ -411,15 +678,15 @@ liquid_keyboard:
   key_height: 40 #按键高度
   key_height_land: 40 #横屏模式按键高度
   single_width: 60 #single类型的按键宽度
-  vertical_gap: 1 #纵向按键间隙
-  margin_x: 0.5 #左右按键间隙的1/2
+  vertical_gap: 10 #纵向按键间隙
+  margin_x: 1 #左右按键间隙的1/2
   fixed_key_bar: # 固定按键条
     position: right # 摆放位置（在滚动区域的……） top|bottom|left|right
     keys: # 按键（显示名称为对应的label，不能放太多）
-      - liquid_keyboard_switch
+      - liquid_keyboard_switch_Single
       - space_nolabel3
-      - BackSpace_DoubleBlockWordVer
-      - Return_DoubleBlockWordVer
+      - BackSpace_Single
+      - Return_Single
       - liquid_keyboard_exit
   keyboards: [
       history,
@@ -454,17 +721,11 @@ liquid_keyboard:
       yanwenzi,
       script_symbols,
       combing,
+      tabs,
     ] #tab列表
-  exit:
-    name: 返回
-    type: NO_KEY
-    keys: EXIT
   tabs:
     name: 更多
     type: TABS
-  new:
-    name: 新行 #此类型不显示在候选栏中，但是打开“更多”TAB时，下一个按键会换行
-    type: NEW_ROW
   candidate:
     name: 候选
     type: CANDIDATE
@@ -817,10 +1078,11 @@ android_keys:
 preset_keys:
   # 編輯
   Shift_L: { label: Shift, send: Shift_L, shift_lock: ascii_long }
-  Return: { label: Enter, send: Return }
-  Return_DoubleBlockWordVer: { label: 回车, send: Return }
+  Return: { label: ↩, send: Return }
+  Return_Single: { label: " ↩ ", send: Return }
   Hide: { label: 隐藏, send: BACK }
   BackSpace: { label: ⌫, repeatable: true, send: BackSpace }
+  BackSpace_Single: { label: " ⌫ ", repeatable: true, send: BackSpace }
   BackSpace_DoubleBlockWordVer:
     { label: 退格, repeatable: true, send: BackSpace }
   space: { repeatable: false, functional: false, send: space }
@@ -829,9 +1091,14 @@ preset_keys:
   space_nolabel2:
     { label: " ", repeatable: false, functional: false, send: space }
   space_nolabel3:
-    { label: "空格", repeatable: false, functional: false, send: space }
+    { label: " ＿ ", repeatable: false, functional: false, send: space }
   space_customlabel:
-    { label: " ", repeatable: false, functional: false, send: space }
+    {
+      label: "但行好事/莫问前程",
+      repeatable: false,
+      functional: false,
+      send: space,
+    }
   Escape: { label: Esc, send: Escape }
   Home: { label: 行首, send: Home }
   Insert: { label: 插入, send: Insert }
@@ -886,6 +1153,7 @@ preset_keys:
   Menu: { label: 菜单, send: Menu }
   Settings: { label: 设定, send: SETTINGS }
   Color_settings: { label: 配色, send: SETTINGS, option: "color" }
+  Color_settings_SingleBlock: { label: 🎨, send: SETTINGS, option: "color" }
   Theme_settings: { label: 主题, send: SETTINGS, option: "theme" }
   Schema_settings: { label: 方案, send: SETTINGS, option: "schema" }
   Candidate_switch:
@@ -899,15 +1167,17 @@ preset_keys:
   Keyboard_symbols1: { label: "?123", send: Eisu_toggle, select: symbols1 }
   Keyboard_symbols2: { label: "=/<", send: Eisu_toggle, select: symbols2 }
   Keyboard_number: { label: 123, send: Eisu_toggle, select: number }
-  Keyboard_jiugong_number:
-    { label: 123, send: Eisu_toggle, select: jiugong_number }
+  Keyboard_number_jiugong_withback:
+    { label: 123, send: Eisu_toggle, select: number_jiugong_withback }
   Keyboard_defwithback: { label: ABC, send: Eisu_toggle, select: defwithback }
   Keyboard_edit:
     { label: 编辑, functional: false, send: Eisu_toggle, select: edit_board }
   liquid_keyboard_switch:
     { label: 更多, send: function, command: liquid_keyboard, option: "更多" }
+  liquid_keyboard_switch_Single:
+    { label: " … ", send: function, command: liquid_keyboard, option: "更多" }
   liquid_keyboard_exit: {
-      label: 返回,
+      label: " ∷ ",
       send: function,
       command: liquid_keyboard,
       option: "-1",
@@ -918,8 +1188,12 @@ preset_keys:
     { label: " 😊 ", send: function, command: liquid_keyboard, option: "表情" }
   liquid_keyboard_clipboard:
     { label: 剪贴, send: function, command: liquid_keyboard, option: "剪贴" }
+  liquid_keyboard_clipboard_singleblock:
+    { label: 📝, send: function, command: liquid_keyboard, option: "剪贴" }
   liquid_keyboard_quicksentense:
     { label: 快捷, send: function, command: liquid_keyboard, option: "快捷" }
+  liquid_keyboard_candidate:
+    { label: ✎, send: function, command: liquid_keyboard, option: "候选" }
   # 地球拼音声调
   s1: { text: ";", label: "ˉ", description: 一声 } #一聲
   s2: { text: "/", label: "ˊ", description: 二声 } #二聲
@@ -1101,7 +1375,7 @@ preset_keyboards:
         }
       - { width: 5 }
       # 第三行
-      - { click: Shift_L, width: 15 }
+      - { click: Shift_L, width: 15, key_back_color: CKSKB_1 }
       - {
           click: "z",
           long_click: SyMZ,
@@ -1139,7 +1413,7 @@ preset_keyboards:
           swipe_up: SyMM,
           key_back_color: CKSKB_2,
         }
-      - { click: BackSpace, width: 15 }
+      - { click: BackSpace, width: 15, key_back_color: CKSKB_1 }
       # 第四行
       - { click: Keyboard_symbols1, composing: Next, width: 15 }
       - {
@@ -1147,7 +1421,7 @@ preset_keyboards:
           long_click: liquid_keyboard_emoji,
           swipe_up: liquid_keyboard_emoji,
         }
-      - { click: space, width: 50 }
+      - { click: space, width: 50, key_back_color: CKSKB_4 }
       - { click: ".", long_click: SyMFS, swipe_up: SyMFS }
       - {
           click: Return,
@@ -1159,19 +1433,17 @@ preset_keyboards:
         }
       #第五行
       - {
-          click: Keyboard_symbols1,
-          composing: Next,
+          click: liquid_keyboard_clipboard_singleblock,
           width: 15,
-          key_text_color: CLKBB,
           key_back_color: CLKBB,
         }
-      - { click: space_customlabel, width: 70, key_back_color: CLKBB }
+      - { click: Left, key_back_color: CLKBB }
+      - { click: space_customlabel, width: 50, key_back_color: CLKBB }
+      - { click: Right, key_back_color: CLKBB }
       - {
-          click: Return,
+          click: Color_settings_SingleBlock,
+          composing: liquid_keyboard_candidate,
           width: 15,
-          key_symbol_color: CLKBB,
-          key_text_color: CLKBB,
-          hilited_key_symbol_color: CLKBB,
           key_back_color: CLKBB,
         }
 
@@ -1179,51 +1451,60 @@ preset_keyboards:
     author: flypy.com
     name: "编辑键盘"
     ascii_mode: 0
-    width: 20
+    width: 22
     height: 60
     vertical_gap: 10 #鍵盤行距
     keys:
-      - { click: select_all }
+      - { click: select_all, width: 17 }
       - { click: Page_Up, key_back_color: CLKB, hilited_key_back_color: CLHKB }
-      - { click: Up, key_back_color: CLKB, hilited_key_back_color: CLHKB }
+      - { click: Up, key_back_color: CKSKB_4, hilited_key_back_color: CLHKB }
       - {
           click: Page_Down,
           key_back_color: CLKB,
           hilited_key_back_color: CLHKB,
         }
-      - { click: liquid_keyboard_emoji }
-      - { click: cut, key_back_color: CLKB, hilited_key_back_color: CLHKB }
-      - { click: Left, key_back_color: CLKB, hilited_key_back_color: CLHKB }
+      - { click: liquid_keyboard_emoji, width: 17 }
+      - {
+          click: cut,
+          key_back_color: CLKB,
+          hilited_key_back_color: CLHKB,
+          width: 17,
+        }
+      - { click: Left, key_back_color: CKSKB_4 }
       - {
           click: Shift_L,
           label: 选择,
-          key_back_color: CLKB,
           hilited_key_back_color: CLHKB,
+          key_back_color: CKSKB_5,
         }
-      - { click: Right, key_back_color: CLKB, hilited_key_back_color: CLHKB }
+      - { click: Right, key_back_color: CKSKB_4, hilited_key_back_color: CLHKB }
       - {
-          click: liquid_keyboard_clipboard,
+          click: liquid_keyboard_clipboard_singleblock,
           key_back_color: CLKB,
           hilited_key_back_color: CLHKB,
+          width: 17,
         }
-      - { click: copy }
+      - { click: copy, width: 17 }
       - { click: Home, key_back_color: CLKB, hilited_key_back_color: CLHKB }
-      - { click: Down, key_back_color: CLKB, hilited_key_back_color: CLHKB }
+      - { click: Down, key_back_color: CKSKB_4, hilited_key_back_color: CLHKB }
       - { click: End, key_back_color: CLKB, hilited_key_back_color: CLHKB }
-      - { click: BackSpace }
-      - { click: paste }
+      - { click: BackSpace, width: 17 }
+      - { click: paste, width: 17 }
       - { click: undo }
       - { click: Clear, key_back_color: CLKB, hilited_key_back_color: CLHKB }
       - { click: redo }
-      - { click: Keyboard_default }
+      - { click: Keyboard_default, width: 17 }
       #第五行
-      - { click: paste, key_text_color: CLKBB, key_back_color: CLKBB }
-      - { click: undo, key_text_color: CLKBB, key_back_color: CLKBB }
-      - { click: Clear, key_text_color: CLKBB, key_back_color: CLKBB }
-      - { click: redo, key_text_color: CLKBB, key_back_color: CLKBB }
       - {
-          click: Keyboard_default,
-          key_text_color: CLKBB,
+          click: liquid_keyboard_clipboard_singleblock,
+          width: 15,
+          key_back_color: CLKBB,
+        }
+      - { click: space_customlabel, width: 70, key_back_color: CLKBB }
+      - {
+          click: Color_settings_SingleBlock,
+          composing: liquid_keyboard_candidate,
+          width: 15,
           key_back_color: CLKBB,
         }
 
@@ -1232,19 +1513,19 @@ preset_keyboards:
     author: "袁湘浩"
     # 仿Gboard
     ascii_mode: 1
-    width: 24
+    width: 22
     height: 60
     vertical_gap: 10 #鍵盤行距
     keys:
       #1
-      - { click: "+", width: 14, key_back_color: CKSKB_3 }
-      - { click: "1", key_back_color: CKSKB_4 }
+      - { click: "+", width: 17, key_back_color: CKSKB_1 }
+      - { click: "1", key_back_color: CKSKB_3 }
       - { click: "2", key_back_color: CKSKB_5 }
-      - { click: "3", key_back_color: CKSKB_4 }
-      - { click: "%", width: 14, key_back_color: CKSKB_3 }
+      - { click: "3", key_back_color: CKSKB_3 }
+      - { click: "%", width: 17, key_back_color: CKSKB_1 }
       #2
-      - { click: "-", width: 14, key_back_color: CKSKB_3 }
-      - { click: "4", key_back_color: CKSKB_4 }
+      - { click: "-", width: 17, key_back_color: CKSKB_1 }
+      - { click: "4", key_back_color: CKSKB_3 }
       - {
           click: "5",
           long_click: Keyboard_edit,
@@ -1254,42 +1535,41 @@ preset_keyboards:
           swipe_down: Down,
           key_back_color: CKSKB_5,
         }
-      - { click: "6", key_back_color: CKSKB_4 }
-      - { click: space_nolabel, width: 14, key_back_color: CKSKB_3 }
+      - { click: "6", key_back_color: CKSKB_3 }
+      - { click: space_nolabel, width: 17, key_back_color: CKSKB_1 }
       #3
-      - { click: "*", long_click: "/", width: 14, key_back_color: CKSKB_3 }
-      - { click: "7", long_click: cut, key_back_color: CKSKB_4 }
+      - { click: "*", long_click: "/", width: 17, key_back_color: CKSKB_1 }
+      - { click: "7", long_click: cut, key_back_color: CKSKB_3 }
       - { click: "8", long_click: copy, key_back_color: CKSKB_5 }
-      - { click: "9", long_click: paste, key_back_color: CKSKB_4 }
-      - { click: BackSpace, width: 14, key_back_color: CKSKB_3 }
+      - { click: "9", long_click: paste, key_back_color: CKSKB_3 }
+      - { click: BackSpace, width: 17, key_back_color: CKSKB_1 }
       #4
-      - { click: Keyboard_default, width: 14, key_back_color: CKSKB_2 }
-      - { click: ",", width: 10, key_back_color: CKSKB_3 }
+      - { click: Keyboard_default, width: 17 }
+      - { click: ",", width: 10, key_back_color: CKSKB_2 }
       - {
           click: Keyboard_symbols1,
-          width: 14,
+          width: 12,
           key_text_color: CLKK,
           hilited_key_back_color: CLHKB,
-          key_back_color: CKSKB_4,
+          key_back_color: CKSKB_3,
         }
-      - { click: "0", key_back_color: CKSKB_5 }
-      - { click: "=", width: 14, key_back_color: CKSKB_4 }
-      - { click: ".", width: 10, key_back_color: CKSKB_3 }
-      - { click: Return, width: 14, long_click: Menu, key_back_color: CKSKB_2 }
+      - { click: "0", key_back_color: CKSKB_4 }
+      - { click: "=", width: 12, key_back_color: CKSKB_3 }
+      - { click: ".", width: 10, key_back_color: CKSKB_2 }
+      - { click: Return, width: 17, long_click: Menu }
       #第五行
       - {
-          click: Keyboard_default,
-          width: 14,
-          key_text_color: CLKBB,
+          click: liquid_keyboard_clipboard_singleblock,
+          width: 18,
           key_back_color: CLKBB,
         }
-      - { click: space_customlabel, width: 72, key_back_color: CLKBB }
+      - { click: Left, width: 12, key_back_color: CLKBB }
+      - { click: space_customlabel, width: 40, key_back_color: CLKBB }
+      - { click: Right, width: 12, key_back_color: CLKBB }
       - {
-          click: Return,
-          width: 14,
-          key_symbol_color: CLKBB,
-          key_text_color: CLKBB,
-          hilited_key_symbol_color: CLKBB,
+          click: Color_settings_SingleBlock,
+          composing: liquid_keyboard_candidate,
+          width: 18,
           key_back_color: CLKBB,
         }
 
@@ -1335,7 +1615,7 @@ preset_keyboards:
       - { click: "?", long_click: "¿", key_back_color: CKSKB_2 }
       - { click: BackSpace, width: 15, key_back_color: CKSKB_1 }
       #4
-      - { click: Keyboard_default, width: 15, key_back_color: CKSKB_1 }
+      - { click: Keyboard_default, width: 15 }
       - { click: ",", width: 10, key_back_color: CKSKB_2 }
       - {
           click: Keyboard_number,
@@ -1352,22 +1632,20 @@ preset_keyboards:
           long_click: Menu,
           key_symbol_color: CLMKST,
           hilited_key_symbol_color: CLMKST,
-          key_back_color: CKSKB_1,
         }
       #第五行
       - {
-          click: Keyboard_default,
+          click: liquid_keyboard_clipboard_singleblock,
           width: 15,
-          key_text_color: CLKBB,
           key_back_color: CLKBB,
         }
-      - { click: space_customlabel, width: 70, key_back_color: CLKBB }
+      - { click: Left, key_back_color: CLKBB }
+      - { click: space_customlabel, width: 50, key_back_color: CLKBB }
+      - { click: Right, key_back_color: CLKBB }
       - {
-          click: Return,
+          click: Color_settings_SingleBlock,
+          composing: liquid_keyboard_candidate,
           width: 15,
-          key_symbol_color: CLKBB,
-          key_text_color: CLKBB,
-          hilited_key_symbol_color: CLKBB,
           key_back_color: CLKBB,
         }
   symbols2:
@@ -1412,7 +1690,7 @@ preset_keyboards:
       - { click: "］", ascii: "]", key_back_color: CKSKB_2 }
       - { click: BackSpace, width: 15, key_back_color: CKSKB_1 }
       #4
-      - { click: Keyboard_default, width: 15, key_back_color: CKSKB_1 }
+      - { click: Keyboard_default, width: 15 }
       - { click: "<", width: 10, key_back_color: CKSKB_2 }
       - {
           click: liquid_keyboard_switch,
@@ -1429,22 +1707,20 @@ preset_keyboards:
           long_click: Menu,
           key_symbol_color: CLMKST,
           hilited_key_symbol_color: CLMKST,
-          key_back_color: CKSKB_1,
         }
       #第五行
       - {
-          click: Keyboard_default,
+          click: liquid_keyboard_clipboard_singleblock,
           width: 15,
-          key_text_color: CLKBB,
           key_back_color: CLKBB,
         }
-      - { click: space_customlabel, width: 70, key_back_color: CLKBB }
+      - { click: Left, key_back_color: CLKBB }
+      - { click: space_customlabel, width: 50, key_back_color: CLKBB }
+      - { click: Right, key_back_color: CLKBB }
       - {
-          click: Return,
+          click: Color_settings_SingleBlock,
+          composing: liquid_keyboard_candidate,
           width: 15,
-          key_symbol_color: CLKBB,
-          key_text_color: CLKBB,
-          hilited_key_symbol_color: CLKBB,
           key_back_color: CLKBB,
         }
 
@@ -1455,6 +1731,7 @@ preset_keyboards:
     ascii_keyboard: default
     width: 10
     height: 45
+    vertical_gap: 10 #鍵盤行距
     keys:
       #1
       - { label: "ㄅ", long_click: "¹", click: "1" }
@@ -1552,7 +1829,8 @@ preset_keyboards:
     author: 袁湘浩
     ascii_mode: 0
     height: 60
-    width: 20
+    width: 22
+    vertical_gap: 10 #鍵盤行距
     ascii_keyboard: jiugong_number
     keys:
       #1
@@ -1562,9 +1840,10 @@ preset_keyboards:
           swipe_left: "<",
           swipe_right: ">",
           send_bindings: false,
-          key_back_color: CKSKB_3,
+          key_back_color: CKSKB_1,
+          width: 17,
         }
-      - { click: "h", label: "一", long_click: "@", key_back_color: CKSKB_4 }
+      - { click: "h", label: "一", long_click: "@", key_back_color: CKSKB_3 }
       - { click: "s", label: "丨", long_click: "%", key_back_color: CKSKB_5 }
       - {
           click: "p",
@@ -1572,22 +1851,24 @@ preset_keyboards:
           long_click: "(){Left}",
           swipe_left: "(",
           swipe_right: ")",
-          key_back_color: CKSKB_4,
+          key_back_color: CKSKB_3,
         }
       - {
           click: BackSpace,
           key_text_color: CLKK,
           hilited_key_back_color: CLHKB,
-          key_back_color: CKSKB_3,
+          key_back_color: CKSKB_1,
+          width: 17,
         }
       #2
       - {
           click: "+",
           long_click: liquid_keyboard_quicksentense,
           swipe_up: liquid_keyboard_quicksentense,
-          key_back_color: CKSKB_3,
+          key_back_color: CKSKB_1,
+          width: 17,
         }
-      - { click: "n", label: "丶", long_click: "#", key_back_color: CKSKB_4 }
+      - { click: "n", label: "丶", long_click: "#", key_back_color: CKSKB_3 }
       - {
           click: "z",
           label: "乙",
@@ -1605,22 +1886,23 @@ preset_keyboards:
           swipe_right: "”",
           key_text_color: CLKK,
           hilited_key_back_color: CLHKB,
-          key_back_color: CKSKB_4,
+          key_back_color: CKSKB_3,
         }
       - {
           click: liquid_keyboard_emoji,
           composing: Next,
           key_text_color: CLKK,
           hilited_key_back_color: CLHKB,
-          key_back_color: CKSKB_3,
+          key_back_color: CKSKB_1,
+          width: 17,
         }
       #3
-      - { click: "-", long_click: "_", key_back_color: CKSKB_3 }
+      - { click: "-", long_click: "_", key_back_color: CKSKB_1, width: 17 }
       - {
           click: "phhhz",
           label: "钅",
           long_click: cut,
-          key_back_color: CKSKB_4,
+          key_back_color: CKSKB_3,
         }
       - {
           click: "szpn",
@@ -1632,34 +1914,50 @@ preset_keyboards:
           click: "hszpzhh",
           label: "酉",
           long_click: paste,
-          key_back_color: CKSKB_4,
+          key_back_color: CKSKB_3,
         }
       - {
-          click: Keyboard_defwithback,
+          click: "!",
+          long_click: "?",
+          swipe_up: "?",
+          key_text_color: CLKK,
+          hilited_key_back_color: CLHKB,
+          width: 17,
+          key_back_color: CKSKB_1,
+        }
+      #4
+      - { click: Keyboard_symbols1, width: 17 }
+      - { click: ",", width: 10, key_back_color: CKSKB_2 }
+      - {
+          click: Keyboard_number,
+          width: 12,
           key_text_color: CLKK,
           hilited_key_back_color: CLHKB,
           key_back_color: CKSKB_3,
         }
-      #4
-      - { click: Keyboard_symbols1, key_back_color: CKSKB_3 }
-      - { click: ",", long_click: "!", key_back_color: CKSKB_4 }
-      - { click: space, key_back_color: CKSKB_5 }
-      - { click: ".", long_click: "?", key_back_color: CKSKB_4 }
-      - { click: Return, long_click: Menu, key_back_color: CKSKB_3 }
+      - { click: space_nolabel, key_back_color: CKSKB_4 }
+      - {
+          click: Keyboard_defwithback,
+          width: 12,
+          key_text_color: CLKK,
+          hilited_key_back_color: CLHKB,
+          key_back_color: CKSKB_3,
+        }
+      - { click: ",", width: 10, key_back_color: CKSKB_2 }
+      - { click: Return, long_click: Menu, width: 17 }
       #第五行
       - {
-          click: Keyboard_symbols1,
-          width: 20,
-          key_text_color: CLKBB,
+          click: liquid_keyboard_clipboard_singleblock,
+          width: 18,
           key_back_color: CLKBB,
         }
-      - { click: space_customlabel, width: 60, key_back_color: CLKBB }
+      - { click: Left, width: 12, key_back_color: CLKBB }
+      - { click: space_customlabel, width: 40, key_back_color: CLKBB }
+      - { click: Right, width: 12, key_back_color: CLKBB }
       - {
-          click: Return,
-          width: 20,
-          key_symbol_color: CLKBB,
-          key_text_color: CLKBB,
-          hilited_key_symbol_color: CLKBB,
+          click: Color_settings_SingleBlock,
+          composing: liquid_keyboard_candidate,
+          width: 18,
           key_back_color: CLKBB,
         }
 
@@ -1838,12 +2136,7 @@ preset_keyboards:
         }
       - { click: BackSpace, width: 15, key_back_color: CKSKB_1 }
       # 第四行
-      - {
-          click: Keyboard_symbols1,
-          composing: s2,
-          width: 15,
-          key_back_color: CKSKB_1,
-        }
+      - { click: Keyboard_symbols1, composing: s2, width: 15 }
       - {
           click: ",",
           composing: s3,
@@ -1851,7 +2144,7 @@ preset_keyboards:
           swipe_up: liquid_keyboard_emoji,
           key_back_color: CKSKB_2,
         }
-      - { click: space, width: 50, key_back_color: CKSKB_5 }
+      - { click: space, width: 50, key_back_color: CKSKB_4 }
       - {
           click: ".",
           composing: s4,
@@ -1866,23 +2159,20 @@ preset_keyboards:
           swipe_up: Menu,
           key_symbol_color: CLMKST,
           hilited_key_symbol_color: CLMKST,
-          key_back_color: CKSKB_1,
         }
       #第五行
       - {
-          click: Keyboard_symbols1,
-          composing: Next,
+          click: liquid_keyboard_clipboard_singleblock,
           width: 15,
-          key_text_color: CLKBB,
           key_back_color: CLKBB,
         }
-      - { click: space_customlabel, width: 70, key_back_color: CLKBB }
+      - { click: Left, key_back_color: CLKBB }
+      - { click: space_customlabel, width: 50, key_back_color: CLKBB }
+      - { click: Right, key_back_color: CLKBB }
       - {
-          click: Return,
+          click: Color_settings_SingleBlock,
+          composing: liquid_keyboard_candidate,
           width: 15,
-          key_symbol_color: CLKBB,
-          key_text_color: CLKBB,
-          hilited_key_symbol_color: CLKBB,
           key_back_color: CLKBB,
         }
 
@@ -1891,7 +2181,8 @@ preset_keyboards:
     author: "袁湘浩"
     name: 九宮键盘
     height: 60
-    width: 24
+    width: 22
+    vertical_gap: 10 #鍵盤行距
     ascii_keyboard: jiugong_number
     keys:
       #1
@@ -1901,15 +2192,15 @@ preset_keyboards:
           swipe_left: "<",
           swipe_right: ">",
           send_bindings: false,
-          width: 14,
-          key_back_color: CKSKB_3,
+          width: 17,
+          key_back_color: CKSKB_1,
         }
       - {
           click: "1",
           label: " 1 ",
           composing: delimiter,
           long_click: "@",
-          key_back_color: CKSKB_4,
+          key_back_color: CKSKB_3,
         }
       - {
           click: "2",
@@ -1927,22 +2218,22 @@ preset_keyboards:
           swipe_left: "d",
           swipe_down: "e",
           swipe_right: "f",
-          key_back_color: CKSKB_4,
+          key_back_color: CKSKB_3,
         }
       - {
           click: BackSpace,
           key_text_color: CLKK,
           hilited_key_back_color: CLHKB,
-          width: 14,
-          key_back_color: CKSKB_3,
+          width: 17,
+          key_back_color: CKSKB_1,
         }
       #2
       - {
           click: "+",
           long_click: liquid_keyboard_quicksentense,
           swipe_up: liquid_keyboard_quicksentense,
-          width: 14,
-          key_back_color: CKSKB_3,
+          width: 17,
+          key_back_color: CKSKB_1,
         }
       - {
           click: "4",
@@ -1951,7 +2242,7 @@ preset_keyboards:
           swipe_left: "g",
           swipe_down: "h",
           swipe_right: "i",
-          key_back_color: CKSKB_4,
+          key_back_color: CKSKB_3,
         }
       - {
           click: "5",
@@ -1969,18 +2260,18 @@ preset_keyboards:
           swipe_left: "m",
           swipe_down: "n",
           swipe_right: "o",
-          key_back_color: CKSKB_4,
+          key_back_color: CKSKB_3,
         }
       - {
           click: liquid_keyboard_emoji,
           composing: Next,
           key_text_color: CLKK,
           hilited_key_back_color: CLHKB,
-          width: 14,
-          key_back_color: CKSKB_3,
+          width: 17,
+          key_back_color: CKSKB_1,
         }
       #3
-      - { click: "-", long_click: "_", width: 14, key_back_color: CKSKB_3 }
+      - { click: "-", long_click: "_", width: 17, key_back_color: CKSKB_1 }
       - {
           click: "7",
           label: "PQRS",
@@ -1989,7 +2280,7 @@ preset_keyboards:
           swipe_down: "q",
           swipe_right: "r",
           swipe_up: "s",
-          key_back_color: CKSKB_4,
+          key_back_color: CKSKB_3,
         }
       - {
           click: "8",
@@ -2008,35 +2299,50 @@ preset_keyboards:
           swipe_down: "x",
           swipe_right: "y",
           swipe_up: "z",
-          key_back_color: CKSKB_4,
-        }
-      - {
-          click: Keyboard_defwithback,
-          key_text_color: CLKK,
-          hilited_key_back_color: CLHKB,
-          width: 14,
           key_back_color: CKSKB_3,
         }
+      - {
+          click: "!",
+          long_click: "?",
+          swipe_up: "?",
+          key_text_color: CLKK,
+          hilited_key_back_color: CLHKB,
+          width: 17,
+          key_back_color: CKSKB_1,
+        }
       #4
-      - { click: Keyboard_symbols1, width: 14, key_back_color: CKSKB_3 }
-      - { click: ",", long_click: "!", key_back_color: CKSKB_4 }
-      - { click: space_nolabel, key_back_color: CKSKB_5 }
-      - { click: ".", long_click: "?", key_back_color: CKSKB_4 }
-      - { click: Return, long_click: Menu, width: 14, key_back_color: CKSKB_3 }
+      - { click: Keyboard_symbols1, width: 17 }
+      - { click: ",", width: 10, key_back_color: CKSKB_2 }
+      - {
+          click: Keyboard_number_jiugong_withback,
+          width: 12,
+          key_text_color: CLKK,
+          hilited_key_back_color: CLHKB,
+          key_back_color: CKSKB_3,
+        }
+      - { click: space_nolabel, key_back_color: CKSKB_4 }
+      - {
+          click: Keyboard_defwithback,
+          width: 12,
+          key_text_color: CLKK,
+          hilited_key_back_color: CLHKB,
+          key_back_color: CKSKB_3,
+        }
+      - { click: ",", width: 10, key_back_color: CKSKB_2 }
+      - { click: Return, long_click: Menu, width: 17 }
       #第五行
       - {
-          click: Keyboard_symbols1,
-          key_text_color: CLKBB,
+          click: liquid_keyboard_clipboard_singleblock,
+          width: 18,
           key_back_color: CLKBB,
-          width: 14,
         }
-      - { click: space_customlabel, width: 60, key_back_color: CLKBB }
+      - { click: Left, width: 12, key_back_color: CLKBB }
+      - { click: space_customlabel, width: 40, key_back_color: CLKBB }
+      - { click: Right, width: 12, key_back_color: CLKBB }
       - {
-          click: Return,
-          width: 14,
-          key_symbol_color: CLKBB,
-          key_text_color: CLKBB,
-          hilited_key_symbol_color: CLKBB,
+          click: Color_settings_SingleBlock,
+          composing: liquid_keyboard_candidate,
+          width: 18,
           key_back_color: CLKBB,
         }
 
@@ -2049,12 +2355,13 @@ preset_keyboards:
   t9:
     __include: /preset_keyboards/jiugong
 
-  jiugong_number: #TODO:颜色适配
+  jiugong_number: 
     ascii_mode: 1
     author: "袁湘浩"
     name: 九宮数字键盘
-    height: 55
+    height: 60
     width: 20
+    vertical_gap: 10 #鍵盤行距
     keys:
       #1
       - {
@@ -2063,24 +2370,170 @@ preset_keyboards:
           swipe_left: "<",
           swipe_right: ">",
           send_bindings: false,
+          width: 17,
+          key_back_color: CKSKB_1,
         }
-      - { click: "1", long_click: "@" }
-      - { click: "2", long_click: "%" }
+      - {
+          click: "1",
+          label: " 1 ",
+          composing: delimiter,
+          long_click: "@",
+          key_back_color: CKSKB_3,
+        }
+      - {
+          click: "2",
+          long_click: "%",
+          swipe_left: "a",
+          swipe_down: "b",
+          swipe_right: "c",
+          key_back_color: CKSKB_5,
+        }
       - {
           click: "3",
           long_click: "(){Left}",
-          swipe_left: "(",
-          swipe_right: ")",
+          swipe_left: "d",
+          swipe_down: "e",
+          swipe_right: "f",
+          key_back_color: CKSKB_3,
         }
-      - { click: BackSpace }
+      - {
+          click: BackSpace,
+          key_text_color: CLKK,
+          hilited_key_back_color: CLHKB,
+          width: 17,
+          key_back_color: CKSKB_1,
+        }
       #2
       - {
           click: "+",
-          long_click: "[]{Left}",
-          swipe_left: "[",
-          swipe_right: "]",
+          long_click: liquid_keyboard_quicksentense,
+          swipe_up: liquid_keyboard_quicksentense,
+          width: 17,
+          key_back_color: CKSKB_1,
         }
-      - { click: "4", long_click: "#" }
+      - {
+          click: "4",
+          long_click: "#",
+          swipe_left: "g",
+          swipe_down: "h",
+          swipe_right: "i",
+          key_back_color: CKSKB_3,
+        }
+      - {
+          click: "5",
+          long_click: Keyboard_edit,
+          swipe_left: "j",
+          swipe_down: "k",
+          swipe_right: "l",
+          key_back_color: CKSKB_5,
+        }
+      - {
+          click: "6",
+          long_click: "“”{Left}",
+          swipe_left: "m",
+          swipe_down: "n",
+          swipe_right: "o",
+          key_back_color: CKSKB_3,
+        }
+      - {
+          click: liquid_keyboard_emoji,
+          composing: Next,
+          key_text_color: CLKK,
+          hilited_key_back_color: CLHKB,
+          width: 17,
+          key_back_color: CKSKB_1,
+        }
+      #3
+      - { click: "-", long_click: "_", width: 17, key_back_color: CKSKB_1 }
+      - {
+          click: "7",
+          long_click: cut,
+          swipe_left: "p",
+          swipe_down: "q",
+          swipe_right: "r",
+          swipe_up: "s",
+          key_back_color: CKSKB_3,
+        }
+      - {
+          click: "8",
+          long_click: copy,
+          swipe_left: "t",
+          swipe_down: "u",
+          swipe_right: "v",
+          key_back_color: CKSKB_5,
+        }
+      - {
+          click: "9",
+          long_click: paste,
+          swipe_left: "w",
+          swipe_down: "x",
+          swipe_right: "y",
+          swipe_up: "z",
+          key_back_color: CKSKB_3,
+        }
+      - {
+          click: "!",
+          long_click: "?",
+          swipe_up: "?",
+          key_text_color: CLKK,
+          hilited_key_back_color: CLHKB,
+          width: 17,
+          key_back_color: CKSKB_1,
+        }
+      #4
+      - { click: Keyboard_symbols1, width: 17 }
+      - { click: ",", width: 10, key_back_color: CKSKB_2 }
+      - {
+          click: Keyboard_default,
+          width: 12,
+          key_text_color: CLKK,
+          hilited_key_back_color: CLHKB,
+          key_back_color: CKSKB_3,
+        }
+      - { click: space_nolabel, key_back_color: CKSKB_4 }
+      - {
+          click: Keyboard_defwithback,
+          width: 12,
+          key_text_color: CLKK,
+          hilited_key_back_color: CLHKB,
+          key_back_color: CKSKB_3,
+        }
+      - { click: ",", width: 10, key_back_color: CKSKB_2 }
+      - { click: Return, long_click: Menu, width: 17 }
+      #第五行
+      - {
+          click: liquid_keyboard_clipboard_singleblock,
+          width: 18,
+          key_back_color: CLKBB,
+        }
+      - { click: Left, width: 12, key_back_color: CLKBB }
+      - { click: space_customlabel, width: 40, key_back_color: CLKBB }
+      - { click: Right, width: 12, key_back_color: CLKBB }
+      - {
+          click: Color_settings_SingleBlock,
+          composing: liquid_keyboard_candidate,
+          width: 18,
+          key_back_color: CLKBB,
+        }
+
+  number_jiugong_withback:
+    name: 小数字键盘但是带九宫返回
+    author: "袁湘浩"
+    # 仿Gboard
+    ascii_mode: 1
+    width: 22
+    height: 60
+    vertical_gap: 10 #鍵盤行距
+    keys:
+      #1
+      - { click: "+", width: 17, key_back_color: CKSKB_1 }
+      - { click: "1", key_back_color: CKSKB_3 }
+      - { click: "2", key_back_color: CKSKB_5 }
+      - { click: "3", key_back_color: CKSKB_3 }
+      - { click: BackSpace, width: 17, key_back_color: CKSKB_1 }
+      #2
+      - { click: "-", width: 17, key_back_color: CKSKB_1 }
+      - { click: "4", key_back_color: CKSKB_3 }
       - {
           click: "5",
           long_click: Keyboard_edit,
@@ -2088,41 +2541,43 @@ preset_keyboards:
           swipe_right: Right,
           swipe_up: Up,
           swipe_down: Down,
+          key_back_color: CKSKB_5,
         }
-      - {
-          click: "6",
-          long_click: "“”{Left}",
-          swipe_left: "“",
-          swipe_right: "”",
-        }
-      - { click: liquid_keyboard_emoji, composing: Next }
+      - { click: "6", key_back_color: CKSKB_3 }
+      - { click: space_nolabel, width: 17, key_back_color: CKSKB_1 }
       #3
-      - { click: "-", long_click: "_" }
-      - { click: "7", long_click: cut }
-      - { click: "8", long_click: copy }
-      - { click: "9", long_click: paste }
-      - { click: Keyboard_defwithback }
+      - { click: "*", long_click: "/", width: 17, key_back_color: CKSKB_1 }
+      - { click: "7", long_click: cut, key_back_color: CKSKB_3 }
+      - { click: "8", long_click: copy, key_back_color: CKSKB_5 }
+      - { click: "9", long_click: paste, key_back_color: CKSKB_3 }
+      - { click: "%", width: 17, key_back_color: CKSKB_1 }
       #4
-      - { click: Keyboard_default, width: 10 }
-      - { click: Keyboard_symbols1, width: 10 }
-      - { click: ",", long_click: "!" }
-      - { click: "0" }
-      - { click: ".", long_click: "?" }
-      - { click: Return, long_click: Menu }
-      #第五行
+      - { click: Keyboard_symbols1, width: 17 }
+      - { click: ",", width: 10, key_back_color: CKSKB_2 }
       - {
           click: Keyboard_default,
-          width: 10,
-          key_text_color: CLKBB,
+          width: 12,
+          key_text_color: CLKK,
+          hilited_key_back_color: CLHKB,
+          key_back_color: CKSKB_3,
+        }
+      - { click: "0", key_back_color: CKSKB_4 }
+      - { click: "=", width: 12, key_back_color: CKSKB_3 }
+      - { click: ".", width: 10, key_back_color: CKSKB_2 }
+      - { click: Return, width: 17, long_click: Menu }
+      #第五行
+      - {
+          click: liquid_keyboard_clipboard_singleblock,
+          width: 18,
           key_back_color: CLKBB,
         }
-      - { click: space_customlabel, width: 70, key_back_color: CLKBB }
+      - { click: Left, width: 12, key_back_color: CLKBB }
+      - { click: space_customlabel, width: 40, key_back_color: CLKBB }
+      - { click: Right, width: 12, key_back_color: CLKBB }
       - {
-          click: Return,
-          width: 20,
-          key_symbol_color: CLKBB,
-          key_text_color: CLKBB,
-          hilited_key_symbol_color: CLKBB,
+          click: Color_settings_SingleBlock,
+          composing: liquid_keyboard_candidate,
+          width: 18,
           key_back_color: CLKBB,
         }
 
@@ -2275,12 +2730,12 @@ preset_keyboards:
           swipe_up: SyML,
           swipe_left: "“",
           swipe_right: "”",
-          hint: "iang",
+          hint: "(u)iang",
           key_back_color: CKSKB_1,
         }
       - { width: 5 }
       # 第三行
-      - { click: Shift_L, width: 15 }
+      - { click: Shift_L, width: 15, key_back_color: CKSKB_1 }
       - {
           click: "z",
           long_click: "/",
@@ -2330,16 +2785,22 @@ preset_keyboards:
           hint: "ian",
           key_back_color: CKSKB_2,
         }
-      - { click: BackSpace, width: 15 }
+      - { click: BackSpace, width: 15, key_back_color: CKSKB_1 }
       # 第四行
       - { click: Keyboard_symbols1, composing: Next, width: 15 }
       - {
           click: ",",
           long_click: liquid_keyboard_emoji,
           swipe_up: liquid_keyboard_emoji,
+          key_back_color: CKSKB_2,
         }
-      - { click: space, width: 50 }
-      - { click: ".", long_click: SyMFS, swipe_up: SyMFS }
+      - { click: space, width: 50, key_back_color: CKSKB_4 }
+      - {
+          click: ".",
+          long_click: SyMFS,
+          swipe_up: SyMFS,
+          key_back_color: CKSKB_2,
+        }
       - {
           click: Return,
           width: 15,
@@ -2350,19 +2811,17 @@ preset_keyboards:
         }
       #第五行
       - {
-          click: Keyboard_symbols1,
-          composing: Next,
+          click: liquid_keyboard_clipboard_singleblock,
           width: 15,
-          key_text_color: CLKBB,
           key_back_color: CLKBB,
         }
-      - { click: space_customlabel, width: 70, key_back_color: CLKBB }
+      - { click: Left, key_back_color: CLKBB }
+      - { click: space_customlabel, width: 50, key_back_color: CLKBB }
+      - { click: Right, key_back_color: CLKBB }
       - {
-          click: Return,
+          click: Color_settings_SingleBlock,
+          composing: liquid_keyboard_candidate,
           width: 15,
-          key_symbol_color: CLKBB,
-          key_text_color: CLKBB,
-          hilited_key_symbol_color: CLKBB,
           key_back_color: CLKBB,
         }
 
@@ -2515,12 +2974,12 @@ preset_keyboards:
           swipe_up: SyML,
           swipe_left: "“",
           swipe_right: "”",
-          hint: "iang",
+          hint: "(u)iang",
           key_back_color: CKSKB_1,
         }
       - { width: 5 }
       # 第三行
-      - { click: Shift_L, width: 15 }
+      - { click: Shift_L, width: 15, key_back_color: CKSKB_1 }
       - {
           click: "z",
           long_click: XHYXTP,
@@ -2570,16 +3029,22 @@ preset_keyboards:
           hint: "ian",
           key_back_color: CKSKB_2,
         }
-      - { click: BackSpace, width: 15 }
+      - { click: BackSpace, width: 15, key_back_color: CKSKB_1 }
       # 第四行
       - { click: Keyboard_symbols1, composing: Next, width: 15 }
       - {
           click: ",",
           long_click: liquid_keyboard_emoji,
           swipe_up: liquid_keyboard_emoji,
+          key_back_color: CKSKB_2,
         }
-      - { click: space, width: 50 }
-      - { click: ".", long_click: SyMFS, swipe_up: SyMFS }
+      - { click: space, width: 50, key_back_color: CKSKB_4 }
+      - {
+          click: ".",
+          long_click: SyMFS,
+          swipe_up: SyMFS,
+          key_back_color: CKSKB_2,
+        }
       - {
           click: Return,
           width: 15,
@@ -2590,55 +3055,124 @@ preset_keyboards:
         }
       #第五行
       - {
-          click: Keyboard_symbols1,
-          composing: Next,
+          click: liquid_keyboard_clipboard_singleblock,
           width: 15,
-          key_text_color: CLKBB,
           key_back_color: CLKBB,
         }
-      - { click: space_customlabel, width: 70, key_back_color: CLKBB }
+      - { click: Left, key_back_color: CLKBB, key_text_color: CLKK }
       - {
-          click: Return,
-          width: 15,
-          key_symbol_color: CLKBB,
-          key_text_color: CLKBB,
-          hilited_key_symbol_color: CLKBB,
+          click: space_customlabel,
+          width: 50,
           key_back_color: CLKBB,
+          key_text_color: CLKK,
+        }
+      - { click: Right, key_back_color: CLKBB, key_text_color: CLKK }
+      - {
+          click: Color_settings_SingleBlock,
+          composing: liquid_keyboard_candidate,
+          width: 15,
+          key_back_color: CLKBB,
+          key_text_color: CLKK,
         }
 
   flypy:
     __include: /preset_keyboards/xhyx
 
-  defwithback: #TODO:配色适配
+  defwithback:
     name: 默认键盘带返回
     author: "袁湘浩"
     ascii_mode: 1
     width: 10
     height: 60
     vertical_gap: 10 #鍵盤行距
-    lock: true
     keys:
       # 第一行
-      - { click: "q", long_click: SyMQ, swipe_up: SyMQ }
-      - { click: "w", long_click: SyMW, swipe_up: SyMW }
-      - { click: "e", long_click: SyME, swipe_up: SyME }
-      - { click: "r", long_click: SyMR, swipe_up: SyMR }
-      - { click: "t", long_click: SyMT, swipe_up: SyMT }
-      - { click: "y", long_click: SyMY, swipe_up: SyMY }
-      - { click: "u", long_click: SyMU, swipe_up: SyMU }
-      - { click: "i", long_click: SyMI, swipe_up: SyMI }
-      - { click: "o", long_click: SyMO, swipe_up: SyMO }
-      - { click: "p", long_click: SyMP, swipe_up: SyMP }
+      - {
+          click: "q",
+          long_click: SyMQ,
+          swipe_up: SyMQ,
+          key_back_color: CKSKB_1,
+        }
+      - {
+          click: "w",
+          long_click: SyMW,
+          swipe_up: SyMW,
+          key_back_color: CKSKB_2,
+        }
+      - {
+          click: "e",
+          long_click: SyME,
+          swipe_up: SyME,
+          key_back_color: CKSKB_3,
+        }
+      - {
+          click: "r",
+          long_click: SyMR,
+          swipe_up: SyMR,
+          key_back_color: CKSKB_4,
+        }
+      - {
+          click: "t",
+          long_click: SyMT,
+          swipe_up: SyMT,
+          key_back_color: CKSKB_5,
+        }
+      - {
+          click: "y",
+          long_click: SyMY,
+          swipe_up: SyMY,
+          key_back_color: CKSKB_5,
+        }
+      - {
+          click: "u",
+          long_click: SyMU,
+          swipe_up: SyMU,
+          key_back_color: CKSKB_4,
+        }
+      - {
+          click: "i",
+          long_click: SyMI,
+          swipe_up: SyMI,
+          key_back_color: CKSKB_3,
+        }
+      - {
+          click: "o",
+          long_click: SyMO,
+          swipe_up: SyMO,
+          key_back_color: CKSKB_2,
+        }
+      - {
+          click: "p",
+          long_click: SyMP,
+          swipe_up: SyMP,
+          key_back_color: CKSKB_1,
+        }
       # 第二行
       - { width: 5 }
-      - { click: "a", long_click: select_all, swipe_up: select_all }
-      - { click: "s", long_click: SyMS, swipe_up: SyMS }
+      - {
+          click: "a",
+          long_click: select_all,
+          swipe_up: select_all,
+          key_back_color: CKSKB_1,
+        }
+      - {
+          click: "s",
+          long_click: SyMS,
+          swipe_up: SyMS,
+          key_back_color: CKSKB_2,
+        }
       - {
           click: "d",
           long_click: liquid_keyboard_quicksentense,
           swipe_up: liquid_keyboard_quicksentense,
+          key_back_color: CKSKB_3,
         }
-      - { click: "f", long_click: SyMF, swipe_up: SyMF }
+      - {
+          click: "f",
+          long_click: SyMF,
+          swipe_up: SyMF,
+          key_back_color: CKSKB_4,
+        }
       - {
           click: "g",
           long_click: Keyboard_edit,
@@ -2646,15 +3180,27 @@ preset_keyboards:
           swipe_right: Right,
           swipe_up: Up,
           swipe_down: Down,
+          key_back_color: CKSKB_5,
         }
-      - { click: "h", long_click: SyMH, swipe_up: SyMH }
-      - { click: "j", long_click: SyMJ, swipe_up: SyMJ }
+      - {
+          click: "h",
+          long_click: SyMH,
+          swipe_up: SyMH,
+          key_back_color: CKSKB_4,
+        }
+      - {
+          click: "j",
+          long_click: SyMJ,
+          swipe_up: SyMJ,
+          key_back_color: CKSKB_3,
+        }
       - {
           click: "k",
           long_click: SyMK,
           swipe_up: SyMK,
           swipe_left: "(",
           swipe_right: ")",
+          key_back_color: CKSKB_2,
         }
       - {
           click: "l",
@@ -2662,26 +3208,58 @@ preset_keyboards:
           swipe_up: SyML,
           swipe_left: "“",
           swipe_right: "”",
+          key_back_color: CKSKB_1,
         }
       - { width: 5 }
       # 第三行
-      - { click: Shift_L, width: 15 }
-      - { click: "z", long_click: SyMZ, swipe_up: SyMZ }
-      - { click: "x", long_click: cut, swipe_up: cut }
-      - { click: "c", long_click: copy, swipe_up: copy }
-      - { click: "v", long_click: paste, swipe_up: paste }
-      - { click: "b", long_click: SyMB, swipe_up: SyMB }
-      - { click: "n", long_click: SyMN, swipe_up: SyMN }
-      - { click: "m", long_click: SyMM, swipe_up: SyMM }
-      - { click: BackSpace, width: 15 }
+      - { click: Shift_L, width: 15, key_back_color: CKSKB_1 }
+      - {
+          click: "z",
+          long_click: SyMZ,
+          swipe_up: SyMZ,
+          key_back_color: CKSKB_2,
+        }
+      - { click: "x", long_click: cut, swipe_up: cut, key_back_color: CKSKB_3 }
+      - {
+          click: "c",
+          long_click: copy,
+          swipe_up: copy,
+          key_back_color: CKSKB_4,
+        }
+      - {
+          click: "v",
+          long_click: paste,
+          swipe_up: paste,
+          key_back_color: CKSKB_5,
+        }
+      - {
+          click: "b",
+          long_click: SyMB,
+          swipe_up: SyMB,
+          key_back_color: CKSKB_4,
+        }
+      - {
+          click: "n",
+          long_click: SyMN,
+          swipe_up: SyMN,
+          key_back_color: CKSKB_3,
+        }
+      - {
+          click: "m",
+          long_click: SyMM,
+          swipe_up: SyMM,
+          key_back_color: CKSKB_2,
+        }
+      - { click: BackSpace, width: 15, key_back_color: CKSKB_1 }
       # 第四行
-      - { click: Keyboard_default, composing: Next, width: 15 }
+      - { click: Keyboard_symbols1, composing: Next, width: 15 }
       - {
           click: ",",
           long_click: liquid_keyboard_emoji,
           swipe_up: liquid_keyboard_emoji,
         }
-      - { click: space, width: 50 }
+      - { click: space, width: 40, key_back_color: CKSKB_4 }
+      - { click: Keyboard_default, key_back_color: CKSKB_3 }
       - { click: ".", long_click: SyMFS, swipe_up: SyMFS }
       - {
           click: Return,
@@ -2693,18 +3271,16 @@ preset_keyboards:
         }
       #第五行
       - {
-          click: Keyboard_default,
-          composing: Next,
+          click: liquid_keyboard_clipboard_singleblock,
           width: 15,
-          key_text_color: CLKBB,
           key_back_color: CLKBB,
         }
-      - { click: space_customlabel, width: 70, key_back_color: CLKBB }
+      - { click: Left, key_back_color: CLKBB }
+      - { click: space_customlabel, width: 50, key_back_color: CLKBB }
+      - { click: Right, key_back_color: CLKBB }
       - {
-          click: Return,
+          click: Color_settings_SingleBlock,
+          composing: liquid_keyboard_candidate,
           width: 15,
-          key_symbol_color: CLKBB,
-          key_text_color: CLKBB,
-          hilited_key_symbol_color: CLKBB,
           key_back_color: CLKBB,
         }
